@@ -10,6 +10,8 @@ public class ResetObjects : MonoBehaviour
     public List<Vector3> transform;
     public bool reset = false;
     public bool play = false;
+
+    public float[]  possibleAngles = { -360, -270, -180, -90, 0, 90, 180, 270, 360 };
     void Start()
     {
         foreach (GameObject obj in gameObjects)
@@ -30,12 +32,12 @@ public class ResetObjects : MonoBehaviour
     public void randomRoll(){
         foreach (GameObject obj in gameObjects)
         {
-            float randomY = Random.Range(-1f, 1f);
-            float randomX = Random.Range(0f, 10f);
+
 
             if (obj != null)
             {
-                obj.transform.rotation  = Quaternion.Euler(obj.transform.rotation.x + randomX, obj.transform.rotation.y +randomY, obj.transform.rotation.z);
+                int randomIndex = Random.Range(0, possibleAngles.Length);
+                obj.transform.rotation  = Quaternion.Euler(obj.transform.rotation.x +possibleAngles[randomIndex], obj.transform.rotation.y +possibleAngles[randomIndex], obj.transform.rotation.z + possibleAngles[randomIndex]);
             }
         }
         reset = false;
