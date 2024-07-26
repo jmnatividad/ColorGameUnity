@@ -35,10 +35,7 @@ public class ResetObjects : MonoBehaviour
 
             if (obj != null)
             {
-                Rigidbody rb = obj.GetComponent<Rigidbody>();
-                rb.velocity = Vector3.zero;
-                rb.angularVelocity = Vector3.zero;
-                obj.transform.rotation  = Quaternion.Euler(randomX, randomY, obj.transform.rotation.z);
+                obj.transform.rotation  = Quaternion.Euler(obj.transform.rotation.x + randomX, obj.transform.rotation.y +randomY, obj.transform.rotation.z);
             }
         }
         reset = false;
