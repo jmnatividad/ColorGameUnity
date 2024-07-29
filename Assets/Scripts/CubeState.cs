@@ -58,7 +58,7 @@ public class CubeState : MonoBehaviour
         } else if (Mathf.Abs(value - 270) < tolerance) {
             return 270;
         } else {
-            return value;
+            return 0;
         }
     }
     // Start is called before the first frame update
