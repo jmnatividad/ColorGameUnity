@@ -55,22 +55,16 @@ public class ResetObjects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-<<<<<<< HEAD
-=======
         // getState(gameObjects[1]);
         // Debug.Log(gameObjects[0].GetComponent<CubeState>().upperSide);
         cubeStates.text = gameObjects[0].GetComponent<CubeState>().upperSide + " " + gameObjects[1].GetComponent<CubeState>().upperSide + " " + gameObjects[2].GetComponent<CubeState>().upperSide;
->>>>>>> gerd-branch
     }
 
     public void randomRoll(){
         foreach (GameObject obj in gameObjects)
         {
-<<<<<<< HEAD
             float randomY = Random.Range(-2f, 2f);
             float randomX = Random.Range(0f, 10f);
-=======
->>>>>>> gerd-branch
             if (obj != null)
             {         
                 Rigidbody rb = obj.GetComponent<Rigidbody>();
