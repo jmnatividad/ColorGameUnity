@@ -16,6 +16,10 @@ public class CubeState : MonoBehaviour
                             RoundToNearest(Mathf.RoundToInt (Mathf.Abs(cube.y))), 
                             RoundToNearest(Mathf.RoundToInt (Mathf.Abs(cube.z))));
         state = cube;
+        // Debug.Log(this.name);
+        // Debug.Log(cube.x);
+        // Debug.Log(cube.y);
+        // Debug.Log(cube.z);
         if (cube.x == 180 && cube.y == 270 ||
             cube.x == 0 && cube.z == 90) {
             iValue = 1; //orange
@@ -39,12 +43,12 @@ public class CubeState : MonoBehaviour
         return iValue;
     }
     public string translateInt(int x){
-        if(x == 1) return "orange";
-        if(x == 2) return "blue";
-        if(x == 3) return "red";
-        if(x == 4) return "green";
-        if(x == 5) return "yellow";
-        if(x == 6) return "purple";
+        if(x == 1) return "Pink";
+        if(x == 2) return "Blue";
+        if(x == 3) return "Red";
+        if(x == 4) return "White";
+        if(x == 5) return "Yellow";
+        if(x == 6) return "Black";
         return "";
     }
     float RoundToNearest(float value) {

@@ -23,7 +23,7 @@ public class ResetObjects : MonoBehaviour
     public GameObject background;
 
     public float[]  possibleAngles = { -360, -270, -180, -90, 0, 90, 180, 270, 360 };
-
+    public float[]  RandomCubeAllignment = { -3f, -2f, -1f, 0f, 1f, 2f, 3f, 4f };
     public TextMeshProUGUI countdown;
     void Start()
     {
@@ -36,6 +36,8 @@ public class ResetObjects : MonoBehaviour
             }
         }
         countdownVar.startCountdown();
+        randomRoll();
+        plank.SetActive(true);
         // countdown_var.startCountdowns();
         
     }
@@ -51,14 +53,13 @@ public class ResetObjects : MonoBehaviour
         plank.SetActive(false);
         foreach (GameObject obj in gameObjects)
         {
-            float randomY = Random.Range(-2f, 2f);
-            float randomX = Random.Range(0f, 10f);
+            float randomY = RandomCubeAllignment[Random.Range(0, RandomCubeAllignment.Length)];
+            float randomX = RandomCubeAllignment[Random.Range(0, RandomCubeAllignment.Length)];
             if (obj != null)
             {         
-                Rigidbody rb = obj.GetComponent<Rigidbody>();
                 int randomIndex = Random.Range(0, possibleAngles.Length);
-                obj.transform.rotation  = Quaternion.Euler(obj.transform.rotation.x + possibleAngles[randomIndex] + randomX, obj.transform.rotation.y +possibleAngles[randomIndex] + randomY, obj.transform.rotation.z + possibleAngles[randomIndex]);
-                // rb.mass += 10f;
+                // obj.transform.rotation  = Quaternion.Euler(obj.transform.rotation.x + possibleAngles[randomIndex] + randomX, obj.transform.rotation.y +possibleAngles[randomIndex] + randomY, obj.transform.rotation.z + possibleAngles[randomIndex]);
+                obj.transform.eulerAngles = new Vector3(obj.transform.rotation.x + possibleAngles[randomIndex] + randomX, obj.transform.rotation.y +possibleAngles[randomIndex] + randomY, obj.transform.rotation.z + possibleAngles[randomIndex]);
             }
         }
         reset = false;
@@ -77,9 +78,35 @@ public class ResetObjects : MonoBehaviour
                 rb.velocity = Vector3.zero;
                 rb.angularVelocity = Vector3.zero;
                 obj.transform.position = transform[ctr];
-                // obj.transform.rotation  = Quaternion.Euler(obj.transform.rotation.x + randomX, obj.transform.rotation.y + randomY, obj.transform.rotation.z);
+                RoundOffAngles(obj);
+                randomRoll();
+                plank.SetActive(true);
                 ctr++;
             }
+        }
+    }
+    public void RoundOffAngles(GameObject cubes){
+        //round off the angles so when the game resets the cube will look even 
+        Vector3 cube = cubes.transform.eulerAngles;
+
+        cube = new Vector3 (RoundToNearest(Mathf.RoundToInt (Mathf.Abs(cube.x))),
+                            RoundToNearest(Mathf.RoundToInt (Mathf.Abs(cube.y))), 
+                            RoundToNearest(Mathf.RoundToInt (Mathf.Abs(cube.z))));
+        cubes.transform.eulerAngles = new Vector3(cube.x, cube.y, cube.z);
+    }
+    public float RoundToNearest(float value) {
+        int tolerance = 45;
+        //this is for the reset
+        if (Mathf.Abs(value - 0) < tolerance) {
+            return 0;
+        } else if (Mathf.Abs(value - 90) < tolerance) {
+            return 90;
+        } else if (Mathf.Abs(value - 180) < tolerance) {
+            return 180;
+        } else if (Mathf.Abs(value - 270) < tolerance) {
+            return 270;
+        } else {
+            return 0;
         }
     }
 

@@ -43,7 +43,7 @@ public class CountdownSCR : MonoBehaviour
             else    
                 img_def_placeyourbet.sprite = img_green_placeyourbet;
 
-            Debug.Log("Countdown: " + seconds);
+            // Debug.Log("Countdown: " + seconds);
             resetVar.countdown.text = seconds.ToString();
             yield return new WaitForSeconds(1f);
             seconds--;
