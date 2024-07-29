@@ -12,9 +12,9 @@ public class CubeState : MonoBehaviour
         int iValue = -1;
         Vector3 cube = this.transform.eulerAngles;
 
-        cube = new Vector3 (RoundToNearest(Mathf.RoundToInt (cube.x)),
-                            RoundToNearest(Mathf.RoundToInt (cube.y)), 
-                            RoundToNearest(Mathf.RoundToInt (cube.z)));
+        cube = new Vector3 (RoundToNearest(Mathf.RoundToInt (Mathf.Abs(cube.x))),
+                            RoundToNearest(Mathf.RoundToInt (Mathf.Abs(cube.y))), 
+                            RoundToNearest(Mathf.RoundToInt (Mathf.Abs(cube.z))));
         state = cube;
         if (cube.x == 180 && cube.y == 270 ||
             cube.x == 0 && cube.z == 90) {
