@@ -11,33 +11,14 @@ public class ResetObjects : MonoBehaviour
     public List<Vector3> transform;
     public bool reset = false;
     public bool play = false;
-
+    public GameObject plank;
     public int UpperSideTxt;
     public TextMeshProUGUI cubeStates;
-    [DllImport("__Internal")]
-    private static extern void Hello();
-
-    [DllImport("__Internal")]
-    private static extern void HelloString(string str);
-
-    [DllImport("__Internal")]
-    private static extern void PrintFloatArray(float[] array, int size);
-
-    [DllImport("__Internal")]
-    private static extern int AddNumbers(int x, int y);
-
-    [DllImport("__Internal")]
-    private static extern string StringReturnValueFunction();
-
-    [DllImport("__Internal")]
-    private static extern void BindWebGLTexture(int texture);
-
+    public CountdownSCR countdownVar;
 
     public float[]  possibleAngles = { -360, -270, -180, -90, 0, 90, 180, 270, 360 };
 
-    public void test(){
-        Hello();
-    }
+    public TextMeshProUGUI countdown;
     void Start()
     {
 
@@ -48,19 +29,19 @@ public class ResetObjects : MonoBehaviour
                transform.Add(obj.transform.position);
             }
         }
-        randomRoll();
+        countdownVar.startCountdown();
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        // getState(gameObjects[1]);
-        // Debug.Log(gameObjects[0].GetComponent<CubeState>().upperSide);
+
         cubeStates.text = gameObjects[0].GetComponent<CubeState>().upperSide + " " + gameObjects[1].GetComponent<CubeState>().upperSide + " " + gameObjects[2].GetComponent<CubeState>().upperSide;
     }
 
     public void randomRoll(){
+        plank.SetActive(false);
         foreach (GameObject obj in gameObjects)
         {
             if (obj != null)
@@ -74,6 +55,7 @@ public class ResetObjects : MonoBehaviour
 
     public void resetObject(){
         int ctr = 0;
+        plank.SetActive(true);
         foreach (GameObject obj in gameObjects)
         {
             if (obj != null)
