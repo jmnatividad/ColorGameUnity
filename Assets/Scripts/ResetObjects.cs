@@ -23,7 +23,7 @@ public class ResetObjects : MonoBehaviour
     public GameObject background;
 
     public float[]  possibleAngles = { -360, -270, -180, -90, 0, 90, 180, 270, 360 };
-    public float[]  RandomCubeAllignment = { -3f, -2f, -1f, 0f, 1f, 2f, 3f, 4f };
+    public float[]  RandomCubeAllignment = { -6f, -4f, -8f, 0f, 8f, 4f, 6f };
     public TextMeshProUGUI countdown;
     void Start()
     {
