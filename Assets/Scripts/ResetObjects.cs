@@ -44,10 +44,14 @@ public class ResetObjects : MonoBehaviour
         plank.SetActive(false);
         foreach (GameObject obj in gameObjects)
         {
+            float randomY = Random.Range(-2f, 2f);
+            float randomX = Random.Range(0f, 10f);
             if (obj != null)
-            {
+            {         
+                Rigidbody rb = obj.GetComponent<Rigidbody>();
                 int randomIndex = Random.Range(0, possibleAngles.Length);
-                obj.transform.rotation  = Quaternion.Euler(obj.transform.rotation.x +possibleAngles[randomIndex], obj.transform.rotation.y +possibleAngles[randomIndex], obj.transform.rotation.z + possibleAngles[randomIndex]);
+                obj.transform.rotation  = Quaternion.Euler(obj.transform.rotation.x + possibleAngles[randomIndex] + randomX, obj.transform.rotation.y +possibleAngles[randomIndex] + randomY, obj.transform.rotation.z + possibleAngles[randomIndex]);
+                // rb.mass += 10f;
             }
         }
         reset = false;
@@ -58,12 +62,15 @@ public class ResetObjects : MonoBehaviour
         plank.SetActive(true);
         foreach (GameObject obj in gameObjects)
         {
+            float randomY = Random.Range(-2f, 2f);
+            float randomX = Random.Range(0f, 10f);
             if (obj != null)
             {
                 Rigidbody rb = obj.GetComponent<Rigidbody>();
                 rb.velocity = Vector3.zero;
                 rb.angularVelocity = Vector3.zero;
                 obj.transform.position = transform[ctr];
+                // obj.transform.rotation  = Quaternion.Euler(obj.transform.rotation.x + randomX, obj.transform.rotation.y + randomY, obj.transform.rotation.z);
                 ctr++;
             }
         }
