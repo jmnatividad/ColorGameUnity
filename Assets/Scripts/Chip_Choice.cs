@@ -26,6 +26,8 @@ public class Chip_Choice : MonoBehaviour
     private void OnButtonClick(int index)
     {
         // Check if the clicked button is already active
+        Debug.Log("curent:" + index);
+        Debug.Log("curentind:" + currentIndex);
         if (currentIndex == index)
         {
             // Revert the clicked button to its default image
@@ -35,7 +37,7 @@ public class Chip_Choice : MonoBehaviour
         else
         {
             
-             Debug.Log(debugValues[index]);
+            //  Debug.Log(debugValues[index]);
             // Revert the previously active button
             if (currentIndex >= 0 && currentIndex < imageButtons.Length)
                 imageButtons[currentIndex].sprite = defaultImages[currentIndex];
