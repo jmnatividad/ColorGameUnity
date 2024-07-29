@@ -15,6 +15,12 @@ public class ResetObjects : MonoBehaviour
     public int UpperSideTxt;
     public TextMeshProUGUI cubeStates;
     public CountdownSCR countdownVar;
+    // public Countdown countdown_var;
+
+    
+    public GameObject middle_section;
+    public GameObject color_choice;
+    public GameObject background;
 
     public float[]  possibleAngles = { -360, -270, -180, -90, 0, 90, 180, 270, 360 };
 
@@ -30,6 +36,7 @@ public class ResetObjects : MonoBehaviour
             }
         }
         countdownVar.startCountdown();
+        // countdown_var.startCountdowns();
         
     }
 
@@ -74,6 +81,18 @@ public class ResetObjects : MonoBehaviour
                 ctr++;
             }
         }
+    }
+
+    public void GamObjectActive(bool State_Active){
+        middle_section.SetActive(State_Active);
+        color_choice.SetActive(State_Active);
+        background.SetActive(State_Active);
+        // countdown.faceColor = new Color32(255, 255, 255, (State_Active ? 0 : 255));
+        if(State_Active){
+             countdown.faceColor = new Color32(255, 255, 255,255);
+
+        }else countdown.faceColor = new Color32(255, 255, 255,0);
+        // countdown.GetComponent<GameObject>().SetActive(State_Active);
     }
     // public int getState (GameObject gameObject) {
     //     int iValue = -1;

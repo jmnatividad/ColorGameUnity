@@ -43,23 +43,23 @@ public class Start_GamePlay : MonoBehaviour
     }
     
     public void ResetObjectPositions(){
-        int ctr = 0;
-        foreach (GameObject obj in gameObjects_cube)
-        {
-            float randomY = Random.Range(-2f, 2f);
-            float randomX = Random.Range(0f, 10f);
-            if (obj != null)
-            {
-                Rigidbody rb = obj.GetComponent<Rigidbody>();
-                rb.velocity = Vector3.zero;
-                rb.angularVelocity = Vector3.zero;
-                obj.transform.position = transform[ctr];
-                // obj.transform.rotation  = Quaternion.Euler(obj.transform.rotation.x + randomX, obj.transform.rotation.y + randomY, obj.transform.rotation.z);
-                ctr++;
-            }
-        }
+        // int ctr = 0;
+        // foreach (GameObject obj in gameObjects_cube)
+        // {
+        //     float randomY = Random.Range(-2f, 2f);
+        //     float randomX = Random.Range(0f, 10f);
+        //     if (obj != null)
+        //     {
+        //         Rigidbody rb = obj.GetComponent<Rigidbody>();
+        //         rb.velocity = Vector3.zero;
+        //         rb.angularVelocity = Vector3.zero;
+        //         obj.transform.position = transform[ctr];
+        //         // obj.transform.rotation  = Quaternion.Euler(obj.transform.rotation.x + randomX, obj.transform.rotation.y + randomY, obj.transform.rotation.z);
+        //         ctr++;
+        //     }
+        // }
 
-        Countdown_var.RestartCountdown();
+        // Countdown_var.RestartCountdown();
         GameObjectsActive(true);
     }
     public void GameObjectsActive(bool isActive)

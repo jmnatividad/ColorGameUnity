@@ -14,25 +14,40 @@ public class Countdown : MonoBehaviour
     public Sprite img_red_placeyourbet;
 
     public float countdownTime = 10f;
-    public float currentTime;
+    public int currentTime;
 
-    void Start()
-    {
+    public ResetObjects resetVar;
+    
+    public void startCountdowns(){
         
-        RestartCountdown();
-    }
-
-    public void RestartCountdown()
-    {
-        // StopAllCoroutines();
-        
-        currentTime = countdownTime;
         countdown_text.text = countdownTime.ToString();
         img_def_placeyourbet.sprite = img_green_placeyourbet;
-        StartCoroutine(Countdown_timer());
+        StartCoroutine(RepeatCoroutines());
+    }
+    
+    IEnumerator RepeatCoroutines()
+    {
+        while (true)
+        {
+            
+            yield return StartCoroutine(Countdown_timer(10)); // Wait for 10 seconds
+            resetVar.randomRoll();
+            
+            yield return StartCoroutine(Countdown_timer(10)); // Wait for another 10 seconds
+            resetVar.resetObject();
+            
+        }
     }
 
-    IEnumerator Countdown_timer()
+    // public void RestartCountdown()
+    // {
+    //     // StopAllCoroutines();
+        
+    //     // currentTime = countdownTime;
+    //     // StartCoroutine(Countdown_timer());
+    // }
+
+    IEnumerator Countdown_timer(int currentTime)
     {
         while(currentTime > 0){
             
