@@ -3140,7 +3140,7 @@ GameObject:
   - component: {fileID: 744497050}
   - component: {fileID: 744497049}
   m_Layer: 0
-  m_Name: Environment (1)
+  m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3599,7 +3599,7 @@ GameObject:
   - component: {fileID: 831049354}
   - component: {fileID: 831049355}
   m_Layer: 0
-  m_Name: Main Camera (1)
+  m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4660,7 +4660,7 @@ GameObject:
   - component: {fileID: 1033280321}
   - component: {fileID: 1033280320}
   m_Layer: 0
-  m_Name: GameManager (1)
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5019,7 +5019,7 @@ GameObject:
   - component: {fileID: 1052269757}
   - component: {fileID: 1052269756}
   m_Layer: 0
-  m_Name: ColorCubeRight (1)
+  m_Name: ColorCubeRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5761,7 +5761,7 @@ GameObject:
   - component: {fileID: 1130723133}
   - component: {fileID: 1130723132}
   m_Layer: 0
-  m_Name: ColorCubeCenter (1)
+  m_Name: ColorCubeCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6838,7 +6838,7 @@ GameObject:
   - component: {fileID: 1480665809}
   - component: {fileID: 1480665808}
   m_Layer: 0
-  m_Name: Directional Light (1)
+  m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7492,7 +7492,7 @@ GameObject:
   - component: {fileID: 1684312218}
   - component: {fileID: 1684312217}
   m_Layer: 5
-  m_Name: Canvas (1)
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8690,7 +8690,7 @@ GameObject:
   - component: {fileID: 2092639182}
   - component: {fileID: 2092639181}
   m_Layer: 0
-  m_Name: EventSystem (1)
+  m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8837,7 +8837,7 @@ GameObject:
   - component: {fileID: 2142162167}
   - component: {fileID: 2142162166}
   m_Layer: 0
-  m_Name: ColorCubeLeft (1)
+  m_Name: ColorCubeLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
