@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 33797464}
   - component: {fileID: 33797467}
   - component: {fileID: 33797468}
+  - component: {fileID: 33797469}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -385,6 +386,7 @@ MonoBehaviour:
   UpperSideTxt: 0
   cubeStates: {fileID: 320108296}
   countdownVar: {fileID: 33797468}
+  winResult: {fileID: 0}
   middle_section: {fileID: 190947535}
   color_choice: {fileID: 850762749}
   background: {fileID: 778876030}
@@ -496,6 +498,18 @@ MonoBehaviour:
   img_green_placeyourbet: {fileID: 21300000, guid: ffa9b764a1c972b41a160311d658ba10, type: 3}
   img_red_placeyourbet: {fileID: 21300000, guid: 94b82a74641038d4d85ee37aa210d148, type: 3}
   countdownAudio: {fileID: 483781632}
+--- !u!114 &33797469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33797461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6909f33d2b85ae2448ab4b7388c67de6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &47772209
 GameObject:
   m_ObjectHideFlags: 0
@@ -1667,6 +1681,7 @@ MonoBehaviour:
   value: 0
   state: {x: 0, y: 0, z: 0}
   tolerance: 45
+  winScript: {fileID: 0}
 --- !u!1 &164741008
 GameObject:
   m_ObjectHideFlags: 0
@@ -3339,7 +3354,7 @@ GameObject:
   - component: {fileID: 782918226}
   - component: {fileID: 782918225}
   m_Layer: 5
-  m_Name: Bottom_right
+  m_Name: History
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6423,6 +6438,7 @@ MonoBehaviour:
   value: 0
   state: {x: 0, y: 0, z: 0}
   tolerance: 45
+  winScript: {fileID: 0}
 --- !u!1 &1529758372
 GameObject:
   m_ObjectHideFlags: 0
@@ -7365,6 +7381,7 @@ MonoBehaviour:
   value: 0
   state: {x: 0, y: 0, z: 0}
   tolerance: 45
+  winScript: {fileID: 0}
 --- !u!1 &1650905683
 GameObject:
   m_ObjectHideFlags: 0

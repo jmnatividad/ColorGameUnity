@@ -14,8 +14,10 @@ public class ResetObjects : MonoBehaviour
     public GameObject plank;
     public int UpperSideTxt;
     public TextMeshProUGUI cubeStates;
+
+    [Header("Reference Script")]
     public CountdownSCR countdownVar;
-    // public Countdown countdown_var;
+    public Win_Result winResult;
 
     
     public GameObject middle_section;
@@ -27,7 +29,6 @@ public class ResetObjects : MonoBehaviour
     public TextMeshProUGUI countdown;
     void Start()
     {
-
         foreach (GameObject obj in gameObjects)
         {
             if (obj != null)
