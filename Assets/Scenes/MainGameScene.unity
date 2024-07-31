@@ -1950,7 +1950,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -2073409293881995711, guid: da4cc6576b3aa844bbe4ecc8710b2cb3, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2046,7 +2046,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -6155119637261751861, guid: da4cc6576b3aa844bbe4ecc8710b2cb3, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5799,7 +5799,6 @@ MonoBehaviour:
   img_def_placeyourbet: {fileID: 2127122688}
   img_green_placeyourbet: {fileID: 21300000, guid: ffa9b764a1c972b41a160311d658ba10, type: 3}
   img_red_placeyourbet: {fileID: 21300000, guid: 94b82a74641038d4d85ee37aa210d148, type: 3}
-  countdownAudio: {fileID: 550203519}
 --- !u!114 &1381231640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5868,6 +5867,7 @@ MonoBehaviour:
   UpperSideTxt: 0
   cubeStates: {fileID: 1330256378}
   countdownVar: {fileID: 1381231638}
+  countdownAudio: {fileID: 550203519}
   middle_section: {fileID: 926376123}
   color_choice: {fileID: 597404169}
   background: {fileID: 1489407242}
