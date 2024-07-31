@@ -11,12 +11,10 @@ public class CountdownSCR : MonoBehaviour
     public Sprite img_green_placeyourbet;
     public Sprite img_red_placeyourbet;
 
-    public CountdownAudio countdownAudio;
-
     // Start is called before the first frame update
     void Start()
     {
-
+        resetVar.GamObjectActive(true);
     }
 
     public void startCountdown(){
@@ -27,23 +25,19 @@ public class CountdownSCR : MonoBehaviour
     {
         while (true)
         {
-            
             yield return StartCoroutine(CountdownTest(10)); // Wait for 10 seconds
             resetVar.randomRoll();
-            
             resetVar.GamObjectActive(false);
+
             yield return StartCoroutine(CountdownTest(10)); // Wait for another 10 seconds
             resetVar.resetObject();
             resetVar.GamObjectActive(true);
-            
         }
     }
     IEnumerator CountdownTest(int seconds)
     {
-        countdownAudio.playCountdownSound();
         while (seconds > 0)
         {
-            countdownAudio.countdownSFX(); //for sfx per sec 
             if(seconds < 4 ){
                 img_def_placeyourbet.sprite = img_red_placeyourbet;
             }

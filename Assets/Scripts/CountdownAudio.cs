@@ -8,11 +8,9 @@ public class CountdownAudio : MonoBehaviour
     public AudioSource sourceSFX;
     public AudioClip countdown_music;
     public AudioClip countdown_sfx;
-    //private CountdownSCR countdownSCR;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start(){
         sourceMusic = GetComponent<AudioSource>();
     }
 
@@ -22,12 +20,17 @@ public class CountdownAudio : MonoBehaviour
         
     }
 
-    public void playCountdownSound(){
-        sourceMusic.clip = countdown_music;
-        sourceMusic.Play();
-    }
+    public void countdownSounds(bool State){
+        if(State == true){
+            sourceMusic.clip = countdown_music;
+            sourceMusic.Play();
 
-    public void countdownSFX(){
-        sourceSFX.PlayOneShot(countdown_sfx, 0.8f);
+            sourceSFX.clip = countdown_sfx;
+            sourceSFX.loop = true;
+            sourceSFX.Play();
+        }else {
+            sourceMusic.Stop();
+            sourceSFX.Stop();
+        }
     }
 }
