@@ -12,9 +12,8 @@ public class ShowColorWin : MonoBehaviour
 
     public List<string> WinningHistory = new List<string>();
 
-    
-
-    public void AddColorWin(string WinResult){
+    public void AddHistoryWin(string WinResult){
+        //this handles the removal of extra "," in the result
         if (WinResult.Length > 0)
         {
             string newString = WinResult.Substring(0, WinResult.Length - 2);
@@ -44,10 +43,14 @@ public class ShowColorWin : MonoBehaviour
         colorwinResult[0].sprite = Colors[colornum[0]];
         colorwinResult[1].sprite = Colors[colornum[1]];
         colorwinResult[2].sprite = Colors[colornum[2]];
-        //Add the winning colors in the history list 
 
-        AddColorWin(result);
+
+        //Add the winning colors in the history list
+        AddHistoryWin(result);
         
+    }
+    public void SetHisroryByTen(){
+
     }
     
 }
