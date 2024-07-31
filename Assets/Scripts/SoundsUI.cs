@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Sounds : MonoBehaviour
+public class SoundsUI : MonoBehaviour
 {
     // Start is called before the first frame update
     private bool sound_on = true;
