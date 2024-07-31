@@ -5532,7 +5532,6 @@ GameObject:
   - component: {fileID: 1381231642}
   - component: {fileID: 1381231641}
   - component: {fileID: 1381231640}
-  - component: {fileID: 1381231639}
   - component: {fileID: 1381231638}
   m_Layer: 0
   m_Name: GameManager
@@ -5548,27 +5547,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381231637}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2795dcf37bbee324bb1b773c635fa2c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   resetVar: {fileID: 1381231642}
+  sourceMusic: {fileID: 0}
+  sourceSFX: {fileID: 0}
+  countdown_music: {fileID: 0}
+  countdown_sfx: {fileID: 0}
   img_def_placeyourbet: {fileID: 2127122688}
   img_green_placeyourbet: {fileID: 21300000, guid: ffa9b764a1c972b41a160311d658ba10, type: 3}
   img_red_placeyourbet: {fileID: 21300000, guid: 94b82a74641038d4d85ee37aa210d148, type: 3}
---- !u!114 &1381231639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1381231637}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c01263599e5bfbc488864f4e4d72d2a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1381231640
 MonoBehaviour:
   m_ObjectHideFlags: 0
