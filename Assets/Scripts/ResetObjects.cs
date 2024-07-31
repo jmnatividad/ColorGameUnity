@@ -15,13 +15,14 @@ public class ResetObjects : MonoBehaviour
     public int UpperSideTxt;
     public TextMeshProUGUI cubeStates;
     public CountdownSCR countdownVar;
-    public CountdownAudio countdownAudio;
+    public ShowColorWin showcolorwinVar;
     // public Countdown countdown_var;
 
     
-    public GameObject middle_section;
-    public GameObject color_choice;
+    public GameObject middleSectionPlaceyourbet;
+    public GameObject colorChoice;
     public GameObject background;
+    public GameObject showColor;
 
     public float[]  possibleAngles = { -360, -270, -180, -90, 0, 90, 180, 270, 360 };
     public float[]  RandomCubeAllignment = { -6f, -4f, -8f, 0f, 8f, 4f, 6f };
@@ -48,6 +49,7 @@ public class ResetObjects : MonoBehaviour
     {
 
         cubeStates.text = gameObjects[0].GetComponent<CubeState>().upperSide + " " + gameObjects[1].GetComponent<CubeState>().upperSide + " " + gameObjects[2].GetComponent<CubeState>().upperSide;
+        showcolorwinVar.showColor(gameObjects[0].GetComponent<CubeState>().upperSide,gameObjects[1].GetComponent<CubeState>().upperSide,gameObjects[2].GetComponent<CubeState>().upperSide);
     }
 
     public void randomRoll(){
@@ -112,17 +114,27 @@ public class ResetObjects : MonoBehaviour
     }
 
     public void GamObjectActive(bool State_Active){
-        middle_section.SetActive(State_Active);
-        color_choice.SetActive(State_Active);
+        middleSectionPlaceyourbet.SetActive(State_Active);
+        colorChoice.SetActive(State_Active);
         background.SetActive(State_Active);
-        countdownAudio.countdownSounds(State_Active);
+        StartCoroutine(WaitAndSetActive(!State_Active));
         // countdown.faceColor = new Color32(255, 255, 255, (State_Active ? 0 : 255));
         if(State_Active){
-            countdown.faceColor = new Color32(255, 255, 255,255);
-        }else {
-            countdown.faceColor = new Color32(255, 255, 255,0);
-        }
+             countdown.faceColor = new Color32(255, 255, 255,255);
+
+        }else countdown.faceColor = new Color32(255, 255, 255,0);
         // countdown.GetComponent<GameObject>().SetActive(State_Active);
+    }
+
+    IEnumerator WaitAndSetActive(bool state)
+    {
+        Debug.Log(state);
+        if(state == true){
+         Debug.Log("state: " +state);
+
+            yield return new WaitForSeconds(3f);
+            showColor.SetActive(state);
+        } else showColor.SetActive(state);
     }
     // public int getState (GameObject gameObject) {
     //     int iValue = -1;

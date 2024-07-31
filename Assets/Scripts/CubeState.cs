@@ -8,6 +8,9 @@ public class CubeState : MonoBehaviour
     public int value;
     public Vector3 state;
     public int tolerance = 45;
+
+    [Header("Winning Script")]
+    public Win_Result winScript;
     public int getState () {
         int iValue = -1;
         Vector3 cube = this.transform.eulerAngles;
