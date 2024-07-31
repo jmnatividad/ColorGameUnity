@@ -22,12 +22,12 @@ public class CountdownAudio : MonoBehaviour
         
     }
 
-    void playCountdownSound(){
+    public void playCountdownSound(){
         sourceMusic.clip = countdown_music;
         sourceMusic.Play();
     }
 
-    void countdownSFX(){
+    public void countdownSFX(){
         sourceSFX.PlayOneShot(countdown_sfx, 0.8f);
     }
 }
