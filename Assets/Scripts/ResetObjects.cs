@@ -47,9 +47,8 @@ public class ResetObjects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        cubeStates.text = gameObjects[0].GetComponent<CubeState>().upperSide + " " + gameObjects[1].GetComponent<CubeState>().upperSide + " " + gameObjects[2].GetComponent<CubeState>().upperSide;
-        showcolorwinVar.showColor(gameObjects[0].GetComponent<CubeState>().upperSide,gameObjects[1].GetComponent<CubeState>().upperSide,gameObjects[2].GetComponent<CubeState>().upperSide);
+        // cubeStates.text = gameObjects[0].GetComponent<CubeState>().upperSide + " " + gameObjects[1].GetComponent<CubeState>().upperSide + " " + gameObjects[2].GetComponent<CubeState>().upperSide;
+        // showcolorwinVar.showColor(gameObjects[0].GetComponent<CubeState>().upperSide,gameObjects[1].GetComponent<CubeState>().upperSide,gameObjects[2].GetComponent<CubeState>().upperSide);
     }
 
     public void randomRoll(){
@@ -130,9 +129,10 @@ public class ResetObjects : MonoBehaviour
     {
         Debug.Log(state);
         if(state == true){
-         Debug.Log("state: " +state);
+
 
             yield return new WaitForSeconds(3f);
+            showcolorwinVar.showColor(gameObjects[0].GetComponent<CubeState>().upperSide,gameObjects[1].GetComponent<CubeState>().upperSide,gameObjects[2].GetComponent<CubeState>().upperSide);
             showColor.SetActive(state);
         } else showColor.SetActive(state);
     }

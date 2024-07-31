@@ -482,10 +482,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetVar: {fileID: 33797462}
-  sourceMusic: {fileID: 0}
-  sourceSFX: {fileID: 0}
-  countdown_music: {fileID: 0}
-  countdown_sfx: {fileID: 0}
   img_def_placeyourbet: {fileID: 1351357469}
   img_green_placeyourbet: {fileID: 21300000, guid: ffa9b764a1c972b41a160311d658ba10, type: 3}
   img_red_placeyourbet: {fileID: 21300000, guid: 94b82a74641038d4d85ee37aa210d148, type: 3}
@@ -502,8 +498,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorwinResult:
-  - {fileID: 1456444802}
   - {fileID: 189006452}
+  - {fileID: 1456444802}
   - {fileID: 1059148025}
   Colors:
   - {fileID: 21300000, guid: 09cace0100a63ba4f9d3868e8afef563, type: 3}
@@ -519,6 +515,7 @@ MonoBehaviour:
   - White
   - Yellow
   - Black
+  WinningHistory: []
 --- !u!1 &47772209
 GameObject:
   m_ObjectHideFlags: 0
@@ -2207,7 +2204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &320108295
 RectTransform:
   m_ObjectHideFlags: 0
