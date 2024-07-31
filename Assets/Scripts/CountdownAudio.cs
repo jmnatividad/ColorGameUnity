@@ -27,10 +27,20 @@ public class CountdownAudio : MonoBehaviour
 
             sourceSFX.clip = countdown_sfx;
             sourceSFX.loop = true;
-            sourceSFX.Play();
+            //sourceSFX.Play();
+            StartCoroutine(CountdownSFX(10));
         }else {
             sourceMusic.Stop();
             sourceSFX.Stop();
         }
+    }
+
+    IEnumerator CountdownSFX (int seconds){
+        while (seconds > 0){
+            sourceSFX.Play();
+            yield return new WaitForSeconds(1f);
+            seconds--;
+        }
+        //sourceSFX.Stop();
     }
 }
