@@ -15,6 +15,7 @@ public class ResetObjects : MonoBehaviour
     public int UpperSideTxt;
     public TextMeshProUGUI cubeStates;
     public CountdownSCR countdownVar;
+    public CountdownAudio countdownAudio;
     public ShowColorWin showcolorwinVar;
     // public Countdown countdown_var;
 
@@ -118,6 +119,7 @@ public class ResetObjects : MonoBehaviour
         colorChoice.SetActive(State_Active);
         background.SetActive(State_Active);
         StartCoroutine(WaitAndSetActive(!State_Active));
+        countdownAudio.countdownSounds(State_Active);
         // countdown.faceColor = new Color32(255, 255, 255, (State_Active ? 0 : 255));
         if(State_Active){
              countdown.faceColor = new Color32(255, 255, 255,255);

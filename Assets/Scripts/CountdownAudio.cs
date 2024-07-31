@@ -20,8 +20,8 @@ public class CountdownAudio : MonoBehaviour
         
     }
 
-    public void countdownSounds(bool State){
-        if(State == true){
+    public void countdownSounds(bool AudioState){
+        if(AudioState == true){
             sourceMusic.clip = countdown_music;
             sourceMusic.Play();
 
