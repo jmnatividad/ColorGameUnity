@@ -16,19 +16,20 @@ public class CountdownSCR : MonoBehaviour
     public Sprite img_green_placeyourbet;
     public Sprite img_red_placeyourbet;
     // Start is called before the first frame update
+    
     void Start()
     {
         sourceMusic = GetComponent<AudioSource>();
     }
 
-    void playCountdownSound(){
-        sourceMusic.clip = countdown_music;
-        sourceMusic.Play();
-    }
+    // void playCountdownSound(){
+    //     sourceMusic.clip = countdown_music;
+    //     sourceMusic.Play();
+    // }
 
-    void countdownSFX(){
-        sourceSFX.PlayOneShot(countdown_sfx, 0.8f);
-    }
+    // void countdownSFX(){
+    //     sourceSFX.PlayOneShot(countdown_sfx, 0.8f);
+    // }
 
     public void startCountdown(){
         StartCoroutine(RepeatCoroutine());
@@ -51,10 +52,10 @@ public class CountdownSCR : MonoBehaviour
     }
     IEnumerator CountdownTest(int seconds)
     {
-        playCountdownSound();
+        // playCountdownSound();
         while (seconds > 0)
         {
-            countdownSFX(); //for sfx per sec 
+            // countdownSFX(); //for sfx per sec 
             if(seconds < 4 ){
                 img_def_placeyourbet.sprite = img_red_placeyourbet;
             }
