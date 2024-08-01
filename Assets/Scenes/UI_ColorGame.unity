@@ -470,6 +470,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 378e820c874357447b7c4d31aeaf3341, type: 3}
   - {fileID: 21300000, guid: 8f250a48c1e243a46b21a0b6b9ea8b5e, type: 3}
   - {fileID: 21300000, guid: 70a16ede04a676b429b6eb4923cf3436, type: 3}
+  chipChoiceAudio: {fileID: 557524134}
 --- !u!114 &33797468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,6 +519,7 @@ MonoBehaviour:
   - White
   - Yellow
   - Black
+  HistoryHolderCollection: []
   WinningHistory: []
 --- !u!1 &41174193
 GameObject:
@@ -1057,6 +1059,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 378e820c874357447b7c4d31aeaf3341, type: 3}
   - {fileID: 21300000, guid: 8f250a48c1e243a46b21a0b6b9ea8b5e, type: 3}
   - {fileID: 21300000, guid: 70a16ede04a676b429b6eb4923cf3436, type: 3}
+  chipChoiceAudio: {fileID: 0}
 --- !u!1 &115137212
 GameObject:
   m_ObjectHideFlags: 0
@@ -2960,6 +2963,7 @@ GameObject:
   m_Component:
   - component: {fileID: 557524133}
   - component: {fileID: 557524132}
+  - component: {fileID: 557524134}
   - component: {fileID: 557524131}
   - component: {fileID: 557524130}
   m_Layer: 0
@@ -3190,6 +3194,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &557524134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557524129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed5f7e61bc7b0b84b8b1d45bfa9494ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 557524130}
+  chip:
+  - {fileID: 8300000, guid: 417c2374287bc2c4595bbfcb9c569de7, type: 3}
+  - {fileID: 8300000, guid: 850d1a2f45ed01146a2378dd05271b79, type: 3}
+  - {fileID: 8300000, guid: 2ba18cabcc054ca4a984afde087d82ad, type: 3}
 --- !u!1 &575568619
 GameObject:
   m_ObjectHideFlags: 0
