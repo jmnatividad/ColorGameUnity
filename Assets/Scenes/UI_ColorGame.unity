@@ -2554,11 +2554,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6155119637261751861, guid: da4cc6576b3aa844bbe4ecc8710b2cb3, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: fb6dbf575b48a7c42938a1103b828007, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.06
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2652,9 +2652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3bbe101e5d7557449c1dea6e4f23702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sourceMusic: {fileID: 557524131}
   sourceSFX: {fileID: 557524130}
-  countdown_music: {fileID: 8300000, guid: b5860fc99edee82489d04e9bd3c91d6b, type: 3}
   countdown_sfx: {fileID: 8300000, guid: eac15fa7d4f8dcd48b647018d08e8e02, type: 3}
 --- !u!4 &557524133
 Transform:
