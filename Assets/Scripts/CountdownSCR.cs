@@ -11,6 +11,9 @@ public class CountdownSCR : MonoBehaviour
     public Sprite img_green_placeyourbet;
     public Sprite img_red_placeyourbet;
 
+    public ParticleSystem ConeParticleTop;
+    public ParticleSystem ConeParticleBottom;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,11 +41,17 @@ public class CountdownSCR : MonoBehaviour
     {
         while (seconds > 0)
         {
+            ConeParticleTop.Stop();
+            ConeParticleBottom.Stop();
+            
             if(seconds < 4 ){
                 img_def_placeyourbet.sprite = img_red_placeyourbet;
+                ConeParticleTop.Play();
+                ConeParticleBottom.Play();
             }
             else    
                 img_def_placeyourbet.sprite = img_green_placeyourbet;
+                
 
             // Debug.Log("Countdown: " + seconds);
             resetVar.countdown.text = seconds.ToString();
