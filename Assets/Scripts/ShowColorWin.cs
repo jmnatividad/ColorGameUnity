@@ -20,7 +20,7 @@ public class ShowColorWin : MonoBehaviour
             WinResult = newString;
         }
         WinningHistory.Add(WinResult);
-        Debug.Log(WinningHistory[WinningHistory.Count-1]);
+        // Debug.Log(WinningHistory[WinningHistory.Count-1]);
 
     }
     public void showColor(string color, string color2, string color3){
