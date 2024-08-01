@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ColorGame1.unity
     guid: a7c8da5a363eb4a43bc79eeb627deb4b
+  - enabled: 1
+    path: Assets/Scenes/Loading.unity
+    guid: 71e2aa9c54c7c4848928a41ffdd25920
+  - enabled: 1
+    path: Assets/Scenes/UI_ColorGame.unity
+    guid: 176bbacda41eaa9418ad428d1b8baf35
   m_configObjects: {}
