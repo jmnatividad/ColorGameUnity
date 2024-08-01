@@ -470,6 +470,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 378e820c874357447b7c4d31aeaf3341, type: 3}
   - {fileID: 21300000, guid: 8f250a48c1e243a46b21a0b6b9ea8b5e, type: 3}
   - {fileID: 21300000, guid: 70a16ede04a676b429b6eb4923cf3436, type: 3}
+  chipChoiceAudio: {fileID: 557524134}
 --- !u!114 &33797468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -732,7 +733,6 @@ GameObject:
   - component: {fileID: 107618836}
   - component: {fileID: 107618838}
   - component: {fileID: 107618837}
-  - component: {fileID: 107618839}
   m_Layer: 5
   m_Name: Chips_func
   m_TagString: Untagged
@@ -810,39 +810,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 107618835}
   m_CullTransparentMesh: 1
---- !u!114 &107618839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107618835}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 653a7406a0d50db4abaa1410778d2f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imageButtons:
-  - {fileID: 2024721203}
-  - {fileID: 158739050}
-  - {fileID: 1443979526}
-  - {fileID: 920194157}
-  - {fileID: 2011220275}
-  - {fileID: 1261605202}
-  activeImages:
-  - {fileID: 21300000, guid: 972c75f7cc66fa94dbabeee25fc308ad, type: 3}
-  - {fileID: 21300000, guid: ab476448eefb79f44b07367c184e23e3, type: 3}
-  - {fileID: 21300000, guid: 008835a232385b140989774fc19dd3d5, type: 3}
-  - {fileID: 21300000, guid: 89fa090bdc16bc448846b14ec59cff6e, type: 3}
-  - {fileID: 21300000, guid: 71d628056c18f2648b03b7f62d4d2f52, type: 3}
-  - {fileID: 21300000, guid: ee8a02521e7766942855ff9cbea56d68, type: 3}
-  defaultImages:
-  - {fileID: 21300000, guid: d35637606c3d2ff45baf8bfc80cd07ee, type: 3}
-  - {fileID: 21300000, guid: c194dc5065e204344827d492ffe7ea7d, type: 3}
-  - {fileID: 21300000, guid: e3352abae0b64e547bc7e208a0a120f6, type: 3}
-  - {fileID: 21300000, guid: 378e820c874357447b7c4d31aeaf3341, type: 3}
-  - {fileID: 21300000, guid: 8f250a48c1e243a46b21a0b6b9ea8b5e, type: 3}
-  - {fileID: 21300000, guid: 70a16ede04a676b429b6eb4923cf3436, type: 3}
 --- !u!1 &121563688
 GameObject:
   m_ObjectHideFlags: 0
@@ -2439,6 +2406,7 @@ GameObject:
   m_Component:
   - component: {fileID: 557524133}
   - component: {fileID: 557524132}
+  - component: {fileID: 557524134}
   - component: {fileID: 557524131}
   - component: {fileID: 557524130}
   m_Layer: 0
@@ -2669,6 +2637,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &557524134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557524129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed5f7e61bc7b0b84b8b1d45bfa9494ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 557524130}
+  chip:
+  - {fileID: 8300000, guid: 417c2374287bc2c4595bbfcb9c569de7, type: 3}
+  - {fileID: 8300000, guid: 850d1a2f45ed01146a2378dd05271b79, type: 3}
+  - {fileID: 8300000, guid: 2ba18cabcc054ca4a984afde087d82ad, type: 3}
 --- !u!1 &575568619
 GameObject:
   m_ObjectHideFlags: 0
