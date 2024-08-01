@@ -16,6 +16,6 @@ public class ChipChoiceAudio : MonoBehaviour
     public void playChip()
     {
         int ind = (int)Mathf.Floor(Random.Range(0, chip.Count));
-        source.PlayOneShot(chip[ind], 2.5f);
+        source.PlayOneShot(chip[ind], 1.5f);
     }
 }
