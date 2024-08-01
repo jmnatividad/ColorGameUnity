@@ -129,13 +129,14 @@ public class ResetObjects : MonoBehaviour
 
     IEnumerator WaitAndSetActive(bool state)
     {
-        Debug.Log(state);
+        // Debug.Log(state);
         if(state == true){
 
 
             yield return new WaitForSeconds(3f);
             showcolorwinVar.showColor(gameObjects[0].GetComponent<CubeState>().upperSide,gameObjects[1].GetComponent<CubeState>().upperSide,gameObjects[2].GetComponent<CubeState>().upperSide);
             showColor.SetActive(state);
+            showcolorwinVar.SetHisroryByTen();
         } else showColor.SetActive(state);
     }
     // public int getState (GameObject gameObject) {

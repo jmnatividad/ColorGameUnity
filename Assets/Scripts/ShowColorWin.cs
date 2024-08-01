@@ -10,6 +10,8 @@ public class ShowColorWin : MonoBehaviour
     public Sprite[] Colors;
     public string[] strColors = {"Pink", "Blue", "Red", "White","Yellow", "Black"};
 
+    [Header("Winning History Collection")]
+    public GameObject[] HistoryHolderCollection;
     public List<string> WinningHistory = new List<string>();
 
     public void AddHistoryWin(string WinResult){
@@ -29,28 +31,31 @@ public class ShowColorWin : MonoBehaviour
         for (int i = 0; i < strColors.Length; i++){
             if(color == strColors[i]){
                 colornum[0] = i;
-                result = string.Concat(result,strColors[i], " , ");
             }
             if(color2 == strColors[i]){
                 colornum[1] = i;
-                result = string.Concat(result, strColors[i], " , ");
             }
             if(color3 == strColors[i]){
                 colornum[2] = i;
-                result = string.Concat(result, strColors[i], " , ");
             }
         }
         colorwinResult[0].sprite = Colors[colornum[0]];
         colorwinResult[1].sprite = Colors[colornum[1]];
         colorwinResult[2].sprite = Colors[colornum[2]];
 
-
+        result = string.Concat(strColors[colornum[1]], " , ", strColors[colornum[0]]," , ",strColors[colornum[2]]);
+        // Debug.Log(strColors[colornum[1]]);
+        // Debug.Log(strColors[colornum[0]]);
+        // Debug.Log(strColors[colornum[2]]);
+        // Debug.Log(result);
+        
         //Add the winning colors in the history list
         AddHistoryWin(result);
-        
     }
     public void SetHisroryByTen(){
-
+        foreach(string Win in WinningHistory ){
+            // Debug.Log(Win);
+        }
     }
     
 }
