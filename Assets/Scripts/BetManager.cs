@@ -22,8 +22,28 @@ public class BetManager : MonoBehaviour
     public TextMeshProUGUI balanceText;
     //temporary
     public int balance;
-    public int bet;
-    public int win;
+    public int _bet;
+    public int _win;
+    // variable property
+    // make it so that when a variable is accessed calculateBet will be triggered
+    public int bet
+    {
+        get
+        {
+            // Perform a function when the variable is accessed
+            calculateBet();
+            return _bet;
+        }
+    }
+    public int win
+    {
+        get
+        {
+            calculateWinnings();
+            return _win;
+        }
+    }
+
     void Start()
     {
 
@@ -91,17 +111,17 @@ public class BetManager : MonoBehaviour
     }
     // temporary 
     public void calculateBet(){
-        bet=0;
+        _bet=0;
         foreach(var kvp in colorChoiceVar.currentTableSelected){
             if(colorChoiceVar.currentTableSelected[kvp.Key]){
-                bet+=chipChoiceVar.currentChipSelected;
+                _bet+=chipChoiceVar.currentChipSelected;
             }
         }
         // bet = totalBet;
-        totalBetText.text = $"bet: ${bet}";
+        totalBetText.text = $"bet: ${_bet}";
     }
     public void calculateWinnings(){
-        int winAmount = 0;
+        _win = 0;
         
         // winAmount = chipChoiceVar.currentChipSelected;
         string[] cubeStatesOutput = {
@@ -116,14 +136,14 @@ public class BetManager : MonoBehaviour
                 // tempList.Add(kvp.Key);
                 foreach(string output in cubeStatesOutput){
                     if(output == kvp.Key){
-                        winAmount+= (chipChoiceVar.currentChipSelected*2);
+                        _win+= (chipChoiceVar.currentChipSelected*2);
                     }
                 }
             }
         }
-        balance = balance-bet;
+        balance = balance-_bet;
         balanceText.text = $"balance: ${balance}";
-        winIndicatorText.text = $"win: ${winAmount}";
+        winIndicatorText.text = $"win: ${_win}";
     }
     public void calculateBalance(){
         // balance

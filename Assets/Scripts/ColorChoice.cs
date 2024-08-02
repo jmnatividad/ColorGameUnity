@@ -63,12 +63,22 @@ public class ColorChoice : MonoBehaviour
         {
             currentTableSelected[color] = true;
         }
-        foreach(GameObject GO in betTables){
-            GO.GetComponent<Image>().color = new Color(1f,1f,1f,0.5f);
+        
+
+        if(betManagerVar.bet<=betManagerVar.balance){
+            setTable();
+        }else{
+            foreach (var color in keys)
+            {
+                currentTableSelected[color] = false;
+            }
         }
     }
+    // check if balance allows for quick pick
     public void quickPickClick()
     {
+        
+        // Debug.Log()
         // Create a list of keys from the dictionary
         var keys = new List<string>(currentTableSelected.Keys);
         // reset the tables;
@@ -82,14 +92,25 @@ public class ColorChoice : MonoBehaviour
             keys[i] = keys[j];
             keys[j] = temp;
         }
-
+        
         // Set at least three entries to true
         for (int i = 0; i < 3; i++)
         {
             currentTableSelected[keys[i]] = true;
         }
-
-        setTable();
+        //to do fix ugly code
+        //make it so that when you are accessing the variable, calculateBet function will be called
+        // betManagerVar.calculateBet();
+        // Debug.Log(betManagerVar.bet);
+        if(betManagerVar.bet<=betManagerVar.balance){
+            setTable();
+        }else{
+            for (int i = 0; i < 3; i++)
+            {
+                currentTableSelected[keys[i]] = false;
+            }
+        }
+        
     }
 
     public void setTable(){

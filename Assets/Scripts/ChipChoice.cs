@@ -30,6 +30,8 @@ public class ChipChoice : MonoBehaviour
     // 1: if a user clicked a chip, check for balance
     // 2: if a user has clicked a table with insufficient funds, stop
     // 3: if a user has clicked the double bet button, check for balance
+    // known bug when valid click, and when u clicked 
+    // an invalid two times, the valid clicked will be unclicked
     private void OnButtonClick(int index)
     {
         // if(chipValues[index] <= betManagerVar.balance){
@@ -59,11 +61,11 @@ public class ChipChoice : MonoBehaviour
 
                 // temporary
                 // to do: fix ugly code
-                betManagerVar.calculateBet();
+                // betManagerVar.calculateBet();
                 if(betManagerVar.bet>betManagerVar.balance){
                     imageButtons[currentIndex].sprite = defaultImages[currentIndex];
                     currentChipSelected = 0;
-                    betManagerVar.calculateBet();
+                    // betManagerVar.calculateBet();
                 }
                 
             }
@@ -75,7 +77,7 @@ public class ChipChoice : MonoBehaviour
     // to do: check if current index is equal to negative one
     public void doubleBetClicked(){
         if(!isDoubleBetClicked){
-            betManagerVar.calculateBet();
+            // betManagerVar.calculateBet();
             if(currentIndex==-1){
                 isDoubleBetClicked = true;
                 betManagerVar.doubleBet.GetComponent<Image>().color = new Color(1f,1f,1f,0.5f);
