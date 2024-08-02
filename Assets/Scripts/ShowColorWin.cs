@@ -19,7 +19,7 @@ public class ShowColorWin : MonoBehaviour
 
     public void AddHistoryWin(string TransactID ,string ColorResult1, string ColorResult2, string ColorResult3){
         
-        WinningHistory.Add(new string[] { TransactID, ColorResult1, ColorResult2, ColorResult1 });
+        WinningHistory.Add(new string[] { TransactID, ColorResult1, ColorResult2, ColorResult3 });
         // Debug.Log(WinningHistory[WinningHistory.Count-1]);
 
     }
