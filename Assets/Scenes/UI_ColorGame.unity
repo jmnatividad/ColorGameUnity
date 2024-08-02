@@ -502,6 +502,7 @@ MonoBehaviour:
   img_red_placeyourbet: {fileID: 21300000, guid: 94b82a74641038d4d85ee37aa210d148, type: 3}
   ConeParticleTop: {fileID: 1485421284}
   ConeParticleBottom: {fileID: 988044079}
+  countDownCtr: 10
 --- !u!114 &33797469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12026,7 +12027,7 @@ MonoBehaviour:
   totalBetText: {fileID: 1728318863}
   winIndicatorText: {fileID: 287727247}
   balanceText: {fileID: 824503089}
-  balance: 200
+  balance: 10000
   _bet: 0
   _win: 0
 --- !u!4 &1283099474
