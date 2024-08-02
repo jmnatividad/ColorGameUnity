@@ -26,19 +26,14 @@ public class BetManager : MonoBehaviour
     public int _win;
     // variable property
     // make it so that when a variable is accessed calculateBet will be triggered
-    public int bet
-    {
-        get
-        {
-            // Perform a function when the variable is accessed
+    public int bet{
+        get{
             calculateBet();
             return _bet;
         }
     }
-    public int win
-    {
-        get
-        {
+    public int win{
+        get{
             calculateWinnings();
             return _win;
         }
@@ -52,9 +47,14 @@ public class BetManager : MonoBehaviour
         maxPick.onClick.AddListener(() => colorChoiceVar.maxButtonClick());
         doubleBet.onClick.AddListener(() => chipChoiceVar.doubleBetClicked());
         quickPick.onClick.AddListener(() => colorChoiceVar.quickPickClick());
+        undoPick.onClick.AddListener(() => undoPickClick());
         balanceText.text = $"balance: ${balance}";
     }
 
+    public void undoPickClick(){
+        colorChoiceVar.resetColor();
+        chipChoiceVar.resetChips();
+    }
     IEnumerator WatchChipVariable()
     {
         // Store the initial value of the variable
@@ -79,12 +79,12 @@ public class BetManager : MonoBehaviour
     IEnumerator WatchTableVariable()
     {
         // Store the initial state of the dictionary
-        Dictionary<string, bool> previousDictionary = new Dictionary<string, bool>(colorChoiceVar.currentTableSelected);
+        Dictionary<string, bool> previousDictionary = new Dictionary<string, bool>(colorChoiceVar.currentColorSelected);
 
         while (true)
         {
             // Check for changes in the dictionary
-            foreach (var kvp in colorChoiceVar.currentTableSelected)
+            foreach (var kvp in colorChoiceVar.currentColorSelected)
             {
                 if (!previousDictionary.ContainsKey(kvp.Key) || previousDictionary[kvp.Key] != kvp.Value)
                 {
@@ -99,7 +99,7 @@ public class BetManager : MonoBehaviour
             // Remove keys that were in the previous dictionary but are no longer in the monitored dictionary
             foreach (var key in new List<string>(previousDictionary.Keys))
             {
-                if (!colorChoiceVar.currentTableSelected.ContainsKey(key))
+                if (!colorChoiceVar.currentColorSelected.ContainsKey(key))
                 {
                     // Remove the key from the previous dictionary
                     previousDictionary.Remove(key);
@@ -112,8 +112,8 @@ public class BetManager : MonoBehaviour
     // temporary 
     public void calculateBet(){
         _bet=0;
-        foreach(var kvp in colorChoiceVar.currentTableSelected){
-            if(colorChoiceVar.currentTableSelected[kvp.Key]){
+        foreach(var kvp in colorChoiceVar.currentColorSelected){
+            if(colorChoiceVar.currentColorSelected[kvp.Key]){
                 _bet+=chipChoiceVar.currentChipSelected;
             }
         }
@@ -130,9 +130,9 @@ public class BetManager : MonoBehaviour
             resetObjectsVar.gameObjects[2].GetComponent<CubeState>().upperSide,
         };
         // List<string> tempList = new List<string> {};
-        foreach(var kvp in colorChoiceVar.currentTableSelected){
+        foreach(var kvp in colorChoiceVar.currentColorSelected){
             //check if user bets
-            if(colorChoiceVar.currentTableSelected[kvp.Key]){
+            if(colorChoiceVar.currentColorSelected[kvp.Key]){
                 // tempList.Add(kvp.Key);
                 foreach(string output in cubeStatesOutput){
                     if(output == kvp.Key){

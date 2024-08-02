@@ -7,9 +7,9 @@ using TMPro;
 public class ColorChoice : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject[] betTables;
+    public GameObject[] betColor;
     public BetManager betManagerVar;
-    public Dictionary<string, bool> currentTableSelected = new Dictionary<string, bool>{
+    public Dictionary<string, bool> currentColorSelected = new Dictionary<string, bool>{
         {"Yellow", false},
         {"White", false},
         {"Pink", false},
@@ -20,27 +20,27 @@ public class ColorChoice : MonoBehaviour
     // private int currentIndex = -1; // Initialize with -1 to indicate no active button
     void Start()
     {
-        for (int i = 0; i < betTables.Length; i++)
+        for (int i = 0; i < betColor.Length; i++)
         {
             int index = i; // Capture index
-            Button button = betTables[i].GetComponent<Button>();
+            Button button = betColor[i].GetComponent<Button>();
             button.onClick.AddListener(() => OnButtonClick(index));
         }
     }
 
     private void OnButtonClick(int index)
     {
-        if (currentTableSelected[getColor(index)])
+        if (currentColorSelected[getColor(index)])
         {
             // Revert the clicked button to its default image
-            betTables[index].GetComponent<Image>().color = new Color(1f,1f,1f,1f);
-            currentTableSelected[getColor(index)] = false;
+            betColor[index].GetComponent<Image>().color = new Color(1f,1f,1f,1f);
+            currentColorSelected[getColor(index)] = false;
         }
         else
         {
             if(betManagerVar.bet<betManagerVar.balance){
-                betTables[index].GetComponent<Image>().color = new Color(1f,1f,1f,0.5f);
-                currentTableSelected[getColor(index)] = true;
+                betColor[index].GetComponent<Image>().color = new Color(1f,1f,1f,0.5f);
+                currentColorSelected[getColor(index)] = true;
             }
         }        
     }
@@ -56,21 +56,21 @@ public class ColorChoice : MonoBehaviour
     public void maxButtonClick()
     {
         // Create a list of keys from the dictionary
-        var keys = new List<string>(currentTableSelected.Keys);
+        var keys = new List<string>(currentColorSelected.Keys);
 
         // Iterate over the list of keys and modify the dictionary
         foreach (var color in keys)
         {
-            currentTableSelected[color] = true;
+            currentColorSelected[color] = true;
         }
         
 
         if(betManagerVar.bet<=betManagerVar.balance){
-            setTable();
+            setColor();
         }else{
             foreach (var color in keys)
             {
-                currentTableSelected[color] = false;
+                currentColorSelected[color] = false;
             }
         }
     }
@@ -80,9 +80,9 @@ public class ColorChoice : MonoBehaviour
         
         // Debug.Log()
         // Create a list of keys from the dictionary
-        var keys = new List<string>(currentTableSelected.Keys);
+        var keys = new List<string>(currentColorSelected.Keys);
         // reset the tables;
-        resetTable();
+        resetColor();
         // Shuffle the list of keys
         System.Random random = new System.Random();
         for (int i = keys.Count - 1; i > 0; i--)
@@ -96,40 +96,36 @@ public class ColorChoice : MonoBehaviour
         // Set at least three entries to true
         for (int i = 0; i < 3; i++)
         {
-            currentTableSelected[keys[i]] = true;
+            currentColorSelected[keys[i]] = true;
         }
-        //to do fix ugly code
-        //make it so that when you are accessing the variable, calculateBet function will be called
-        // betManagerVar.calculateBet();
-        // Debug.Log(betManagerVar.bet);
         if(betManagerVar.bet<=betManagerVar.balance){
-            setTable();
+            setColor();
         }else{
             for (int i = 0; i < 3; i++)
             {
-                currentTableSelected[keys[i]] = false;
+                currentColorSelected[keys[i]] = false;
             }
         }
         
     }
 
-    public void setTable(){
+    public void setColor(){
         int tempIndex=0;
-        foreach(var kvp in currentTableSelected){
+        foreach(var kvp in currentColorSelected){
             if(kvp.Value){
-                betTables[tempIndex].GetComponent<Image>().color = new Color(1f,1f,1f,0.5f);
+                betColor[tempIndex].GetComponent<Image>().color = new Color(1f,1f,1f,0.5f);
             }
             tempIndex++;
         }
     }
-    public void resetTable(){
-        var keys = new List<string>(currentTableSelected.Keys);
+    public void resetColor(){
+        var keys = new List<string>(currentColorSelected.Keys);
         // set all to false;
         foreach (var color in keys)
         {
-            currentTableSelected[color] = false;
+            currentColorSelected[color] = false;
         }
-        foreach(GameObject GO in betTables){
+        foreach(GameObject GO in betColor){
             GO.GetComponent<Image>().color = new Color(1f,1f,1f,1f);
         }
     }
