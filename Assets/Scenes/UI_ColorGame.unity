@@ -1847,6 +1847,7 @@ MonoBehaviour:
   value: 0
   state: {x: 0, y: 0, z: 0}
   tolerance: 45
+  cubeSFX: {fileID: 557524135}
 --- !u!1 &164741008
 GameObject:
   m_ObjectHideFlags: 0
@@ -3177,6 +3178,7 @@ GameObject:
   - component: {fileID: 557524133}
   - component: {fileID: 557524132}
   - component: {fileID: 557524134}
+  - component: {fileID: 557524135}
   - component: {fileID: 557524131}
   - component: {fileID: 557524130}
   m_Layer: 0
@@ -3424,6 +3426,28 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 417c2374287bc2c4595bbfcb9c569de7, type: 3}
   - {fileID: 8300000, guid: 850d1a2f45ed01146a2378dd05271b79, type: 3}
   - {fileID: 8300000, guid: 2ba18cabcc054ca4a984afde087d82ad, type: 3}
+--- !u!114 &557524135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557524129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f797794c5fcf6d74a9e9baccbfceae45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 557524130}
+  cubeHit:
+  - {fileID: 8300000, guid: 4b2ef0df0f5471244bdbdef1545e35ae, type: 3}
+  - {fileID: 8300000, guid: 41af3882043841747ba2912096a2c0ab, type: 3}
+  - {fileID: 8300000, guid: 7add9f4876f360e4d82c40ccc30aa83c, type: 3}
+  - {fileID: 8300000, guid: f5c87871df69b0c40ac2b0f921ac90db, type: 3}
+  - {fileID: 8300000, guid: 542514fdc8dec464782bd09727cf4626, type: 3}
+  - {fileID: 8300000, guid: 6b19b569051b0a34b8a6d8672c7a6e2b, type: 3}
+  - {fileID: 8300000, guid: 31fcad23ac65e7b42af8a4ef6b7144b9, type: 3}
+  - {fileID: 8300000, guid: 4f32bbb2b54b6f4439a181ea55464c8d, type: 3}
 --- !u!1 &575568619
 GameObject:
   m_ObjectHideFlags: 0
@@ -13408,6 +13432,7 @@ MonoBehaviour:
   value: 0
   state: {x: 0, y: 0, z: 0}
   tolerance: 45
+  cubeSFX: {fileID: 557524135}
 --- !u!1 &1485421281
 GameObject:
   m_ObjectHideFlags: 0
@@ -19449,6 +19474,7 @@ MonoBehaviour:
   value: 0
   state: {x: 0, y: 0, z: 0}
   tolerance: 45
+  cubeSFX: {fileID: 557524135}
 --- !u!1 &1650905683
 GameObject:
   m_ObjectHideFlags: 0
@@ -26385,7 +26411,7 @@ GameObject:
   - component: {fileID: 2086574543}
   m_Layer: 0
   m_Name: BoxBottom
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
