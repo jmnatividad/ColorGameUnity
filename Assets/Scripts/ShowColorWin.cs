@@ -11,17 +11,15 @@ public class ShowColorWin : MonoBehaviour
     public string[] strColors = {"Pink", "Blue", "Red", "White","Yellow", "Black"};
 
     [Header("Winning History Collection")]
-    public GameObject[] HistoryHolderCollection;
-    public List<string> WinningHistory = new List<string>();
+    public GameObject[] HistoryColorHolder;
+    public GameObject[] HistoryNumHolder;
 
-    public void AddHistoryWin(string WinResult){
-        //this handles the removal of extra "," in the result
-        if (WinResult.Length > 0)
-        {
-            string newString = WinResult.Substring(0, WinResult.Length - 2);
-            WinResult = newString;
-        }
-        WinningHistory.Add(WinResult);
+    [Header("Winning History list data")]
+    public List<string[]> WinningHistory = new List<string[]>();
+
+    public void AddHistoryWin(string TransactID ,string ColorResult1, string ColorResult2, string ColorResult3){
+        
+        WinningHistory.Add(new string[] { TransactID, ColorResult1, ColorResult2, ColorResult1 });
         // Debug.Log(WinningHistory[WinningHistory.Count-1]);
 
     }
@@ -43,18 +41,24 @@ public class ShowColorWin : MonoBehaviour
         colorwinResult[1].sprite = Colors[colornum[1]];
         colorwinResult[2].sprite = Colors[colornum[2]];
 
-        result = string.Concat(strColors[colornum[1]], " , ", strColors[colornum[0]]," , ",strColors[colornum[2]]);
+        // result = string.Concat(strColors[colornum[1]], " , ", strColors[colornum[0]]," , ",strColors[colornum[2]]);
         // Debug.Log(strColors[colornum[1]]);
         // Debug.Log(strColors[colornum[0]]);
         // Debug.Log(strColors[colornum[2]]);
         // Debug.Log(result);
         
         //Add the winning colors in the history list
-        AddHistoryWin(result);
+        AddHistoryWin("lol1" , strColors[colornum[1]], strColors[colornum[0]], strColors[colornum[2]]);
     }
     public void SetHisroryByTen(){
-        foreach(string Win in WinningHistory ){
-            // Debug.Log(Win);
+        Debug.Log("Winning History:");
+        for (int i = 0; i < WinningHistory.Count; i++)
+        {
+            Debug.Log($"Entry {i + 1}:");
+            foreach (string value in WinningHistory[i])
+            {
+                Debug.Log(value);
+            }
         }
     }
     

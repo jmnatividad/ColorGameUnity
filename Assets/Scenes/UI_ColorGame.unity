@@ -534,7 +534,28 @@ MonoBehaviour:
   - White
   - Yellow
   - Black
-  HistoryHolderCollection: []
+  HistoryColorHolder:
+  - {fileID: 1324028597}
+  - {fileID: 788597241}
+  - {fileID: 1388675135}
+  - {fileID: 1978848385}
+  - {fileID: 610498894}
+  - {fileID: 246170952}
+  - {fileID: 1444656404}
+  - {fileID: 1311439351}
+  - {fileID: 316145597}
+  - {fileID: 1120317375}
+  HistoryNumHolder:
+  - {fileID: 651815173}
+  - {fileID: 468118355}
+  - {fileID: 141064373}
+  - {fileID: 1985229030}
+  - {fileID: 1197431737}
+  - {fileID: 644263780}
+  - {fileID: 1763900429}
+  - {fileID: 1009889645}
+  - {fileID: 710504489}
+  - {fileID: 1461912840}
   WinningHistory: []
 --- !u!1 &47772209
 GameObject:
