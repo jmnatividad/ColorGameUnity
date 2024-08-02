@@ -33,15 +33,15 @@ public class CountdownSCR : MonoBehaviour
     {
         while (true)
         {
-            yield return StartCoroutine(CountdownTest(100)); // Wait for 10 seconds
+            yield return StartCoroutine(CountdownTest(10)); // Wait for 10 seconds
             resetVar.randomRoll();
             resetVar.GamObjectActive(false);
             chipChoiceVar.chipButtonsInteractable(false);
             yield return StartCoroutine(CountdownTest(10)); // Wait for another 10 seconds
-            // betManagerVar.calculateWinnings();
+            betManagerVar.calculateWinnings();
             resetVar.resetObject();
             resetVar.GamObjectActive(true);
-            colorChoiceVar.resetTable();
+            colorChoiceVar.resetColor();
             chipChoiceVar.resetChips();
             chipChoiceVar.chipButtonsInteractable(true);
         }
