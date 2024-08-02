@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class CountdownSCR : MonoBehaviour
 {
     public ResetObjects resetVar;
-
+    public BetManager betManagerVar;
+    public ColorChoice colorChoiceVar;
+    public ChipChoice chipChoiceVar;
     public Image img_def_placeyourbet;
     public Sprite img_green_placeyourbet;
     public Sprite img_red_placeyourbet;
@@ -34,10 +36,14 @@ public class CountdownSCR : MonoBehaviour
             yield return StartCoroutine(CountdownTest(10)); // Wait for 10 seconds
             resetVar.randomRoll();
             resetVar.GamObjectActive(false);
-
+            chipChoiceVar.chipButtonsInteractable(false);
             yield return StartCoroutine(CountdownTest(10)); // Wait for another 10 seconds
+            betManagerVar.calculateWinnings();
             resetVar.resetObject();
             resetVar.GamObjectActive(true);
+            colorChoiceVar.resetTable();
+            chipChoiceVar.resetChips();
+            chipChoiceVar.chipButtonsInteractable(true);
         }
     }
     IEnumerator CountdownTest(int seconds)

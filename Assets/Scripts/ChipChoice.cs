@@ -56,15 +56,10 @@ public class ChipChoice : MonoBehaviour
                 imageButtons[index].sprite = activeImages[index];
                 currentIndex = index; // Update active index
                 currentChipSelected = selectedValue;
-                // if(isDoubleBetClicked){
-                //     currentChipSelected = chipValues[currentIndex]*2;
-                // }else currentChipSelected = chipValues[currentIndex];
 
-                //temporary
-                //to do: ugly code
+                // temporary
+                // to do: fix ugly code
                 betManagerVar.calculateBet();
-                Debug.Log(betManagerVar.bet);
-                Debug.Log(selectedValue);
                 if(betManagerVar.bet>betManagerVar.balance){
                     imageButtons[currentIndex].sprite = defaultImages[currentIndex];
                     currentChipSelected = 0;
@@ -80,11 +75,14 @@ public class ChipChoice : MonoBehaviour
     // to do: check if current index is equal to negative one
     public void doubleBetClicked(){
         if(!isDoubleBetClicked){
+            betManagerVar.calculateBet();
             if(currentIndex==-1){
                 isDoubleBetClicked = true;
                 betManagerVar.doubleBet.GetComponent<Image>().color = new Color(1f,1f,1f,0.5f);
                 currentChipSelected = 0;
-            }else if(chipValues[currentIndex]*2<=betManagerVar.balance){
+            }else if(chipValues[currentIndex]*2<=betManagerVar.balance && betManagerVar.bet < betManagerVar.balance){
+                // Debug.Log(chipValues[currentIndex]*2);
+                // Debug.Log(betManagerVar.bet);
                 isDoubleBetClicked = true;
                 betManagerVar.doubleBet.GetComponent<Image>().color = new Color(1f,1f,1f,0.5f);
                 currentChipSelected = chipValues[currentIndex]*2;

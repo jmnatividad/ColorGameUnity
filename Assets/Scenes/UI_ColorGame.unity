@@ -437,6 +437,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495aae3bd5360bd42952ef1608455ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  betTables:
+  - {fileID: 2128012808}
+  - {fileID: 2047000277}
+  - {fileID: 1574812624}
+  - {fileID: 1712543735}
+  - {fileID: 1122551562}
+  - {fileID: 1439246472}
+  betManagerVar: {fileID: 1283099473}
 --- !u!114 &33797465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,7 +478,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 378e820c874357447b7c4d31aeaf3341, type: 3}
   - {fileID: 21300000, guid: 8f250a48c1e243a46b21a0b6b9ea8b5e, type: 3}
   - {fileID: 21300000, guid: 70a16ede04a676b429b6eb4923cf3436, type: 3}
-  chipChoiceAudio: {fileID: 557524134}
+  currentChipSelected: 0
+  previousChip: 0
+  betManagerVar: {fileID: 1283099473}
 --- !u!114 &33797468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,6 +494,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetVar: {fileID: 33797462}
+  betManagerVar: {fileID: 1283099473}
+  colorChoiceVar: {fileID: 33797464}
+  chipChoiceVar: {fileID: 33797465}
   img_def_placeyourbet: {fileID: 1586532560}
   img_green_placeyourbet: {fileID: 21300000, guid: ffa9b764a1c972b41a160311d658ba10, type: 3}
   img_red_placeyourbet: {fileID: 21300000, guid: 94b82a74641038d4d85ee37aa210d148, type: 3}
@@ -1059,7 +1072,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 378e820c874357447b7c4d31aeaf3341, type: 3}
   - {fileID: 21300000, guid: 8f250a48c1e243a46b21a0b6b9ea8b5e, type: 3}
   - {fileID: 21300000, guid: 70a16ede04a676b429b6eb4923cf3436, type: 3}
-  chipChoiceAudio: {fileID: 0}
+  currentChipSelected: 0
+  previousChip: 0
+  betManagerVar: {fileID: 0}
 --- !u!1 &115137212
 GameObject:
   m_ObjectHideFlags: 0
@@ -4897,6 +4912,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495aae3bd5360bd42952ef1608455ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  betTables: []
+  betManagerVar: {fileID: 0}
 --- !u!1 &874546905
 GameObject:
   m_ObjectHideFlags: 0
@@ -11973,6 +11990,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4009ef2e7b482bc41b41c95f9d531fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chipChoiceVar: {fileID: 33797465}
+  colorChoiceVar: {fileID: 33797464}
+  resetObjectsVar: {fileID: 33797462}
+  maxPick: {fileID: 28830709}
+  doubleBet: {fileID: 1640901008}
+  undoPick: {fileID: 769690837}
+  redoPick: {fileID: 1860292373}
+  quickPick: {fileID: 1387518501}
+  changeChip: {fileID: 1760013559}
+  totalBetText: {fileID: 1728318863}
+  winIndicatorText: {fileID: 287727247}
+  balanceText: {fileID: 824503089}
+  balance: 200
+  bet: 0
+  win: 0
 --- !u!4 &1283099474
 Transform:
   m_ObjectHideFlags: 0
