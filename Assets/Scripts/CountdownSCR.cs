@@ -16,6 +16,8 @@ public class CountdownSCR : MonoBehaviour
     public ParticleSystem ConeParticleTop;
     public ParticleSystem ConeParticleBottom;
 
+    public int countDownCtr = 10;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +35,7 @@ public class CountdownSCR : MonoBehaviour
     {
         while (true)
         {
-            yield return StartCoroutine(CountdownTest(10)); // Wait for 10 seconds
+            yield return StartCoroutine(CountdownTest(countDownCtr)); // Wait for 10 seconds
             resetVar.randomRoll();
             resetVar.GamObjectActive(false);
             chipChoiceVar.chipButtonsInteractable(false);
