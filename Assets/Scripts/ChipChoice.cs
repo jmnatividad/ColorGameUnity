@@ -15,6 +15,7 @@ public class ChipChoice : MonoBehaviour
     public int currentChipSelected=0;
     public int previousChip;
     public BetManager betManagerVar;
+    public ChipChoiceAudio chipChoiceAudio;
     private bool isDoubleBetClicked = false;
     private void Start()
     {
@@ -42,6 +43,7 @@ public class ChipChoice : MonoBehaviour
             currentIndex = -1; // No active button
             previousChip = currentChipSelected;
             currentChipSelected = 0;
+            chipChoiceAudio.playChip();
         }
         else
         {
@@ -58,6 +60,7 @@ public class ChipChoice : MonoBehaviour
                 imageButtons[index].sprite = activeImages[index];
                 currentIndex = index; // Update active index
                 currentChipSelected = selectedValue;
+                chipChoiceAudio.playChip();
 
                 // temporary
                 // to do: fix ugly code
