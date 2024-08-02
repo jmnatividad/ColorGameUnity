@@ -19,8 +19,6 @@ public class CountdownSCR : MonoBehaviour
     {
         resetVar.GamObjectActive(true);
         //Initialization of Particles to Stop (Placeholder)
-        ConeParticleTop.Stop();
-        ConeParticleBottom.Stop();  
     }
 
     public void startCountdown(){
@@ -53,6 +51,8 @@ public class CountdownSCR : MonoBehaviour
             }
             else    
                 img_def_placeyourbet.sprite = img_green_placeyourbet;
+                ConeParticleTop.Stop();
+                ConeParticleBottom.Stop();  
                 
 
             // Debug.Log("Countdown: " + seconds);
