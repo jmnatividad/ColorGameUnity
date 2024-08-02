@@ -9,13 +9,15 @@ public class ChipChoice : MonoBehaviour
     public Sprite[] activeImages; // Array to hold the images for the active state of the buttons
 
     public Sprite[] defaultImages; // Array to hold the default images of the buttons
-    private int currentIndex = -1; // Initialize with -1 to indicate no active button
+    public int currentIndex = -1; // Initialize with -1 to indicate no active button
     
     private int[] chipValues = { 5, 10, 50, 100, 500, 2500 };
     public int currentChipSelected=0;
     public int previousChip;
     public BetManager betManagerVar;
-    private bool isDoubleBetClicked = false;
+    public bool isDoubleBetClicked = false;
+    public int previousChipPick=-1;
+    public bool previousDoubleBetPick;
     private void Start()
     {
 
@@ -32,7 +34,7 @@ public class ChipChoice : MonoBehaviour
     // 3: if a user has clicked the double bet button, check for balance
     // known bug when valid click, and when u clicked 
     // an invalid two times, the valid clicked will be unclicked
-    private void OnButtonClick(int index)
+    public void OnButtonClick(int index)
     {
         // if(chipValues[index] <= betManagerVar.balance){
         if (currentIndex == index)
@@ -61,11 +63,9 @@ public class ChipChoice : MonoBehaviour
 
                 // temporary
                 // to do: fix ugly code
-                // betManagerVar.calculateBet();
                 if(betManagerVar.bet>betManagerVar.balance){
                     imageButtons[currentIndex].sprite = defaultImages[currentIndex];
                     currentChipSelected = 0;
-                    // betManagerVar.calculateBet();
                 }
                 
             }
