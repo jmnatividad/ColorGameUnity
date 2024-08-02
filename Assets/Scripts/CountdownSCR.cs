@@ -20,7 +20,7 @@ public class CountdownSCR : MonoBehaviour
         resetVar.GamObjectActive(true);
         //Initialization of Particles to Stop (Placeholder)
         ConeParticleTop.Stop();
-        ConeParticleBottom.Stop();
+        ConeParticleBottom.Stop();  
     }
 
     public void startCountdown(){
@@ -38,6 +38,7 @@ public class CountdownSCR : MonoBehaviour
             yield return StartCoroutine(CountdownTest(10)); // Wait for another 10 seconds
             resetVar.resetObject();
             resetVar.GamObjectActive(true);
+
         }
     }
     IEnumerator CountdownTest(int seconds)
