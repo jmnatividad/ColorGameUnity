@@ -106,6 +106,7 @@ public class ColorChoice : MonoBehaviour
             {
                 currentColorSelected[keys[i]] = false;
             }
+            betManagerVar.calculateBet();
         }
         
     }
@@ -118,6 +119,15 @@ public class ColorChoice : MonoBehaviour
             }
             tempIndex++;
         }
+    }
+    public int getColorBets(){
+        int count=0;
+        foreach(var kvp in currentColorSelected){
+            if(kvp.Value){
+                count++;
+            }
+        }
+        return count;
     }
     public void setColor(Dictionary<string, bool> colors){
         int tempIndex=0;

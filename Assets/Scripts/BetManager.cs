@@ -151,7 +151,8 @@ public class BetManager : MonoBehaviour
         balanceText.text = $"balance: ${balance}";
         winIndicatorText.text = $"win: ${_win}";
         // get the last pick data
-        captureLastData();
+        if(colorChoiceVar.getColorBets()!=0 && chipChoiceVar.currentIndex!= -1)
+            captureLastData();
         
     }
     public void captureLastData(){
@@ -164,7 +165,7 @@ public class BetManager : MonoBehaviour
         if(chipChoiceVar.previousChipPick != -1 && colorChoiceVar.previousColorPick != null&& !isRedoClicked){
             isRedoClicked=true;
             colorChoiceVar.setColor(colorChoiceVar.previousColorPick);
-            chipChoiceVar.isDoubleBetClicked = chipChoiceVar.previousDoubleBetPick;
+            chipChoiceVar.doubleBetClicked();
             chipChoiceVar.OnButtonClick(chipChoiceVar.previousChipPick);
         }else{
             colorChoiceVar.resetColor();
