@@ -7,7 +7,6 @@ public class CubeSFX : MonoBehaviour
     public AudioSource source;
     public List<AudioClip> cubeHit;
 
-
     // Start is called before the first frame update
     void Start()
     {
