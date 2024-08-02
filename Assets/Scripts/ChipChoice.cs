@@ -19,7 +19,7 @@ public class ChipChoice : MonoBehaviour
     public int previousChipPick=-1;
     public bool previousDoubleBetPick;
     public ChipChoiceAudio chipChoiceAudio;
-    private bool isDoubleBetClicked = false;
+    // private bool isDoubleBetClicked = false;
     private void Start()
     {
 
@@ -51,8 +51,8 @@ public class ChipChoice : MonoBehaviour
         else
         {
             int selectedValue = isDoubleBetClicked ? chipValues[index] * 2 : chipValues[index];
-            
-            if(selectedValue <= betManagerVar.balance || selectedValue <= betManagerVar.bet){
+            //bug
+            if(selectedValue <= betManagerVar.balance ){
                 // Revert the previously active button
                 if (currentIndex >= 0 && currentIndex < imageButtons.Length)
                     imageButtons[currentIndex].sprite = defaultImages[currentIndex];
@@ -70,6 +70,8 @@ public class ChipChoice : MonoBehaviour
                 if(betManagerVar.bet>betManagerVar.balance){
                     imageButtons[currentIndex].sprite = defaultImages[currentIndex];
                     currentChipSelected = 0;
+                    currentIndex = -1;
+                    betManagerVar.calculateBet();
                 }
                 
             }
