@@ -40,10 +40,10 @@ public class CountdownSCR : MonoBehaviour
             resetVar.GamObjectActive(false);
             chipChoiceVar.chipButtonsInteractable(false);
             yield return StartCoroutine(CountdownTest(10)); // Wait for another 10 seconds
-            // betManagerVar.calculateWinnings();
+            betManagerVar.calculateWinnings();
             resetVar.resetObject();
             resetVar.GamObjectActive(true);
-            colorChoiceVar.resetTable();
+            colorChoiceVar.resetColor();
             chipChoiceVar.resetChips();
             chipChoiceVar.chipButtonsInteractable(true);
         }
