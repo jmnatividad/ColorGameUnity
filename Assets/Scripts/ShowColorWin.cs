@@ -49,15 +49,14 @@ public class ShowColorWin : MonoBehaviour
     public void SetHisroryByTen(){
 
         int HistoryHolderCtr = 0;
-        // Debug.Log("Winning History:");
-        for (int i = WinningHistory.Count-1; i < 10; i--)
+        for (int i = WinningHistory.Count-1; i < WinningHistory.Count; --i)
         {
-            HistoryHolderCtr++;
-            if(i <= WinningHistory.Count && HistoryHolderCtr <= 10){
-                Debug.Log(HistoryHolderCtr);
-                Transform child0 = HistoryColorHolder[i].transform.GetChild(0);
-                Transform child1 = HistoryColorHolder[i].transform.GetChild(1);
-                Transform child2 = HistoryColorHolder[i].transform.GetChild(2);
+            if(i == -1 || HistoryHolderCtr == 9){
+                break;
+            }
+                Transform child0 = HistoryColorHolder[HistoryHolderCtr].transform.GetChild(0);
+                Transform child1 = HistoryColorHolder[HistoryHolderCtr].transform.GetChild(1);
+                Transform child2 = HistoryColorHolder[HistoryHolderCtr].transform.GetChild(2);
 
                 Image targetImage1 = child0.GetComponent<Image>();
                 Image targetImage2 = child1.GetComponent<Image>();
@@ -67,28 +66,33 @@ public class ShowColorWin : MonoBehaviour
 
                 for (int j = 1; j < WinningHistory[i].Length; j++)
                 {
+                    Color CurrentColor;
                     switch (j)
                         {
                             case 1:
+                                CurrentColor = targetImage1.color;
+                                CurrentColor.a = 1f;
+                                targetImage1.color = CurrentColor;
                                  targetImage1.sprite = ColorAssignmentToImage(entry[j]);
                                  break;
                             case 2:
+                                CurrentColor = targetImage2.color;
+                                CurrentColor.a = 1f;
+                                targetImage2.color = CurrentColor;
                                  targetImage2.sprite = ColorAssignmentToImage(entry[j]);
                                  break;
                             case 3:
+                                CurrentColor = targetImage3.color;
+                                CurrentColor.a = 1f;
+                                targetImage3.color = CurrentColor;
                                  targetImage3.sprite = ColorAssignmentToImage(entry[j]);
                                  break;
                             default:
                                 Debug.LogWarning("No Output");
                                 break;
                         }
-
-                    // targetImage1 = ColorAssignmentToImage(entry[j]);
-                    // Debug.Log(entry[j]);
-                    // Debug.Log(ColorAssignmentToImage(entry[j]));
-                }
             }
-                
+            ++HistoryHolderCtr;
         }
     }
     public Sprite ColorAssignmentToImage(string color)
