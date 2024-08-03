@@ -13,7 +13,7 @@ public class Congratulation : MonoBehaviour
 
     public void congratsWinningMoney(bool state){
         if(betManagerVar._win > 0){
-           winNumberText.text = $"YOU WON: ${betManagerVar._win}";
+           winNumberText.text = $"{betManagerVar._win}";
             congratulationMiddleSection.SetActive(state);
             Debug.Log($"YOU WON: ${betManagerVar._win}"); 
         }

@@ -2344,7 +2344,7 @@ GameObject:
   - component: {fileID: 162239999}
   - component: {fileID: 162239998}
   m_Layer: 5
-  m_Name: CongratulatioText
+  m_Name: CongratulationText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2367,8 +2367,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.0000076293945, y: -25}
-  m_SizeDelta: {x: 427.4576, y: 50}
+  m_AnchoredPosition: {x: 0.0000076293945, y: -25}
+  m_SizeDelta: {x: 463.4908, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &162239998
 MonoBehaviour:
@@ -2390,7 +2390,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CONGRATULATION
+  m_text: CONGRATULATION YOU WON
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 49b00bd0939148543ae0971c1052d66e, type: 2}
   m_sharedMaterial: {fileID: 7080542424156308874, guid: 49b00bd0939148543ae0971c1052d66e, type: 2}
@@ -2417,10 +2417,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
+  m_fontSize: 28.35
   m_fontSizeBase: 40
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
@@ -4053,6 +4053,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 405029658}
   m_CullTransparentMesh: 1
+--- !u!4 &445349341 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4209748628527494253, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+  m_PrefabInstance: {fileID: 1564886441}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &468118355
 GameObject:
   m_ObjectHideFlags: 0
@@ -12817,6 +12822,7 @@ RectTransform:
   m_Children:
   - {fileID: 52853264}
   - {fileID: 162239997}
+  - {fileID: 445349341}
   m_Father: {fileID: 357465519}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21970,6 +21976,127 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1529758372}
   m_CullTransparentMesh: 1
+--- !u!1001 &1564886441
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1020198690}
+    m_Modifications:
+    - target: {fileID: 4209748628527494253, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209748628527494253, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209748628527494253, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -29
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209748628527494253, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -357
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209748628527494253, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209748628527494253, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209748628527494253, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209748628527494253, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209748628527494253, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209748628527494253, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209748628527494253, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4992362493126151029, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: m_Name
+      value: Coin Fountain
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204842085549084586, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204842085549084586, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: prewarm
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204842085549084586, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204842085549084586, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: simulationSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204842085549084586, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: ShapeModule.angle
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204842085549084586, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: ShapeModule.arc.value
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204842085549084586, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: ShapeModule.m_Scale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204842085549084586, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204842085549084586, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204842085549084586, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: ShapeModule.alignToDirection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204842085549084586, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204842085549084586, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: ShapeModule.randomDirectionAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204842085549084586, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204842085549084586, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204842085549084586, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6724156018421746846, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -25
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c3747d12c92b31946963bd1049ddeba2, type: 3}
 --- !u!1 &1566931149
 GameObject:
   m_ObjectHideFlags: 0
@@ -31505,7 +31632,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 523.2291, y: 50}
+  m_SizeDelta: {x: 523.2291, y: 88.607}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2077006936
 MonoBehaviour:
@@ -31527,7 +31654,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: YOU WON
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 49b00bd0939148543ae0971c1052d66e, type: 2}
   m_sharedMaterial: {fileID: 7080542424156308874, guid: 49b00bd0939148543ae0971c1052d66e, type: 2}
@@ -31554,10 +31681,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 38.16
+  m_fontSize: 63.25
   m_fontSizeBase: 38.16
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
