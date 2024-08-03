@@ -48,6 +48,7 @@ public class ShowColorWin : MonoBehaviour
     }
     public void SetHisroryByTen(){
 
+        Debug.Log("Set");
         int HistoryHolderCtr = 0;
         for (int i = WinningHistory.Count-1; i < WinningHistory.Count; --i)
         {
