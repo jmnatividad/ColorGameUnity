@@ -17,6 +17,7 @@ public class ColorChoice : MonoBehaviour
         {"Red", false},
         {"Black", false}
     };
+    public Dictionary<string, bool> previousColorPick = new Dictionary<string, bool>();
     // private int currentIndex = -1; // Initialize with -1 to indicate no active button
     void Start()
     {
@@ -28,7 +29,7 @@ public class ColorChoice : MonoBehaviour
         }
     }
 
-    private void OnButtonClick(int index)
+    public void OnButtonClick(int index)
     {
         if (currentColorSelected[getColor(index)])
         {
@@ -105,6 +106,7 @@ public class ColorChoice : MonoBehaviour
             {
                 currentColorSelected[keys[i]] = false;
             }
+            betManagerVar.calculateBet();
         }
         
     }
@@ -118,12 +120,34 @@ public class ColorChoice : MonoBehaviour
             tempIndex++;
         }
     }
+    public int getColorBets(){
+        int count=0;
+        foreach(var kvp in currentColorSelected){
+            if(kvp.Value){
+                count++;
+            }
+        }
+        return count;
+    }
+    public void setColor(Dictionary<string, bool> colors){
+        int tempIndex=0;
+        foreach(var kvp in colors){
+            if(kvp.Value){
+                betColor[tempIndex].GetComponent<Image>().color = new Color(1f,1f,1f,0.5f);
+            }
+            tempIndex++;
+        }
+    }
     public void resetColor(){
+        
         var keys = new List<string>(currentColorSelected.Keys);
+        
         // set all to false;
-        foreach (var color in keys)
-        {
+        foreach (var color in keys){
             currentColorSelected[color] = false;
+        }
+        foreach(var kvp in previousColorPick){
+            Debug.Log($"{kvp.Key}: {kvp.Value}");
         }
         foreach(GameObject GO in betColor){
             GO.GetComponent<Image>().color = new Color(1f,1f,1f,1f);

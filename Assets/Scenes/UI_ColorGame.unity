@@ -479,9 +479,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 378e820c874357447b7c4d31aeaf3341, type: 3}
   - {fileID: 21300000, guid: 8f250a48c1e243a46b21a0b6b9ea8b5e, type: 3}
   - {fileID: 21300000, guid: 70a16ede04a676b429b6eb4923cf3436, type: 3}
+  currentIndex: -1
   currentChipSelected: 0
   previousChip: 0
   betManagerVar: {fileID: 1283099473}
+  isDoubleBetClicked: 0
+  previousChipPick: -1
+  previousDoubleBetPick: 0
   chipChoiceAudio: {fileID: 557524134}
 --- !u!114 &33797468
 MonoBehaviour:
@@ -536,7 +540,28 @@ MonoBehaviour:
   - White
   - Yellow
   - Black
-  HistoryHolderCollection: []
+  HistoryColorHolder:
+  - {fileID: 1324028597}
+  - {fileID: 788597241}
+  - {fileID: 1388675135}
+  - {fileID: 1978848385}
+  - {fileID: 610498894}
+  - {fileID: 246170952}
+  - {fileID: 1444656404}
+  - {fileID: 1311439351}
+  - {fileID: 316145597}
+  - {fileID: 1120317375}
+  HistoryNumHolder:
+  - {fileID: 651815173}
+  - {fileID: 468118355}
+  - {fileID: 141064373}
+  - {fileID: 1985229030}
+  - {fileID: 1197431737}
+  - {fileID: 644263780}
+  - {fileID: 1763900429}
+  - {fileID: 1009889645}
+  - {fileID: 710504489}
+  - {fileID: 1461912840}
   WinningHistory: []
 --- !u!114 &33797470
 MonoBehaviour:
@@ -1453,9 +1478,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 378e820c874357447b7c4d31aeaf3341, type: 3}
   - {fileID: 21300000, guid: 8f250a48c1e243a46b21a0b6b9ea8b5e, type: 3}
   - {fileID: 21300000, guid: 70a16ede04a676b429b6eb4923cf3436, type: 3}
+  currentIndex: -1
   currentChipSelected: 0
   previousChip: 0
   betManagerVar: {fileID: 0}
+  isDoubleBetClicked: 0
+  previousChipPick: -1
+  previousDoubleBetPick: 0
   chipChoiceAudio: {fileID: 0}
 --- !u!1 &121563688
 GameObject:
@@ -14778,9 +14807,11 @@ MonoBehaviour:
   totalBetText: {fileID: 1728318863}
   winIndicatorText: {fileID: 287727247}
   balanceText: {fileID: 824503089}
-  balance: 10000
+  balance: 200
   _bet: 0
   _win: 0
+  previousChipPick: -1
+  previousDoubleBet: 0
 --- !u!4 &1283099474
 Transform:
   m_ObjectHideFlags: 0
