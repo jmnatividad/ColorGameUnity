@@ -48,7 +48,7 @@ public class BetManager : MonoBehaviour
         doubleBet.onClick.AddListener(() => chipChoiceVar.doubleBetClicked());
         quickPick.onClick.AddListener(() => colorChoiceVar.quickPickClick());
         undoPick.onClick.AddListener(() => undoPickClick());
-        balanceText.text = $"balance: ${balance}";
+        balanceText.text = $"{balance}";
     }
 
     public void undoPickClick(){
@@ -118,7 +118,7 @@ public class BetManager : MonoBehaviour
             }
         }
         // bet = totalBet;
-        totalBetText.text = $"bet: ${_bet}";
+        totalBetText.text = $"{_bet}";
     }
     public void calculateWinnings(){
         _win = 0;
@@ -142,8 +142,8 @@ public class BetManager : MonoBehaviour
             }
         }
         balance = balance-_bet;
-        balanceText.text = $"balance: ${balance}";
-        winIndicatorText.text = $"win: ${_win}";
+        balanceText.text = $"{balance}";
+        winIndicatorText.text = $"{_win}";
     }
     public void calculateBalance(){
         // balance
