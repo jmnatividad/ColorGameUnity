@@ -5,11 +5,10 @@ using UnityEngine.UI;
 
 public class ChipChoice : MonoBehaviour
 {
-    public Image[] imageButtons; // Array to hold references to the Image buttons
-    public Sprite[] activeImages; // Array to hold the images for the active state of the buttons
-
-    public Sprite[] defaultImages; // Array to hold the default images of the buttons
-    public int currentIndex = -1; // Initialize with -1 to indicate no active button
+    public Image[] imageButtons; 
+    public Sprite[] activeImages; 
+    public Sprite[] defaultImages; 
+    public int currentIndex = -1; 
     
     private int[] chipValues = { 5, 10, 50, 100, 500, 2500 };
     public int currentChipSelected=0;
@@ -41,27 +40,27 @@ public class ChipChoice : MonoBehaviour
         // if(chipValues[index] <= betManagerVar.balance){
         if (currentIndex == index)
         {
-            // Revert the clicked button to its default image
             imageButtons[index].sprite = defaultImages[index];
-            currentIndex = -1; // No active button
+            currentIndex = -1;
             previousChip = currentChipSelected;
             currentChipSelected = 0;
             chipChoiceAudio.playChip();
         }
         else
         {
+
             int selectedValue = isDoubleBetClicked ? chipValues[index] * 2 : chipValues[index];
-            //bug
+            // depending on the balance of the user, chips choice will be active when click
+            // when the balance is more than the chip chosen. 
             if(selectedValue <= betManagerVar.balance ){
-                // Revert the previously active button
                 if (currentIndex >= 0 && currentIndex < imageButtons.Length)
                     imageButtons[currentIndex].sprite = defaultImages[currentIndex];
 
+
                 previousChip = currentChipSelected;
 
-                // Set the new active button
                 imageButtons[index].sprite = activeImages[index];
-                currentIndex = index; // Update active index
+                currentIndex = index; 
                 currentChipSelected = selectedValue;
                 chipChoiceAudio.playChip();
 
