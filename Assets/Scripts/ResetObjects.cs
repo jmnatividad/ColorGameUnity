@@ -117,7 +117,6 @@ public class ResetObjects : MonoBehaviour
         middleSectionPlaceyourbet.SetActive(State_Active);
         colorChoice.SetActive(State_Active);
         background.SetActive(State_Active);
-        StartCoroutine(WaitAndSetActive(!State_Active));
         countdownAudio.countdownSounds(State_Active);
         // countdown.faceColor = new Color32(255, 255, 255, (State_Active ? 0 : 255));
         if(State_Active){
@@ -127,18 +126,24 @@ public class ResetObjects : MonoBehaviour
         // countdown.GetComponent<GameObject>().SetActive(State_Active);
     }
 
-    IEnumerator WaitAndSetActive(bool state)
-    {
-        // Debug.Log(state);
-        if(state == true){
-
-
-            yield return new WaitForSeconds(3f);
-            showcolorwinVar.showColor(gameObjects[0].GetComponent<CubeState>().upperSide,gameObjects[1].GetComponent<CubeState>().upperSide,gameObjects[2].GetComponent<CubeState>().upperSide);
-            showColor.SetActive(state);
-            showcolorwinVar.SetHisroryByTen();
-        } else showColor.SetActive(state);
+    public void showResultColor(bool state){
+        showcolorwinVar.showColor(gameObjects[0].GetComponent<CubeState>().upperSide,gameObjects[1].GetComponent<CubeState>().upperSide,gameObjects[2].GetComponent<CubeState>().upperSide);
+        showColor.SetActive(state);
+        showcolorwinVar.SetHisroryByTen();
     }
+
+    // IEnumerator WaitAndSetActive(bool state)
+    // {
+    //     // Debug.Log(state);
+    //     if(state == true){
+
+
+    //         yield return new WaitForSeconds(3f);
+    //         showcolorwinVar.showColor(gameObjects[0].GetComponent<CubeState>().upperSide,gameObjects[1].GetComponent<CubeState>().upperSide,gameObjects[2].GetComponent<CubeState>().upperSide);
+    //         showColor.SetActive(state);
+    //         showcolorwinVar.SetHisroryByTen();
+    //     } else showColor.SetActive(state);
+    // }
     // public int getState (GameObject gameObject) {
     //     int iValue = -1;
     //     Vector3 cube = gameObject.transform.eulerAngles;

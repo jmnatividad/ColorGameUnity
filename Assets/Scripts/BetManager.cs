@@ -13,7 +13,6 @@ public class BetManager : MonoBehaviour
     public Button doubleBet;
     public Button undoPick;
     public Button redoPick;
-    private bool isRedoClicked = false;
     public Button quickPick;
     public Button changeChip;
     // private watchTableVariable
@@ -25,10 +24,6 @@ public class BetManager : MonoBehaviour
     public int balance;
     public int _bet;
     public int _win;
-    
-    public Dictionary<string, bool> tempDictionary=null;
-    public int previousChipPick=-1;  
-    public bool previousDoubleBet;
     // variable property
     // make it so that when a variable is accessed calculateBet will be triggered
     public int bet{
@@ -43,7 +38,7 @@ public class BetManager : MonoBehaviour
             return _win;
         }
     }
-    
+
     void Start()
     {
 
@@ -53,7 +48,6 @@ public class BetManager : MonoBehaviour
         doubleBet.onClick.AddListener(() => chipChoiceVar.doubleBetClicked());
         quickPick.onClick.AddListener(() => colorChoiceVar.quickPickClick());
         undoPick.onClick.AddListener(() => undoPickClick());
-        redoPick.onClick.AddListener(() => redoPickClick());
         balanceText.text = $"balance: ${balance}";
     }
 
@@ -139,6 +133,7 @@ public class BetManager : MonoBehaviour
         foreach(var kvp in colorChoiceVar.currentColorSelected){
             //check if user bets
             if(colorChoiceVar.currentColorSelected[kvp.Key]){
+                // tempList.Add(kvp.Key);
                 foreach(string output in cubeStatesOutput){
                     if(output == kvp.Key){
                         _win+= (chipChoiceVar.currentChipSelected*2);
@@ -146,32 +141,9 @@ public class BetManager : MonoBehaviour
                 }
             }
         }
-        balance -= _bet;
-        balance += _win;
+        balance = balance-_bet;
         balanceText.text = $"balance: ${balance}";
         winIndicatorText.text = $"win: ${_win}";
-        // get the last pick data
-        if(colorChoiceVar.getColorBets()!=0 && chipChoiceVar.currentIndex!= -1)
-            captureLastData();
-        
-    }
-    public void captureLastData(){
-        //need to perform a deep copy
-        colorChoiceVar.previousColorPick = new Dictionary<string, bool>(colorChoiceVar.currentColorSelected);
-        chipChoiceVar.previousDoubleBetPick = chipChoiceVar.isDoubleBetClicked;
-        chipChoiceVar.previousChipPick = chipChoiceVar.currentIndex;
-    }
-    public void redoPickClick(){
-        if(chipChoiceVar.previousChipPick != -1 && colorChoiceVar.previousColorPick != null&& !isRedoClicked){
-            isRedoClicked=true;
-            colorChoiceVar.setColor(colorChoiceVar.previousColorPick);
-            chipChoiceVar.doubleBetClicked();
-            chipChoiceVar.OnButtonClick(chipChoiceVar.previousChipPick);
-        }else{
-            colorChoiceVar.resetColor();
-            chipChoiceVar.resetChips();
-            isRedoClicked=false;
-        }
     }
     public void calculateBalance(){
         // balance

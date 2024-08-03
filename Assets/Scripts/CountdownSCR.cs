@@ -37,19 +37,30 @@ public class CountdownSCR : MonoBehaviour
     {
         while (true)
         {
-            yield return StartCoroutine(CountdownTest(countDownCtr)); // Wait for 10 seconds
+            yield return StartCoroutine(CountdownTest(countDownCtr)); // Wait for 10 seconds for placing bet
             resetVar.randomRoll();
             resetVar.GamObjectActive(false);
             chipChoiceVar.chipButtonsInteractable(false);
-            yield return StartCoroutine(CountdownTest(10)); // Wait for another 10 seconds
-            // to do: get the previous pick
+            Debug.Log("game wheel");
+            // add another function for the wheel multiplier:
+            yield return new WaitForSeconds(25f); // waiting 25 sec for rolling cube and multiplier
+
+            resetVar.showResultColor(true);
+
+            yield return new WaitForSeconds(10f);
+            resetVar.showResultColor(false);
             betManagerVar.calculateWinnings();
-            congratulationVar.winning_number();
+            congratulationVar.congratsWinningMoney(true);
+            yield return StartCoroutine(CountdownTest(15)); // Wait for another 20 seconds
+            congratulationVar.congratsWinningMoney(false);
+            
+            // to do: get the previous pick
             resetVar.resetObject();
             resetVar.GamObjectActive(true);
             colorChoiceVar.resetColor();
             chipChoiceVar.resetChips();
             chipChoiceVar.chipButtonsInteractable(true);
+
 
         }
     }
