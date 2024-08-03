@@ -9,6 +9,8 @@ public class CountdownSCR : MonoBehaviour
     public BetManager betManagerVar;
     public ColorChoice colorChoiceVar;
     public ChipChoice chipChoiceVar;
+    public Congratulation congratulationVar;
+
     public Image img_def_placeyourbet;
     public Sprite img_green_placeyourbet;
     public Sprite img_red_placeyourbet;
@@ -41,6 +43,7 @@ public class CountdownSCR : MonoBehaviour
             chipChoiceVar.chipButtonsInteractable(false);
             yield return StartCoroutine(CountdownTest(10)); // Wait for another 10 seconds
             betManagerVar.calculateWinnings();
+            congratulationVar.winning_number();
             resetVar.resetObject();
             resetVar.GamObjectActive(true);
             colorChoiceVar.resetColor();
