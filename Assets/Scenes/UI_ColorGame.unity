@@ -552,17 +552,16 @@ MonoBehaviour:
   - {fileID: 316145597}
   - {fileID: 1120317375}
   HistoryNumHolder:
-  - {fileID: 651815173}
-  - {fileID: 468118355}
-  - {fileID: 141064373}
-  - {fileID: 1985229030}
-  - {fileID: 1197431737}
-  - {fileID: 644263780}
-  - {fileID: 1763900429}
-  - {fileID: 1009889645}
-  - {fileID: 710504489}
-  - {fileID: 1461912840}
-  WinningHistory: []
+  - {fileID: 651815175}
+  - {fileID: 468118357}
+  - {fileID: 141064375}
+  - {fileID: 1985229032}
+  - {fileID: 1197431739}
+  - {fileID: 644263782}
+  - {fileID: 1763900431}
+  - {fileID: 1009889647}
+  - {fileID: 710504491}
+  - {fileID: 1461912842}
 --- !u!114 &33797470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14807,7 +14806,7 @@ MonoBehaviour:
   totalBetText: {fileID: 1728318863}
   winIndicatorText: {fileID: 287727247}
   balanceText: {fileID: 824503089}
-  balance: 200
+  balance: 300
   _bet: 0
   _win: 0
   previousChipPick: -1

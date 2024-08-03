@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ShowColorWin : MonoBehaviour
 {
@@ -12,14 +13,16 @@ public class ShowColorWin : MonoBehaviour
 
     [Header("Winning History Collection")]
     public GameObject[] HistoryColorHolder;
-    public GameObject[] HistoryNumHolder;
+    public TextMeshProUGUI[] HistoryNumHolder;
 
     [Header("Winning History list data")]
+    private string TransactID = "";
     public List<string[]> WinningHistory = new List<string[]>();
 
     public void AddHistoryWin(string TransactID ,string ColorResult1, string ColorResult2, string ColorResult3){
         
         WinningHistory.Add(new string[] { TransactID, ColorResult1, ColorResult2, ColorResult3 });
+        
         // Debug.Log(WinningHistory[WinningHistory.Count-1]);
 
     }
@@ -41,24 +44,72 @@ public class ShowColorWin : MonoBehaviour
         colorwinResult[1].sprite = Colors[colornum[1]];
         colorwinResult[2].sprite = Colors[colornum[2]];
 
-        // result = string.Concat(strColors[colornum[1]], " , ", strColors[colornum[0]]," , ",strColors[colornum[2]]);
-        // Debug.Log(strColors[colornum[1]]);
-        // Debug.Log(strColors[colornum[0]]);
-        // Debug.Log(strColors[colornum[2]]);
-        // Debug.Log(result);
-        
-        //Add the winning colors in the history list
-        AddHistoryWin("lol1" , strColors[colornum[1]], strColors[colornum[0]], strColors[colornum[2]]);
+        AddHistoryWin("A000001" , strColors[colornum[1]], strColors[colornum[0]], strColors[colornum[2]]);
     }
     public void SetHisroryByTen(){
-        Debug.Log("Winning History:");
-        for (int i = 0; i < WinningHistory.Count; i++)
+
+        int HistoryHolderCtr = 0;
+        // Debug.Log("Winning History:");
+        for (int i = WinningHistory.Count-1; i < 10; i--)
         {
-            Debug.Log($"Entry {i + 1}:");
-            foreach (string value in WinningHistory[i])
-            {
-                Debug.Log(value);
+            HistoryHolderCtr++;
+            if(i <= WinningHistory.Count && HistoryHolderCtr <= 10){
+                Debug.Log(HistoryHolderCtr);
+                Transform child0 = HistoryColorHolder[i].transform.GetChild(0);
+                Transform child1 = HistoryColorHolder[i].transform.GetChild(1);
+                Transform child2 = HistoryColorHolder[i].transform.GetChild(2);
+
+                Image targetImage1 = child0.GetComponent<Image>();
+                Image targetImage2 = child1.GetComponent<Image>();
+                Image targetImage3 = child2.GetComponent<Image>();
+            
+                string[] entry = WinningHistory[i];
+
+                for (int j = 1; j < WinningHistory[i].Length; j++)
+                {
+                    switch (j)
+                        {
+                            case 1:
+                                 targetImage1.sprite = ColorAssignmentToImage(entry[j]);
+                                 break;
+                            case 2:
+                                 targetImage2.sprite = ColorAssignmentToImage(entry[j]);
+                                 break;
+                            case 3:
+                                 targetImage3.sprite = ColorAssignmentToImage(entry[j]);
+                                 break;
+                            default:
+                                Debug.LogWarning("No Output");
+                                break;
+                        }
+
+                    // targetImage1 = ColorAssignmentToImage(entry[j]);
+                    // Debug.Log(entry[j]);
+                    // Debug.Log(ColorAssignmentToImage(entry[j]));
+                }
             }
+                
+        }
+    }
+    public Sprite ColorAssignmentToImage(string color)
+    {
+        switch (color)
+        {
+            case "Pink":
+                return Colors[0];
+            case "Blue":
+                return Colors[1];
+            case "Red":
+                return Colors[2];
+            case "White":
+                return Colors[3];
+            case "Yellow":
+                return Colors[4];
+            case "Black":
+                return Colors[5];
+            default:
+                Debug.LogWarning("Unknown color: " + color);
+                return null; // Or return a default sprite if preferred
         }
     }
     

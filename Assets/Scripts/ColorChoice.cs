@@ -146,9 +146,9 @@ public class ColorChoice : MonoBehaviour
         foreach (var color in keys){
             currentColorSelected[color] = false;
         }
-        foreach(var kvp in previousColorPick){
-            Debug.Log($"{kvp.Key}: {kvp.Value}");
-        }
+        // foreach(var kvp in previousColorPick){
+        //     Debug.Log($"{kvp.Key}: {kvp.Value}");
+        // }
         foreach(GameObject GO in betColor){
             GO.GetComponent<Image>().color = new Color(1f,1f,1f,1f);
         }
