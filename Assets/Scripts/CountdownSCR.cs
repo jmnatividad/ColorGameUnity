@@ -38,7 +38,7 @@ public class CountdownSCR : MonoBehaviour
         while (true)
         {
             yield return StartCoroutine(CountdownTest(countDownCtr)); // Wait for 10 seconds for placing bet
-            resetVar.randomRoll();
+            resetVar.plank.SetActive(false);
             resetVar.GamObjectActive(false);
             chipChoiceVar.chipButtonsInteractable(false);
             Debug.Log("game wheel");

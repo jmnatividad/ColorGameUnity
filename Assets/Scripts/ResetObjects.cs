@@ -69,6 +69,7 @@ public class ResetObjects : MonoBehaviour
     }
 
     public void resetObject(){
+        randomRoll();
         int ctr = 0;
         plank.SetActive(true);
         foreach (GameObject obj in gameObjects)
@@ -82,7 +83,6 @@ public class ResetObjects : MonoBehaviour
                 rb.angularVelocity = Vector3.zero;
                 obj.transform.position = transform[ctr];
                 RoundOffAngles(obj);
-                randomRoll();
                 plank.SetActive(true);
                 ctr++;
             }
@@ -127,7 +127,7 @@ public class ResetObjects : MonoBehaviour
     }
 
     public void showResultColor(bool state){
-        showcolorwinVar.showColor(gameObjects[0].GetComponent<CubeState>().upperSide,gameObjects[1].GetComponent<CubeState>().upperSide,gameObjects[2].GetComponent<CubeState>().upperSide);
+        showcolorwinVar.showColor(state ,gameObjects[0].GetComponent<CubeState>().upperSide,gameObjects[1].GetComponent<CubeState>().upperSide,gameObjects[2].GetComponent<CubeState>().upperSide);
         showColor.SetActive(state);
         if(state){
             showcolorwinVar.SetHisroryByTen();
