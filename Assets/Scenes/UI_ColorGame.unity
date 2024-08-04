@@ -356,6 +356,7 @@ GameObject:
   - component: {fileID: 33797468}
   - component: {fileID: 33797469}
   - component: {fileID: 33797470}
+  - component: {fileID: 33797471}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -504,6 +505,7 @@ MonoBehaviour:
   colorChoiceVar: {fileID: 33797464}
   chipChoiceVar: {fileID: 33797465}
   congratulationVar: {fileID: 33797470}
+  wheelSpinVar: {fileID: 33797471}
   img_def_placeyourbet: {fileID: 1586532560}
   img_green_placeyourbet: {fileID: 21300000, guid: ffa9b764a1c972b41a160311d658ba10, type: 3}
   img_red_placeyourbet: {fileID: 21300000, guid: 94b82a74641038d4d85ee37aa210d148, type: 3}
@@ -578,6 +580,22 @@ MonoBehaviour:
   betManagerVar: {fileID: 1283099473}
   winNumberText: {fileID: 2077006936}
   congratulationMiddleSection: {fileID: 1020198689}
+--- !u!114 &33797471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33797461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8e761857dec1a4d82a24fa4f335972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialSpinSpeed: 360
+  spinDuration: 5
+  elapsedTime: 0
+  IsSpinning: 0
 --- !u!1 &48790258
 GameObject:
   m_ObjectHideFlags: 0
@@ -37845,4 +37863,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialSpinSpeed: 360
   spinDuration: 5
+  elapsedTime: 0
   IsSpinning: 0
