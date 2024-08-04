@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CountdownSCR : MonoBehaviour
 {
@@ -18,7 +19,10 @@ public class CountdownSCR : MonoBehaviour
     public ParticleSystem ConeParticleTop;
     public ParticleSystem ConeParticleBottom;
 
+    public TextMeshProUGUI nextGameText;
+
     public int countDownCtr = 10;
+    private int countNextGame = 60;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +41,7 @@ public class CountdownSCR : MonoBehaviour
     {
         while (true)
         {
+            StartCoroutine(countDownNextGame(countNextGame));
             yield return StartCoroutine(CountdownTest(countDownCtr)); // Wait for 10 seconds for placing bet
             resetVar.plank.SetActive(false);
             resetVar.GamObjectActive(false);
@@ -58,7 +63,7 @@ public class CountdownSCR : MonoBehaviour
             yield return StartCoroutine(CountdownTest(15)); // Wait for another 20 seconds
             congratulationVar.congratsWinningMoney(false);
 
-            yield return new WaitForSeconds(5f); // Wait for another 20 seconds
+            yield return new WaitForSeconds(5f); // Wait for another 5 seconds
 
             
             // to do: get the previous pick
@@ -90,5 +95,16 @@ public class CountdownSCR : MonoBehaviour
             yield return new WaitForSeconds(1f);
             seconds--;
         }
+    }
+    IEnumerator countDownNextGame(int nextGameSeconds)
+    {
+        // nextGameText.gameObject.SetActive(true);
+        while (nextGameSeconds > 0)
+        {
+            nextGameText.text = $"Next Game: {nextGameSeconds}";
+            yield return new WaitForSeconds(1f);
+            nextGameSeconds--;
+        }
+        // nextGameText.gameObject.SetActive(false);
     }
 }
