@@ -9,18 +9,18 @@ public class WheelSpin : MonoBehaviour
     public float spinDuration = 5f; // Duration of the spin in seconds
 
     private float currentSpinSpeed;
-    private float elapsedTime = 0f;
+    public float elapsedTime = 0f;
 
     [Header("For Wheel Random Z")]
     // public float[]  RandomWheelZ = { -6f, -4f, -8f, 0f, 8f, 4f, 6f };
 
     
     [Header("Identify wheel is spinning")]
-    public bool IsSpinning = false;
+    public bool IsSpinning = true;
     void Start()
     {
         // Set the current spin speed to the initial speed at the start
-        currentSpinSpeed = initialSpinSpeed;
+        // currentSpinSpeed = initialSpinSpeed;
         RandomWheelRotation();
     }
 
@@ -30,12 +30,13 @@ public class WheelSpin : MonoBehaviour
     }
     public void RandomWheelRotation(){
         //randomize the rotation of the wheel every new game.
+        currentSpinSpeed = initialSpinSpeed;
         float randomZ = Mathf.Round(Random.Range(0, 360f));
         this.transform.eulerAngles = new Vector3(Mathf.Round( 0), -210f, randomZ );
     }
 
     public void SpinWheel(){
-        if(IsSpinning){
+        if(IsSpinning == true){
             if (elapsedTime < spinDuration)
             {
                 // Calculate the amount of time passed since the last frame

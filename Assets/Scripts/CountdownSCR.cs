@@ -11,6 +11,7 @@ public class CountdownSCR : MonoBehaviour
     public ColorChoice colorChoiceVar;
     public ChipChoice chipChoiceVar;
     public Congratulation congratulationVar;
+    public WheelSpin wheelSpinVar;
 
     public Image img_def_placeyourbet;
     public Sprite img_green_placeyourbet;
@@ -39,14 +40,16 @@ public class CountdownSCR : MonoBehaviour
 
     IEnumerator RepeatCoroutine()
     {
+        // wheelSpinVar.RandomWheelRotation();
         while (true)
         {
+            
             StartCoroutine(countDownNextGame(countNextGame));
+            
             yield return StartCoroutine(CountdownTest(countDownCtr)); // Wait for 10 seconds for placing bet
             resetVar.plank.SetActive(false);
             resetVar.GamObjectActive(false);
             chipChoiceVar.chipButtonsInteractable(false);
-            Debug.Log("game wheel");
             // add another function for the wheel multiplier:
             yield return new WaitForSeconds(5f); // rolling cube
             resetVar.showResultColor(true);
@@ -55,8 +58,12 @@ public class CountdownSCR : MonoBehaviour
             resetVar.showResultColor(false);
 
             //show wheel
-            
+            Debug.Log("game wheel");
+            wheelSpinVar.IsSpinning = true;
+
             yield return new WaitForSeconds(20f);
+            wheelSpinVar.IsSpinning = false;
+
             betManagerVar.calculateWinnings();
             congratulationVar.congratsWinningMoney(true);
 
