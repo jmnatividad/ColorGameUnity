@@ -2,8 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class WheelSpin : MonoBehaviour
 {
+
+    [Header("For Multiplier")]
+    public Transform WheelPointer;
+    public float rayDistance = 100f;
+    
     [Header("For Spinning")]
     public float initialSpinSpeed = 360f; // Initial speed in degrees per second
     public float spinDuration = 5f; // Duration of the spin in seconds
@@ -25,7 +31,9 @@ public class WheelSpin : MonoBehaviour
 
     void Update()
     {
+        // Debug.Log(this.transform.eulerAngles);
         SpinWheel();
+        MultiplierPointer();
     }
     public void RandomWheelRotation(){
         //randomize the rotation of the wheel every new game.
@@ -61,6 +69,26 @@ public class WheelSpin : MonoBehaviour
             }
         }else{
             elapsedTime = 0f;
+        }
+    }
+    public void MultiplierPointer(){
+        // Define the ray origin and direction
+        Vector3 rayOrigin = WheelPointer.position;
+        Vector3 rayDirection = WheelPointer.forward;
+
+        // Perform the raycast
+        RaycastHit hit;
+        if (Physics.Raycast(rayOrigin, rayDirection, out hit, rayDistance))
+        {
+            Debug.Log("Hit object: " + hit.collider.name);
+
+            // Draw the ray in red if it hits an object
+            Debug.DrawRay(rayOrigin, rayDirection * hit.distance, Color.red);
+        }
+        else
+        {
+            // Draw the ray in green if it doesn't hit anything
+            Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.green);
         }
     }
 }
