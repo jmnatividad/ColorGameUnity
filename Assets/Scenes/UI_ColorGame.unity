@@ -4623,6 +4623,7 @@ GameObject:
   - component: {fileID: 557524132}
   - component: {fileID: 557524134}
   - component: {fileID: 557524135}
+  - component: {fileID: 557524136}
   - component: {fileID: 557524131}
   - component: {fileID: 557524130}
   m_Layer: 0
@@ -4892,6 +4893,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6b19b569051b0a34b8a6d8672c7a6e2b, type: 3}
   - {fileID: 8300000, guid: 31fcad23ac65e7b42af8a4ef6b7144b9, type: 3}
   - {fileID: 8300000, guid: 4f32bbb2b54b6f4439a181ea55464c8d, type: 3}
+--- !u!114 &557524136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557524129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6d7e2dffb3adf74d95efcb62e4e98ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 557524131}
+  colorClick:
+  - {fileID: 8300000, guid: 927a92b8898f9824fa213d4bc555fd0b, type: 3}
+  - {fileID: 8300000, guid: 663234f39b299814c9ecc205c7e4931b, type: 3}
 --- !u!1 &558512260
 GameObject:
   m_ObjectHideFlags: 0
