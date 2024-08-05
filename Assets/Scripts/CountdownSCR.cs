@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CountdownSCR : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class CountdownSCR : MonoBehaviour
     public BetManager betManagerVar;
     public ColorChoice colorChoiceVar;
     public ChipChoice chipChoiceVar;
+    public Congratulation congratulationVar;
+    public WheelSpin wheelSpinVar;
+
     public Image img_def_placeyourbet;
     public Sprite img_green_placeyourbet;
     public Sprite img_red_placeyourbet;
@@ -16,15 +20,16 @@ public class CountdownSCR : MonoBehaviour
     public ParticleSystem ConeParticleTop;
     public ParticleSystem ConeParticleBottom;
 
+    public TextMeshProUGUI nextGameText;
+
     public int countDownCtr = 10;
+    private int countNextGame = 60;
 
     // Start is called before the first frame update
     void Start()
     {
         resetVar.GamObjectActive(true);
         //Initialization of Particles to Stop (Placeholder)
-        ConeParticleTop.Stop();
-        ConeParticleBottom.Stop();
     }
 
     public void startCountdown(){
@@ -33,19 +38,47 @@ public class CountdownSCR : MonoBehaviour
 
     IEnumerator RepeatCoroutine()
     {
+        // wheelSpinVar.RandomWheelRotation();
         while (true)
         {
-            yield return StartCoroutine(CountdownTest(countDownCtr)); // Wait for 10 seconds
-            resetVar.randomRoll();
+            
+            StartCoroutine(countDownNextGame(countNextGame));
+            
+            yield return StartCoroutine(CountdownTest(countDownCtr)); // Wait for 10 seconds for placing bet
+            resetVar.plank.SetActive(false);
             resetVar.GamObjectActive(false);
             chipChoiceVar.chipButtonsInteractable(false);
-            yield return StartCoroutine(CountdownTest(10)); // Wait for another 10 seconds
+            // add another function for the wheel multiplier:
+            yield return new WaitForSeconds(5f); // rolling cube
+            resetVar.showResultColor(true);
+
+            yield return new WaitForSeconds(5f); // show result
+            resetVar.showResultColor(false);
+
+            //show wheel
+            Debug.Log("game wheel");
+            wheelSpinVar.IsSpinning = true;
+
+            yield return new WaitForSeconds(20f);
+            wheelSpinVar.IsSpinning = false;
+
             betManagerVar.calculateWinnings();
+            congratulationVar.congratsWinningMoney(true);
+
+            yield return StartCoroutine(CountdownTest(15)); // Wait for another 20 seconds
+            congratulationVar.congratsWinningMoney(false);
+
+            yield return new WaitForSeconds(5f); // Wait for another 5 seconds
+
+            
+            // to do: get the previous pick
             resetVar.resetObject();
             resetVar.GamObjectActive(true);
             colorChoiceVar.resetColor();
             chipChoiceVar.resetChips();
             chipChoiceVar.chipButtonsInteractable(true);
+
+
         }
     }
     IEnumerator CountdownTest(int seconds)
@@ -60,6 +93,8 @@ public class CountdownSCR : MonoBehaviour
             }
             else    
                 img_def_placeyourbet.sprite = img_green_placeyourbet;
+                ConeParticleTop.Stop();
+                ConeParticleBottom.Stop();  
                 
 
             // Debug.Log("Countdown: " + seconds);
@@ -67,5 +102,16 @@ public class CountdownSCR : MonoBehaviour
             yield return new WaitForSeconds(1f);
             seconds--;
         }
+    }
+    IEnumerator countDownNextGame(int nextGameSeconds)
+    {
+        // nextGameText.gameObject.SetActive(true);
+        while (nextGameSeconds > 0)
+        {
+            nextGameText.text = $"Next Game: {nextGameSeconds}";
+            yield return new WaitForSeconds(1f);
+            nextGameSeconds--;
+        }
+        // nextGameText.gameObject.SetActive(false);
     }
 }

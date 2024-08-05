@@ -9,6 +9,7 @@ public class ColorChoice : MonoBehaviour
     // Start is called before the first frame update
     public GameObject[] betColor;
     public BetManager betManagerVar;
+    public ColorChoiceAudio colorChoiceAudioVar;
     public Dictionary<string, bool> currentColorSelected = new Dictionary<string, bool>{
         {"Yellow", false},
         {"White", false},
@@ -17,6 +18,7 @@ public class ColorChoice : MonoBehaviour
         {"Red", false},
         {"Black", false}
     };
+    public Dictionary<string, bool> previousColorPick = new Dictionary<string, bool>();
     // private int currentIndex = -1; // Initialize with -1 to indicate no active button
     void Start()
     {
@@ -28,29 +30,33 @@ public class ColorChoice : MonoBehaviour
         }
     }
 
-    private void OnButtonClick(int index)
+    public void OnButtonClick(int index)
     {
         if (currentColorSelected[getColor(index)])
         {
             // Revert the clicked button to its default image
-            betColor[index].GetComponent<Image>().color = new Color(1f,1f,1f,1f);
+            betColor[index].GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
             currentColorSelected[getColor(index)] = false;
+            colorChoiceAudioVar.playClickColor(false);
         }
         else
         {
-            if(betManagerVar.bet<betManagerVar.balance){
-                betColor[index].GetComponent<Image>().color = new Color(1f,1f,1f,0.5f);
+            if (betManagerVar.bet < betManagerVar.balance)
+            {
+                betColor[index].GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.5f);
                 currentColorSelected[getColor(index)] = true;
+                colorChoiceAudioVar.playClickColor(true);
             }
-        }        
+        }
     }
-    private string getColor(int index){
-        if(index==0) return "Yellow";
-        if(index==1) return "White";
-        if(index==2) return "Pink";
-        if(index==3) return "Blue";
-        if(index==4) return "Red";
-        if(index==5) return "Black";
+    private string getColor(int index)
+    {
+        if (index == 0) return "Yellow";
+        if (index == 1) return "White";
+        if (index == 2) return "Pink";
+        if (index == 3) return "Blue";
+        if (index == 4) return "Red";
+        if (index == 5) return "Black";
         return "";
     }
     public void maxButtonClick()
@@ -63,11 +69,14 @@ public class ColorChoice : MonoBehaviour
         {
             currentColorSelected[color] = true;
         }
-        
 
-        if(betManagerVar.bet<=betManagerVar.balance){
+
+        if (betManagerVar.bet <= betManagerVar.balance)
+        {
             setColor();
-        }else{
+        }
+        else
+        {
             foreach (var color in keys)
             {
                 currentColorSelected[color] = false;
@@ -77,7 +86,7 @@ public class ColorChoice : MonoBehaviour
     // check if balance allows for quick pick
     public void quickPickClick()
     {
-        
+
         // Debug.Log()
         // Create a list of keys from the dictionary
         var keys = new List<string>(currentColorSelected.Keys);
@@ -92,26 +101,51 @@ public class ColorChoice : MonoBehaviour
             keys[i] = keys[j];
             keys[j] = temp;
         }
-        
+
         // Set at least three entries to true
         for (int i = 0; i < 3; i++)
         {
             currentColorSelected[keys[i]] = true;
         }
-        if(betManagerVar.bet<=betManagerVar.balance){
+        if (betManagerVar.bet <= betManagerVar.balance)
+        {
             setColor();
-        }else{
+        }
+        else
+        {
             for (int i = 0; i < 3; i++)
             {
                 currentColorSelected[keys[i]] = false;
             }
+            betManagerVar.calculateBet();
         }
-        
+
     }
 
-    public void setColor(){
-        int tempIndex=0;
+    public void setColor()
+    {
+        int tempIndex = 0;
+        foreach (var kvp in currentColorSelected)
+        {
+            if (kvp.Value)
+            {
+                betColor[tempIndex].GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.5f);
+            }
+            tempIndex++;
+        }
+    }
+    public int getColorBets(){
+        int count=0;
         foreach(var kvp in currentColorSelected){
+            if(kvp.Value){
+                count++;
+            }
+        }
+        return count;
+    }
+    public void setColor(Dictionary<string, bool> colors){
+        int tempIndex=0;
+        foreach(var kvp in colors){
             if(kvp.Value){
                 betColor[tempIndex].GetComponent<Image>().color = new Color(1f,1f,1f,0.5f);
             }
@@ -119,12 +153,16 @@ public class ColorChoice : MonoBehaviour
         }
     }
     public void resetColor(){
+        
         var keys = new List<string>(currentColorSelected.Keys);
+        
         // set all to false;
-        foreach (var color in keys)
-        {
+        foreach (var color in keys){
             currentColorSelected[color] = false;
         }
+        // foreach(var kvp in previousColorPick){
+        //     Debug.Log($"{kvp.Key}: {kvp.Value}");
+        // }
         foreach(GameObject GO in betColor){
             GO.GetComponent<Image>().color = new Color(1f,1f,1f,1f);
         }
