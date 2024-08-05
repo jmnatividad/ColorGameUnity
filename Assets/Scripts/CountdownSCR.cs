@@ -54,10 +54,10 @@ public class CountdownSCR : MonoBehaviour
             // add another function for the wheel multiplier:
             yield return new WaitForSeconds(5f); // rolling cube
             resetVar.showResultColor(true);
+            cubeFrequenciesVar.getFrequencies();
 
             yield return new WaitForSeconds(5f); // show result
             resetVar.showResultColor(false);
-            cubeFrequenciesVar.getFrequencies();
             //show wheel
             Debug.Log("game wheel");
             wheelSpinVar.IsSpinning = true;
