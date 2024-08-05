@@ -58,7 +58,7 @@ public class ShowColorWin : MonoBehaviour
         int HistoryHolderCtr = 0;
         for (int i = WinningHistory.Count-1; i < WinningHistory.Count; --i)
         {
-            if(i == -1 || HistoryHolderCtr == 9){
+            if(i == -1 || HistoryHolderCtr == 10){
                 break;
             }else{
                 Transform child0 = HistoryColorHolder[HistoryHolderCtr].transform.GetChild(0);
