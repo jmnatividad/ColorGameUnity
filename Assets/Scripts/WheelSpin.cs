@@ -36,7 +36,7 @@ public class WheelSpin : MonoBehaviour
     }
 
     public void SpinWheel(){
-        if(IsSpinning == true){
+        if(IsSpinning){
             if (elapsedTime < spinDuration)
             {
                 // Calculate the amount of time passed since the last frame

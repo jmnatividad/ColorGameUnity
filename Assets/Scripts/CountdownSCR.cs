@@ -12,6 +12,7 @@ public class CountdownSCR : MonoBehaviour
     public ChipChoice chipChoiceVar;
     public Congratulation congratulationVar;
     public WheelSpin wheelSpinVar;
+    public CubeFrequencies cubeFrequenciesVar;
 
     public Image img_def_placeyourbet;
     public Sprite img_green_placeyourbet;
@@ -51,23 +52,24 @@ public class CountdownSCR : MonoBehaviour
             resetVar.GamObjectActive(false);
             chipChoiceVar.chipButtonsInteractable(false);
             // add another function for the wheel multiplier:
-            yield return new WaitForSeconds(5f); // rolling cube
+            yield return new WaitForSeconds(5f); // rolling cube 5f
             resetVar.showResultColor(true);
+            cubeFrequenciesVar.getFrequencies();
 
-            yield return new WaitForSeconds(5f); // show result
+            yield return new WaitForSeconds(5f); // show result 5f
             resetVar.showResultColor(false);
-
             //show wheel
             Debug.Log("game wheel");
             wheelSpinVar.IsSpinning = true;
 
-            yield return new WaitForSeconds(20f);
+            yield return new WaitForSeconds(20f); //20f
             wheelSpinVar.IsSpinning = false;
 
             betManagerVar.calculateWinnings();
+            
             congratulationVar.congratsWinningMoney(true);
 
-            yield return StartCoroutine(CountdownTest(15)); // Wait for another 20 seconds
+            yield return StartCoroutine(CountdownTest(15)); // Wait for another 15 seconds
             congratulationVar.congratsWinningMoney(false);
 
             yield return new WaitForSeconds(5f); // Wait for another 5 seconds
