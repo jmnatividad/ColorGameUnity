@@ -9,19 +9,18 @@ public class WheelSpin : MonoBehaviour
     [Header("For Multiplier")]
     public Transform WheelPointer;
     public float rayDistance = 100f;
-    
+
     [Header("For Spinning")]
     public float initialSpinSpeed = 360f; // Initial speed in degrees per second
     public float spinDuration = 5f; // Duration of the spin in seconds
 
     private float currentSpinSpeed;
     public float elapsedTime = 0f;
-    
 
     [Header("For Wheel Random Z")]
     // public float[]  RandomWheelZ = { -6f, -4f, -8f, 0f, 8f, 4f, 6f };
 
-    
+
     [Header("Identify wheel is spinning")]
     public bool IsSpinning = false;
     void Start()
@@ -35,15 +34,19 @@ public class WheelSpin : MonoBehaviour
         SpinWheel();
         MultiplierPointer();
     }
-    public void RandomWheelRotation(){
+    public void RandomWheelRotation()
+    {
         //randomize the rotation of the wheel every new game.
         currentSpinSpeed = initialSpinSpeed;
         float randomZ = Mathf.Round(Random.Range(0, 360f));
-        this.transform.eulerAngles = new Vector3(Mathf.Round( 0), -210f, randomZ );
+        this.transform.eulerAngles = new Vector3(Mathf.Round(0), -210f, randomZ);
     }
 
-    public void SpinWheel(){
-        if(IsSpinning){
+    public void SpinWheel()
+    {
+
+        if (IsSpinning)
+        {
             if (elapsedTime < spinDuration)
             {
                 // Calculate the amount of time passed since the last frame
@@ -67,11 +70,14 @@ public class WheelSpin : MonoBehaviour
                 // Rotate the GameObject around the Z-axis
                 transform.Rotate(0f, 0f, currentSpinSpeed * deltaTime);
             }
-        }else{
+        }
+        else
+        {
             elapsedTime = 0f;
         }
     }
-    public void MultiplierPointer(){
+    public void MultiplierPointer()
+    {
         // Define the ray origin and direction
         Vector3 rayOrigin = WheelPointer.position;
         Vector3 rayDirection = WheelPointer.forward;
@@ -92,5 +98,5 @@ public class WheelSpin : MonoBehaviour
         }
     }
 }
-    
+
 

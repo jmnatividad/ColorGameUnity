@@ -13,6 +13,7 @@ public class CountdownSCR : MonoBehaviour
     public Congratulation congratulationVar;
     public WheelSpin wheelSpinVar;
     public CubeFrequencies cubeFrequenciesVar;
+    public WheelAudio wheelAudioVar;
 
     public Image img_def_placeyourbet;
     public Sprite img_green_placeyourbet;
@@ -39,17 +40,18 @@ public class CountdownSCR : MonoBehaviour
         ConeParticleBottom.Stop();
     }
 
-    public void startCountdown(){
+    public void startCountdown()
+    {
         StartCoroutine(RepeatCoroutine());
     }
 
     IEnumerator RepeatCoroutine()
     {
-        
+
         while (true)
         {
             StartCoroutine(countDownNextGame(countNextGame));
-            
+
             yield return StartCoroutine(CountdownTest(countDownCtr)); // Wait for 10 seconds for placing bet
             resetVar.plank.SetActive(false);
             resetVar.GamObjectActive(false);
@@ -64,12 +66,14 @@ public class CountdownSCR : MonoBehaviour
             //show wheel
             Debug.Log("game wheel");
             wheelSpinVar.IsSpinning = true;
+            wheelAudioVar.playWheelSpin(true);
 
             yield return new WaitForSeconds(20f); //20f
             wheelSpinVar.IsSpinning = false;
+            wheelAudioVar.playWheelSpin(false);
 
             betManagerVar.calculateWinnings();
-            
+
             congratulationVar.congratsWinningMoney(true);
 
             yield return StartCoroutine(CountdownTest(15)); // Wait for another 15 seconds
@@ -77,7 +81,7 @@ public class CountdownSCR : MonoBehaviour
 
             yield return new WaitForSeconds(5f); // Wait for another 5 seconds
 
-            
+
             // to do: get the previous pick
             resetVar.resetObject();
             resetVar.GamObjectActive(true);
@@ -90,25 +94,25 @@ public class CountdownSCR : MonoBehaviour
     }
     IEnumerator CountdownTest(int seconds)
     {
-        
+
         while (seconds > 0)
         {
             if (seconds < 4)
-        {
-            neon.sprite = img_red_placeyourbet_neon;
-            img_def_placeyourbet.sprite = img_red_placeyourbet;
-            Debug.Log("Setting red sprites");
-            ConeParticleTop.Play();
-            ConeParticleBottom.Play();
-        }
-        else
-        {
-            img_def_placeyourbet.sprite = img_green_placeyourbet;
-            neon.sprite = img_green_placeyourbet_neon;
-            Debug.Log("Setting green sprites");
-            ConeParticleTop.Stop();
-            ConeParticleBottom.Stop();
-        }
+            {
+                neon.sprite = img_red_placeyourbet_neon;
+                img_def_placeyourbet.sprite = img_red_placeyourbet;
+                Debug.Log("Setting red sprites");
+                ConeParticleTop.Play();
+                ConeParticleBottom.Play();
+            }
+            else
+            {
+                img_def_placeyourbet.sprite = img_green_placeyourbet;
+                neon.sprite = img_green_placeyourbet_neon;
+                Debug.Log("Setting green sprites");
+                ConeParticleTop.Stop();
+                ConeParticleBottom.Stop();
+            }
 
             // Debug.Log("Countdown: " + seconds);
             resetVar.countdown.text = seconds.ToString();
