@@ -447,6 +447,7 @@ MonoBehaviour:
   - {fileID: 1122551562}
   - {fileID: 1439246472}
   betManagerVar: {fileID: 1283099473}
+  colorChoiceAudioVar: {fileID: 557524136}
 --- !u!114 &33797465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7181,6 +7182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   betColor: []
   betManagerVar: {fileID: 0}
+  colorChoiceAudioVar: {fileID: 0}
 --- !u!1 &882054202
 GameObject:
   m_ObjectHideFlags: 0
