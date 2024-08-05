@@ -620,8 +620,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetImage: {fileID: 101919367}
-  fadeDuration: 1
-  threshold: 0.6
+  fadeDuration: 1.5
+  threshold: 0.4
 --- !u!1 &48790258
 GameObject:
   m_ObjectHideFlags: 0
@@ -37811,7 +37811,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 901897122884054359}
-  m_LocalRotation: {x: -0.000000026077034, y: -0.0000001192093, z: -0.19936793, w: -0.97992474}
+  m_LocalRotation: {x: -0.000000059604645, y: 0.00000010430813, z: -0.47715873, w: 0.87881714}
   m_LocalPosition: {x: 1.7053025e-15, y: 1.3, z: 1.9446242}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
