@@ -10,17 +10,16 @@ public class WheelSpin : MonoBehaviour
 
     private float currentSpinSpeed;
     public float elapsedTime = 0f;
+    
 
     [Header("For Wheel Random Z")]
     // public float[]  RandomWheelZ = { -6f, -4f, -8f, 0f, 8f, 4f, 6f };
 
     
     [Header("Identify wheel is spinning")]
-    public bool IsSpinning = true;
+    public bool IsSpinning = false;
     void Start()
     {
-        // Set the current spin speed to the initial speed at the start
-        // currentSpinSpeed = initialSpinSpeed;
         RandomWheelRotation();
     }
 
@@ -60,6 +59,8 @@ public class WheelSpin : MonoBehaviour
                 // Rotate the GameObject around the Z-axis
                 transform.Rotate(0f, 0f, currentSpinSpeed * deltaTime);
             }
+        }else{
+            elapsedTime = 0f;
         }
     }
 }

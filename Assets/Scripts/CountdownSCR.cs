@@ -45,10 +45,9 @@ public class CountdownSCR : MonoBehaviour
 
     IEnumerator RepeatCoroutine()
     {
-        // wheelSpinVar.RandomWheelRotation();
+        
         while (true)
         {
-            
             StartCoroutine(countDownNextGame(countNextGame));
             
             yield return StartCoroutine(CountdownTest(countDownCtr)); // Wait for 10 seconds for placing bet
@@ -126,6 +125,7 @@ public class CountdownSCR : MonoBehaviour
             yield return new WaitForSeconds(1f);
             nextGameSeconds--;
         }
+        wheelSpinVar.RandomWheelRotation();
         // nextGameText.gameObject.SetActive(false);
     }
 }
