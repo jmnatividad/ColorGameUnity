@@ -61,18 +61,19 @@ public class CountdownSCR : MonoBehaviour
 
             yield return new WaitForSeconds(5f); // show result 5f
             resetVar.showResultColor(false);
+
+            yield return new WaitForSeconds(5f);
             //show wheel
-            Debug.Log("game wheel");
             wheelSpinVar.IsSpinning = true;
 
-            yield return new WaitForSeconds(20f); //20f
+            yield return new WaitForSeconds(10f); //20f
             wheelSpinVar.IsSpinning = false;
 
             betManagerVar.calculateWinnings();
             
             congratulationVar.congratsWinningMoney(true);
 
-            yield return StartCoroutine(CountdownTest(15)); // Wait for another 15 seconds
+            yield return StartCoroutine(CountdownTest(5)); // Wait for another 15 seconds
             congratulationVar.congratsWinningMoney(false);
 
             yield return new WaitForSeconds(5f); // Wait for another 5 seconds
