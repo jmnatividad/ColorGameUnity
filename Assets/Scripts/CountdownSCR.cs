@@ -6,6 +6,7 @@ using TMPro;
 
 public class CountdownSCR : MonoBehaviour
 {
+    [Header("Script Reference")]
     public ResetObjects resetVar;
     public BetManager betManagerVar;
     public ColorChoice colorChoiceVar;
@@ -13,6 +14,8 @@ public class CountdownSCR : MonoBehaviour
     public Congratulation congratulationVar;
     public WheelSpin wheelSpinVar;
     public CubeFrequencies cubeFrequenciesVar;
+
+    public CameraAction CamActions;
 
     public Image img_def_placeyourbet;
     public Sprite img_green_placeyourbet;
@@ -28,7 +31,7 @@ public class CountdownSCR : MonoBehaviour
     public TextMeshProUGUI nextGameText;
 
     public int countDownCtr = 10;
-    private int countNextGame = 60;
+    private int countNextGame = 50;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +52,8 @@ public class CountdownSCR : MonoBehaviour
         while (true)
         {
             StartCoroutine(countDownNextGame(countNextGame));
+
+            CamActions.CameraAngle("ColorGame"); //Camera to Color game table
             
             yield return StartCoroutine(CountdownTest(countDownCtr)); // Wait for 10 seconds for placing bet
             resetVar.plank.SetActive(false);
@@ -60,13 +65,14 @@ public class CountdownSCR : MonoBehaviour
             cubeFrequenciesVar.getFrequencies();
 
             yield return new WaitForSeconds(5f); // show result 5f
+            CamActions.CameraAngle("WheelSpin"); //Camera to Wheel Spin
             resetVar.showResultColor(false);
 
             yield return new WaitForSeconds(5f);
             //show wheel
             wheelSpinVar.IsSpinning = true;
 
-            yield return new WaitForSeconds(10f); //20f
+            yield return new WaitForSeconds(15f); //10f
             wheelSpinVar.IsSpinning = false;
 
             betManagerVar.calculateWinnings();
@@ -75,8 +81,9 @@ public class CountdownSCR : MonoBehaviour
 
             yield return StartCoroutine(CountdownTest(5)); // Wait for another 15 seconds
             congratulationVar.congratsWinningMoney(false);
-
+            CamActions.CameraAngle("Default"); //Camera to Default
             yield return new WaitForSeconds(5f); // Wait for another 5 seconds
+            CamActions.ResetState(); //reset the values 
 
             
             // to do: get the previous pick

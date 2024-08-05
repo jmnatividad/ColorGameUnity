@@ -39,7 +39,7 @@ public class WheelSpin : MonoBehaviour
         //randomize the rotation of the wheel every new game.
         currentSpinSpeed = initialSpinSpeed;
         float randomZ = Mathf.Round(Random.Range(0, 360f));
-        this.transform.eulerAngles = new Vector3(Mathf.Round( 0), -210f, randomZ );
+        this.transform.eulerAngles = new Vector3(Mathf.Round( 0), 132f, randomZ );
     }
 
     public void SpinWheel(){
