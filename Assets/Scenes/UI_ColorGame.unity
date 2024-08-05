@@ -358,6 +358,7 @@ GameObject:
   - component: {fileID: 33797470}
   - component: {fileID: 33797471}
   - component: {fileID: 33797472}
+  - component: {fileID: 33797473}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -511,9 +512,9 @@ MonoBehaviour:
   img_def_placeyourbet: {fileID: 1586532560}
   img_green_placeyourbet: {fileID: 21300000, guid: def84bdc78f08c9479d296b4ba287d32, type: 3}
   img_red_placeyourbet: {fileID: 21300000, guid: 945aa11bc2d856f4c96ad5937a9fc991, type: 3}
-  img_def_placeyourbet_neon: {fileID: 101919367}
-  img_green_placeyourbet_neon: {fileID: 0}
-  img_red_placeyourbet_neon: {fileID: 0}
+  neon: {fileID: 101919367}
+  img_green_placeyourbet_neon: {fileID: 21300000, guid: 5f1a8c3568546124caf074055083e59e, type: 3}
+  img_red_placeyourbet_neon: {fileID: 21300000, guid: f3b3dec472a48984084be47ee6bfaf03, type: 3}
   ConeParticleTop: {fileID: 1485421284}
   ConeParticleBottom: {fileID: 988044079}
   nextGameText: {fileID: 103984750}
@@ -622,6 +623,21 @@ MonoBehaviour:
   - {fileID: 1911360295}
   - {fileID: 1825948403}
   - {fileID: 58667479}
+--- !u!114 &33797473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33797461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29886d85722586a41a0b25c984bf80fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 101919367}
+  fadeDuration: 1
+  threshold: 0.6
 --- !u!1 &48790258
 GameObject:
   m_ObjectHideFlags: 0
@@ -1337,7 +1353,7 @@ GameObject:
   - component: {fileID: 101919368}
   - component: {fileID: 101919367}
   m_Layer: 5
-  m_Name: Place Your Bet_Neon_Green
+  m_Name: Place Your Bet_Neon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1383,7 +1399,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5f1a8c3568546124caf074055083e59e, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5096,7 +5112,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1396791568}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7859,7 +7875,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1396791568}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!199 &988044078
 ParticleSystemRenderer:
@@ -16470,7 +16486,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 101919366}
-  - {fileID: 2062749082}
   - {fileID: 1838445080}
   - {fileID: 1586532559}
   - {fileID: 596656684}
@@ -17255,7 +17270,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1396791568}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &1485421283
 ParticleSystemRenderer:
@@ -22678,7 +22693,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1396791568}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -25447,7 +25462,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1396791568}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1838445081
 SpriteRenderer:
@@ -27149,82 +27164,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047000277}
-  m_CullTransparentMesh: 1
---- !u!1 &2062749081
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2062749082}
-  - component: {fileID: 2062749084}
-  - component: {fileID: 2062749083}
-  m_Layer: 5
-  m_Name: Place Your Bet_Neon_Red
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &2062749082
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062749081}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1396791568}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.4, y: -38.5}
-  m_SizeDelta: {x: 541.7437, y: 209.5464}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2062749083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062749081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &2062749084
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062749081}
   m_CullTransparentMesh: 1
 --- !u!1 &2066078826
 GameObject:

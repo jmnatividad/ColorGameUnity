@@ -6,21 +6,24 @@ using TMPro;
 
 public class NeonEffect : MonoBehaviour
 {
-    public Image i;
-    public Sprite green;
-    public Sprite red;
-    private bool isGreen = true;
+    public Image targetImage;
+    public float fadeDuration = 1f;
+    public float threshold = 0.6f;
 
-    // Update is called once per frame
-    void Update()
+    public void FadeIn()
     {
-        if(isGreen)
-        {
-            i.sprite = green;
-        }
-        else
-        {
-            i.sprite = red;
-        }
+        targetImage.CrossFadeAlpha(0.6f, fadeDuration, false);
+        Debug.Log("Fading");
+    }
+
+    public void FadeOut()
+    {
+        targetImage.CrossFadeAlpha(1f, fadeDuration, false);
+    }
+
+    private void Update() {
+        Color targetImageColor = targetImage.color;
+        float alphaValue = targetImageColor.a;
+        int count = 10;
     }
 }
