@@ -4527,8 +4527,8 @@ GameObject:
   m_Component:
   - component: {fileID: 557524133}
   - component: {fileID: 557524132}
-  - component: {fileID: 557524134}
   - component: {fileID: 557524135}
+  - component: {fileID: 557524134}
   - component: {fileID: 557524136}
   - component: {fileID: 557524131}
   - component: {fileID: 557524130}
@@ -4777,6 +4777,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 417c2374287bc2c4595bbfcb9c569de7, type: 3}
   - {fileID: 8300000, guid: 850d1a2f45ed01146a2378dd05271b79, type: 3}
   - {fileID: 8300000, guid: 2ba18cabcc054ca4a984afde087d82ad, type: 3}
+  buttonClick:
+  - {fileID: 8300000, guid: 20ae9a804605e3c4aa989dbd79046e08, type: 3}
+  - {fileID: 8300000, guid: 0ad6f548a70182d44b7b52d5f5d5a671, type: 3}
 --- !u!114 &557524135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15265,6 +15268,7 @@ MonoBehaviour:
   chipChoiceVar: {fileID: 33797465}
   colorChoiceVar: {fileID: 33797464}
   resetObjectsVar: {fileID: 33797462}
+  chipChoiceAudioVar: {fileID: 557524134}
   maxPick: {fileID: 28830709}
   doubleBet: {fileID: 1640901008}
   undoPick: {fileID: 769690837}

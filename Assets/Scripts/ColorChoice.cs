@@ -61,6 +61,7 @@ public class ColorChoice : MonoBehaviour
     }
     public void maxButtonClick()
     {
+        colorChoiceAudioVar.playClickColor(true);
         // Create a list of keys from the dictionary
         var keys = new List<string>(currentColorSelected.Keys);
 
@@ -86,10 +87,11 @@ public class ColorChoice : MonoBehaviour
     // check if balance allows for quick pick
     public void quickPickClick()
     {
-
+        colorChoiceAudioVar.playClickColor(true);
         // Debug.Log()
         // Create a list of keys from the dictionary
         var keys = new List<string>(currentColorSelected.Keys);
+
         // reset the tables;
         resetColor();
         // Shuffle the list of keys
@@ -134,37 +136,46 @@ public class ColorChoice : MonoBehaviour
             tempIndex++;
         }
     }
-    public int getColorBets(){
-        int count=0;
-        foreach(var kvp in currentColorSelected){
-            if(kvp.Value){
+    public int getColorBets()
+    {
+        int count = 0;
+        foreach (var kvp in currentColorSelected)
+        {
+            if (kvp.Value)
+            {
                 count++;
             }
         }
         return count;
     }
-    public void setColor(Dictionary<string, bool> colors){
-        int tempIndex=0;
-        foreach(var kvp in colors){
-            if(kvp.Value){
-                betColor[tempIndex].GetComponent<Image>().color = new Color(1f,1f,1f,0.5f);
+    public void setColor(Dictionary<string, bool> colors)
+    {
+        int tempIndex = 0;
+        foreach (var kvp in colors)
+        {
+            if (kvp.Value)
+            {
+                betColor[tempIndex].GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.5f);
             }
             tempIndex++;
         }
     }
-    public void resetColor(){
-        
+    public void resetColor()
+    {
+
         var keys = new List<string>(currentColorSelected.Keys);
-        
+
         // set all to false;
-        foreach (var color in keys){
+        foreach (var color in keys)
+        {
             currentColorSelected[color] = false;
         }
         // foreach(var kvp in previousColorPick){
         //     Debug.Log($"{kvp.Key}: {kvp.Value}");
         // }
-        foreach(GameObject GO in betColor){
-            GO.GetComponent<Image>().color = new Color(1f,1f,1f,1f);
+        foreach (GameObject GO in betColor)
+        {
+            GO.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
         }
     }
 
