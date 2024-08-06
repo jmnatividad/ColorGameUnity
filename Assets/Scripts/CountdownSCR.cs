@@ -56,7 +56,9 @@ public class CountdownSCR : MonoBehaviour
             CamActions.CameraAngle("ColorGame"); //Camera to Color game table
             
             yield return StartCoroutine(CountdownTest(countDownCtr)); // Wait for 10 seconds for placing bet
-            resetVar.plank.SetActive(false);
+            wheelSpinVar.RandomWheelRotation();
+            // resetVar.plank.SetActive(false);
+            resetVar.PlankBehavior("StartGame");
             resetVar.GamObjectActive(false);
             chipChoiceVar.chipButtonsInteractable(false);
             // add another function for the wheel multiplier:
@@ -65,11 +67,14 @@ public class CountdownSCR : MonoBehaviour
             cubeFrequenciesVar.getFrequencies();
 
             yield return new WaitForSeconds(5f); // show result 5f
+
             CamActions.CameraAngle("WheelSpin"); //Camera to Wheel Spin
             resetVar.showResultColor(false);
 
             yield return new WaitForSeconds(5f);
             //show wheel
+            resetVar.PlankBehavior("ResetGame");
+
             wheelSpinVar.IsSpinning = true;
 
             yield return new WaitForSeconds(15f); //10f
@@ -92,7 +97,6 @@ public class CountdownSCR : MonoBehaviour
             colorChoiceVar.resetColor();
             chipChoiceVar.resetChips();
             chipChoiceVar.chipButtonsInteractable(true);
-
 
         }
     }
@@ -133,7 +137,6 @@ public class CountdownSCR : MonoBehaviour
             yield return new WaitForSeconds(1f);
             nextGameSeconds--;
         }
-        wheelSpinVar.RandomWheelRotation();
         // nextGameText.gameObject.SetActive(false);
     }
 }
