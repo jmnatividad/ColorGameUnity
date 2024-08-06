@@ -1,29 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+using System.Collections;
 
 public class NeonEffect : MonoBehaviour
 {
-    public Image targetImage;
-    public float fadeDuration = 1f;
-    public float threshold = 0.6f;
-
-    public void FadeIn()
-    {
-        targetImage.CrossFadeAlpha(0.6f, fadeDuration, false);
-        Debug.Log("Fading");
+    // the image you want to fade, assign in inspector
+    public Image img;
+   
+    private void Start() {
+         StartCoroutine(FadeImage(true));
     }
 
-    public void FadeOut()
+    public IEnumerator FadeImage(bool fadeAway)
     {
-        targetImage.CrossFadeAlpha(1f, fadeDuration, false);
-    }
-
-    private void Update() {
-        Color targetImageColor = targetImage.color;
-        float alphaValue = targetImageColor.a;
-        int count = 10;
+        for(float time = 0f; time < 10f; time+=0.02f){
+            while (fadeAway)
+            {
+                // loop over 1 second backwards
+                for (float i = 1; i >= 0.7f; i -= Time.deltaTime * 0.5f)
+                {
+                    // set color with i as alpha
+                    img.color = new Color(1, 1, 1, i);
+                    fadeAway = false;
+                    yield return null;
+                }
+            }
+            // fade from transparent to opaque
+            while (!fadeAway)
+            {
+                // loop over 1 second
+                for (float i = 0.7f; i <= 1; i += Time.deltaTime * 0.5f)
+                {
+                    // set color with i as alpha
+                    img.color = new Color(1, 1, 1, i);
+                    fadeAway = true;
+                    yield return null;
+                }
+            }
+        }
+        // fade from opaque to transparent
+  
     }
 }
