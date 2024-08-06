@@ -530,6 +530,7 @@ MonoBehaviour:
   cubeFrequenciesVar: {fileID: 33797472}
   wheelAudioVar: {fileID: 557524137}
   CamActions: {fileID: 33797474}
+  chipChoiceAudioVar: {fileID: 557524134}
   img_def_placeyourbet: {fileID: 1586532560}
   img_green_placeyourbet: {fileID: 21300000, guid: def84bdc78f08c9479d296b4ba287d32, type: 3}
   img_red_placeyourbet: {fileID: 21300000, guid: 945aa11bc2d856f4c96ad5937a9fc991, type: 3}
@@ -4828,6 +4829,8 @@ MonoBehaviour:
   buttonClick:
   - {fileID: 8300000, guid: 20ae9a804605e3c4aa989dbd79046e08, type: 3}
   - {fileID: 8300000, guid: 0ad6f548a70182d44b7b52d5f5d5a671, type: 3}
+  chipExit: {fileID: 8300000, guid: c8ced3caf31c86847a953835adba1d3b, type: 3}
+  betManagerVar: {fileID: 1283099473}
 --- !u!114 &557524135
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,7 +6,6 @@ using TMPro;
 
 public class CountdownSCR : MonoBehaviour
 {
-    [Header("Script Reference")]
     public ResetObjects resetVar;
     public BetManager betManagerVar;
     public ColorChoice colorChoiceVar;
@@ -14,8 +13,8 @@ public class CountdownSCR : MonoBehaviour
     public Congratulation congratulationVar;
     public WheelSpin wheelSpinVar;
     public CubeFrequencies cubeFrequenciesVar;
-
-    public CameraAction CamActions;
+    public WheelAudio wheelAudioVar;
+    public ChipChoiceAudio chipChoiceAudioVar;
 
     public Image img_def_placeyourbet;
     public Sprite img_green_placeyourbet;
@@ -25,43 +24,37 @@ public class CountdownSCR : MonoBehaviour
     public Sprite img_green_placeyourbet_neon;
     public Sprite img_red_placeyourbet_neon;
 
-    public NeonEffect neonScript;
-
     public ParticleSystem ConeParticleTop;
     public ParticleSystem ConeParticleBottom;
 
     public TextMeshProUGUI nextGameText;
 
     public int countDownCtr = 10;
-    private int countNextGame = 50;
+    private int countNextGame = 60;
 
     // Start is called before the first frame update
     void Start()
     {
         resetVar.GamObjectActive(true);
         //Initialization of Particles to Stop (Placeholder)
-        
         ConeParticleTop.Stop();
         ConeParticleBottom.Stop();
     }
 
-    public void startCountdown(){
+    public void startCountdown()
+    {
         StartCoroutine(RepeatCoroutine());
     }
 
     IEnumerator RepeatCoroutine()
     {
-        
+
         while (true)
         {
             StartCoroutine(countDownNextGame(countNextGame));
 
-            CamActions.CameraAngle("ColorGame"); //Camera to Color game table
-            
             yield return StartCoroutine(CountdownTest(countDownCtr)); // Wait for 10 seconds for placing bet
-            wheelSpinVar.RandomWheelRotation();
-            // resetVar.plank.SetActive(false);
-            resetVar.PlankBehavior("StartGame");
+            resetVar.plank.SetActive(false);
             resetVar.GamObjectActive(false);
             chipChoiceVar.chipButtonsInteractable(false);
             // add another function for the wheel multiplier:
@@ -70,30 +63,28 @@ public class CountdownSCR : MonoBehaviour
             cubeFrequenciesVar.getFrequencies();
 
             yield return new WaitForSeconds(5f); // show result 5f
-
-            CamActions.CameraAngle("WheelSpin"); //Camera to Wheel Spin
             resetVar.showResultColor(false);
-
-            yield return new WaitForSeconds(5f);
             //show wheel
-            resetVar.PlankBehavior("ResetGame");
-
+            Debug.Log("game wheel");
             wheelSpinVar.IsSpinning = true;
+            wheelAudioVar.playWheelSpin(true);
 
-            yield return new WaitForSeconds(15f); //10f
+            yield return new WaitForSeconds(20f); //20f
             wheelSpinVar.IsSpinning = false;
+            wheelAudioVar.playWheelSpin(false);
 
             betManagerVar.calculateWinnings();
-            
+
             congratulationVar.congratsWinningMoney(true);
 
-            yield return StartCoroutine(CountdownTest(5)); // Wait for another 15 seconds
+            yield return StartCoroutine(CountdownTest(15)); // Wait for another 15 seconds
             congratulationVar.congratsWinningMoney(false);
-            CamActions.CameraAngle("Default"); //Camera to Default
-            yield return new WaitForSeconds(5f); // Wait for another 5 seconds
-            CamActions.ResetState(); //reset the values 
 
-            
+            yield return new WaitForSeconds(1f); // Wait for another 5 seconds
+            chipChoiceAudioVar.playChipExit();
+            yield return new WaitForSeconds(4f); // Wait for another 5 seconds
+
+
             // to do: get the previous pick
             resetVar.resetObject();
             resetVar.GamObjectActive(true);
@@ -101,14 +92,14 @@ public class CountdownSCR : MonoBehaviour
             chipChoiceVar.resetChips();
             chipChoiceVar.chipButtonsInteractable(true);
 
+
         }
     }
     IEnumerator CountdownTest(int seconds)
     {
-        
+
         while (seconds > 0)
         {
-            neonScript.StartCoroutine(neonScript.FadeImage(true));
             if (seconds < 4)
             {
                 neon.sprite = img_red_placeyourbet_neon;
@@ -141,6 +132,7 @@ public class CountdownSCR : MonoBehaviour
             yield return new WaitForSeconds(1f);
             nextGameSeconds--;
         }
+        wheelSpinVar.RandomWheelRotation();
         // nextGameText.gameObject.SetActive(false);
     }
 }
