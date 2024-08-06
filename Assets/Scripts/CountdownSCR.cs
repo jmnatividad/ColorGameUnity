@@ -14,6 +14,7 @@ public class CountdownSCR : MonoBehaviour
     public WheelSpin wheelSpinVar;
     public CubeFrequencies cubeFrequenciesVar;
     public WheelAudio wheelAudioVar;
+    public ChipChoiceAudio chipChoiceAudioVar;
 
     public Image img_def_placeyourbet;
     public Sprite img_green_placeyourbet;
@@ -79,7 +80,9 @@ public class CountdownSCR : MonoBehaviour
             yield return StartCoroutine(CountdownTest(15)); // Wait for another 15 seconds
             congratulationVar.congratsWinningMoney(false);
 
-            yield return new WaitForSeconds(5f); // Wait for another 5 seconds
+            yield return new WaitForSeconds(1f); // Wait for another 5 seconds
+            chipChoiceAudioVar.playChipExit();
+            yield return new WaitForSeconds(4f); // Wait for another 5 seconds
 
 
             // to do: get the previous pick
