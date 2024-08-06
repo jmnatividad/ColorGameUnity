@@ -8,6 +8,7 @@ public class CubeState : MonoBehaviour
     public int value;
     public Vector3 state;
     public int tolerance = 45;
+    public float forceAmount = 10f;
 
     public CubeSFX cubeSFX;
 
@@ -116,5 +117,14 @@ public class CubeState : MonoBehaviour
                 cubeSFX.playCubeLastHit();
             }
         }
+        if (other.gameObject.tag == "CubeBox")
+        {
+            Rigidbody rb = GetComponent<Rigidbody>();
+            if (other.relativeVelocity.magnitude > 1)
+            {
+                rb.AddForce(transform.forward * forceAmount, ForceMode.Impulse);
+            }
+        }
     }
+
 }
