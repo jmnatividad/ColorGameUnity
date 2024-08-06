@@ -29,6 +29,15 @@ public class CubeFrequencies : MonoBehaviour
         { "Yellow", 0f },
         { "Black", 0f }
     };
+    private void Start() {
+        resetFrequencies();
+    }
+    private bool isInt(double var){
+        return (var%1)==0;
+    }
+    private string getColor(string str){
+        return $"{(isInt(colorCountsFrequency[str]) ? colorCountsFrequency[str].ToString("F0") : colorCountsFrequency[str].ToString("F1"))}%";
+    }
     private void displayFrequencies()
     {
         string temp="";
@@ -39,19 +48,21 @@ public class CubeFrequencies : MonoBehaviour
             temp+= ($"{color} {colorCountsFrequency[color]:F2}%\n");
         }
 
-        frequencies[0].text = $"{colorCountsFrequency["Black"]:F1}%";
-        frequencies[1].text = $"{colorCountsFrequency["Red"]:F1}%";
-        frequencies[2].text = $"{colorCountsFrequency["Blue"]:F1}%";
-        frequencies[3].text = $"{colorCountsFrequency["White"]:F1}%";
-        frequencies[4].text = $"{colorCountsFrequency["Pink"]:F1}%";
-        frequencies[5].text = $"{colorCountsFrequency["Yellow"]:F1}%";
-        // frequencies.text = temp;
+        string[] tempColor = {"Black", "Red", "Blue", "White", "Pink", "Yellow"};
+        for(int i=0;i<tempColor.Length;i++){
+            frequencies[i].text = getColor(tempColor[i]);
+        }
     }
     public void getFrequencies(){
         totalPicks+=3;
-        colorCounts[resetVar.gameObjects[0].GetComponent<CubeState>().upperSide]++;
-        colorCounts[resetVar.gameObjects[1].GetComponent<CubeState>().upperSide]++;
-        colorCounts[resetVar.gameObjects[2].GetComponent<CubeState>().upperSide]++;
+        foreach(var go in resetVar.gameObjects){
+            colorCounts[go.GetComponent<CubeState>().upperSide]++;
+        }
         displayFrequencies();
+    }
+    public void resetFrequencies(){
+        foreach(var temp in frequencies){
+            temp.text = $"0%";
+        }
     }
 }
