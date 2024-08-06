@@ -12,6 +12,7 @@ public class ResetObjects : MonoBehaviour
     public bool reset = false;
     public bool play = false;
     public GameObject plank;
+    public Animator PlankAnimator;          
     public int UpperSideTxt;
     public TextMeshProUGUI cubeStates;
     public CountdownSCR countdownVar;
@@ -53,7 +54,7 @@ public class ResetObjects : MonoBehaviour
     }
 
     public void randomRoll(){
-        plank.SetActive(false);
+        // plank.SetActive(false);
         foreach (GameObject obj in gameObjects)
         {
             float randomY = RandomCubeAllignment[Random.Range(0, RandomCubeAllignment.Length)];
@@ -66,6 +67,19 @@ public class ResetObjects : MonoBehaviour
             }
         }
         reset = false;
+    }
+
+    public void PlankBehavior(string Action){
+        if(Action == "StartGame"){
+            PlankAnimator.SetBool("PlayColorGame", true);
+            PlankAnimator.SetBool("ResetColorGame", false);
+        }else if (Action == "ResetGame"){
+            PlankAnimator.SetBool("PlayColorGame", false);
+            PlankAnimator.SetBool("ResetColorGame", true);
+        }else{
+            
+        }
+        
     }
 
     public void resetObject(){
