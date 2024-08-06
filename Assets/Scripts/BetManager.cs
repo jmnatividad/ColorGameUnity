@@ -182,7 +182,7 @@ public class BetManager : MonoBehaviour
         if (chipChoiceVar.previousChipPick != -1 && colorChoiceVar.previousColorPick != null && !isRedoClicked)
         {
             isRedoClicked = true;
-            chipChoiceAudioVar.playButtonClick(true);
+            chipChoiceAudioVar.playButtonClick(isRedoClicked);
             colorChoiceVar.setColor(colorChoiceVar.previousColorPick);
             chipChoiceVar.doubleBetClicked();
             chipChoiceVar.OnButtonClick(chipChoiceVar.previousChipPick);
@@ -192,6 +192,7 @@ public class BetManager : MonoBehaviour
             colorChoiceVar.resetColor();
             chipChoiceVar.resetChips();
             isRedoClicked = false;
+            chipChoiceAudioVar.playButtonClick(isRedoClicked);
         }
     }
     public void calculateBalance()
