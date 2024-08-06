@@ -52,6 +52,7 @@ public class CountdownSCR : MonoBehaviour
         while (true)
         {
             StartCoroutine(countDownNextGame(countNextGame));
+            CamActions.CameraAngle("ColorGame"); //Camera to Color game table
 
             yield return StartCoroutine(CountdownTest(countDownCtr)); // Wait for 10 seconds for placing bet
             resetVar.plank.SetActive(false);
@@ -63,6 +64,7 @@ public class CountdownSCR : MonoBehaviour
             cubeFrequenciesVar.getFrequencies();
 
             yield return new WaitForSeconds(5f); // show result 5f
+            CamActions.CameraAngle("WheelSpin"); //Camera to Wheel Spin
             resetVar.showResultColor(false);
             //show wheel
             Debug.Log("game wheel");
@@ -79,10 +81,12 @@ public class CountdownSCR : MonoBehaviour
 
             yield return StartCoroutine(CountdownTest(15)); // Wait for another 15 seconds
             congratulationVar.congratsWinningMoney(false);
+            CamActions.CameraAngle("Default"); //Camera to Default
 
             yield return new WaitForSeconds(1f); // Wait for another 5 seconds
             chipChoiceAudioVar.playChipExit();
             yield return new WaitForSeconds(4f); // Wait for another 5 seconds
+            CamActions.ResetState(); //reset the values
 
 
             // to do: get the previous pick
