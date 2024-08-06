@@ -24,7 +24,7 @@ public class ChipChoiceAudio : MonoBehaviour
 
     public void playChipExit()
     {
-        if (betManagerVar._bet != 0)
+        if (betManagerVar.bet != 0)
         {
             source.PlayOneShot(chipExit, 4f);
         }
