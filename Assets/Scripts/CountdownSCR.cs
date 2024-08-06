@@ -22,6 +22,8 @@ public class CountdownSCR : MonoBehaviour
     public Sprite img_green_placeyourbet_neon;
     public Sprite img_red_placeyourbet_neon;
 
+    public NeonEffect neonScript;
+
     public ParticleSystem ConeParticleTop;
     public ParticleSystem ConeParticleBottom;
 
@@ -35,6 +37,7 @@ public class CountdownSCR : MonoBehaviour
     {
         resetVar.GamObjectActive(true);
         //Initialization of Particles to Stop (Placeholder)
+        
         ConeParticleTop.Stop();
         ConeParticleBottom.Stop();
     }
@@ -93,6 +96,7 @@ public class CountdownSCR : MonoBehaviour
         
         while (seconds > 0)
         {
+            neonScript.StartCoroutine(neonScript.FadeImage(true));
             if (seconds < 4)
             {
                 neon.sprite = img_red_placeyourbet_neon;
