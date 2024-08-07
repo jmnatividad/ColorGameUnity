@@ -17,9 +17,6 @@ public class CountdownSCR : MonoBehaviour
 
     public CameraAction CamActions;
 
-    public CameraAction CamActions;
-
-
     public Image img_def_placeyourbet;
     public Sprite img_green_placeyourbet;
     public Sprite img_red_placeyourbet;
@@ -58,7 +55,6 @@ public class CountdownSCR : MonoBehaviour
         while (true)
         {
             StartCoroutine(countDownNextGame(countNextGame));
-            CamActions.CameraAngle("ColorGame"); //Camera to Color game table
 
             CamActions.CameraAngle("ColorGame"); //Camera to Color game table
             
@@ -90,18 +86,14 @@ public class CountdownSCR : MonoBehaviour
             betManagerVar.calculateWinnings();
             
             congratulationVar.congratsWinningMoney(true);
-            resetVar.PlankBehavior("ResetGame"); //responsible for reseting the plank anim
 
             yield return StartCoroutine(CountdownTest(5)); // Wait for another 15 seconds
             congratulationVar.congratsWinningMoney(false);
             CamActions.CameraAngle("Default"); //Camera to Default
+            yield return new WaitForSeconds(5f); // Wait for another 5 seconds
+            CamActions.ResetState(); //reset the values 
 
-            yield return new WaitForSeconds(1f); // Wait for another 5 seconds
-            chipChoiceAudioVar.playChipExit();
-            yield return new WaitForSeconds(4f); // Wait for another 5 seconds
-            CamActions.ResetState(); //reset the values
-
-
+            
             // to do: get the previous pick
             resetVar.resetObject();
             resetVar.GamObjectActive(true);
@@ -121,6 +113,7 @@ public class CountdownSCR : MonoBehaviour
             {
                 neon.sprite = img_red_placeyourbet_neon;
                 img_def_placeyourbet.sprite = img_red_placeyourbet;
+                Debug.Log("Setting red sprites");
                 ConeParticleTop.Play();
                 ConeParticleBottom.Play();
             }
@@ -128,6 +121,7 @@ public class CountdownSCR : MonoBehaviour
             {
                 img_def_placeyourbet.sprite = img_green_placeyourbet;
                 neon.sprite = img_green_placeyourbet_neon;
+                Debug.Log("Setting green sprites");
                 ConeParticleTop.Stop();
                 ConeParticleBottom.Stop();
             }
