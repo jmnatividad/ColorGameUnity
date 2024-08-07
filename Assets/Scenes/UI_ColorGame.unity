@@ -4831,8 +4831,8 @@ MonoBehaviour:
   buttonClick:
   - {fileID: 8300000, guid: 20ae9a804605e3c4aa989dbd79046e08, type: 3}
   - {fileID: 8300000, guid: 0ad6f548a70182d44b7b52d5f5d5a671, type: 3}
-  chipExit: {fileID: 8300000, guid: c8ced3caf31c86847a953835adba1d3b, type: 3}
-  betManagerVar: {fileID: 1283099473}
+  chipExit: {fileID: 0}
+  betManagerVar: {fileID: 0}
 --- !u!114 &557524135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38674,7 +38674,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149551499507}
-  m_LocalRotation: {x: -0.0032290071, y: 0.0042081177, z: 0.60875285, w: -0.79334223}
+  m_LocalRotation: {x: -0.00041616336, y: -0.005287856, z: 0.078457996, w: 0.9969033}
   m_LocalPosition: {x: 0, y: 1.3, z: 1.881407}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
