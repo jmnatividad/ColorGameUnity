@@ -112,10 +112,6 @@ public class CubeState : MonoBehaviour
             {
                 cubeSFX.playCubeHit();
             }
-            else if (other.relativeVelocity.magnitude > 0.1 && other.relativeVelocity.magnitude <= 1)
-            {
-                cubeSFX.playCubeLastHit();
-            }
         }
         if (other.gameObject.tag == "CubeBox")
         {
