@@ -6,9 +6,9 @@ PhysicMaterial:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BottomBox
-  dynamicFriction: 0.01
-  staticFriction: 0
-  bounciness: 0.45
+  m_Name: CubeHolder
+  dynamicFriction: 100
+  staticFriction: 100
+  bounciness: 0
   frictionCombine: 3
-  bounceCombine: 3
+  bounceCombine: 0
