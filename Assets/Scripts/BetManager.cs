@@ -23,29 +23,38 @@ public class BetManager : MonoBehaviour
     public TextMeshProUGUI winIndicatorText;
     public TextMeshProUGUI balanceText;
     //temporary
-    public int balance;
-    public int _bet;
-    public int _win;
+    //important data
+    [SerializeField]
+    private int _balance;
+    private int _bet;
+    private int _win;
 
     public Dictionary<string, bool> tempDictionary = null;
     public int previousChipPick = -1;
     public bool previousDoubleBet;
     // variable property
     // make it so that when a variable is accessed calculateBet will be triggered
-    public int bet
-    {
-        get
-        {
+    public int bet{
+        get{
             calculateBet();
             return _bet;
         }
+        // set{
+        //     Debug.Log("test");
+        //     //this performs an infinite loop u stoopid
+        //     // calculateBet();
+        //     _bet = value;
+        // }
     }
-    public int win
-    {
-        get
-        {
+    public int win{
+        get{
             calculateWinnings();
             return _win;
+        }
+    }
+    public int balance{
+        get{
+            return _balance;
         }
     }
 
@@ -161,8 +170,8 @@ public class BetManager : MonoBehaviour
                 }
             }
         }
-        balance -= _bet;
-        balance += _win;
+        _balance -= _bet;
+        _balance += _win;
         balanceText.text = $"{balance}";
         winIndicatorText.text = $"{_win}";
         // get the last pick data

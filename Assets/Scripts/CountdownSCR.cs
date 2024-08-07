@@ -16,6 +16,9 @@ public class CountdownSCR : MonoBehaviour
     public WheelAudio wheelAudioVar;
     public ChipChoiceAudio chipChoiceAudioVar;
 
+    public CameraAction CamActions;
+
+
     public Image img_def_placeyourbet;
     public Sprite img_green_placeyourbet;
     public Sprite img_red_placeyourbet;
@@ -52,9 +55,11 @@ public class CountdownSCR : MonoBehaviour
         while (true)
         {
             StartCoroutine(countDownNextGame(countNextGame));
+            CamActions.CameraAngle("ColorGame"); //Camera to Color game table
 
             yield return StartCoroutine(CountdownTest(countDownCtr)); // Wait for 10 seconds for placing bet
-            resetVar.plank.SetActive(false);
+            // resetVar.plank.SetActive(false);
+            resetVar.PlankBehavior("StartGame"); //responsible for starting the plank anim
             resetVar.GamObjectActive(false);
             chipChoiceVar.chipButtonsInteractable(false);
             // add another function for the wheel multiplier:
@@ -63,26 +68,29 @@ public class CountdownSCR : MonoBehaviour
             cubeFrequenciesVar.getFrequencies();
 
             yield return new WaitForSeconds(5f); // show result 5f
+            CamActions.CameraAngle("WheelSpin"); //Camera to Wheel Spin
             resetVar.showResultColor(false);
-            //show wheel
-            Debug.Log("game wheel");
+            
+            yield return new WaitForSeconds(5f); // show result 5f
             wheelSpinVar.IsSpinning = true;
             wheelAudioVar.playWheelSpin(true);
-
-            yield return new WaitForSeconds(20f); //20f
+            yield return new WaitForSeconds(15f); //20f
             wheelSpinVar.IsSpinning = false;
             wheelAudioVar.playWheelSpin(false);
 
             betManagerVar.calculateWinnings();
 
             congratulationVar.congratsWinningMoney(true);
+            resetVar.PlankBehavior("ResetGame"); //responsible for reseting the plank anim
 
             yield return StartCoroutine(CountdownTest(15)); // Wait for another 15 seconds
             congratulationVar.congratsWinningMoney(false);
+            CamActions.CameraAngle("Default"); //Camera to Default
 
             yield return new WaitForSeconds(1f); // Wait for another 5 seconds
             chipChoiceAudioVar.playChipExit();
             yield return new WaitForSeconds(4f); // Wait for another 5 seconds
+            CamActions.ResetState(); //reset the values
 
 
             // to do: get the previous pick
@@ -104,7 +112,6 @@ public class CountdownSCR : MonoBehaviour
             {
                 neon.sprite = img_red_placeyourbet_neon;
                 img_def_placeyourbet.sprite = img_red_placeyourbet;
-                Debug.Log("Setting red sprites");
                 ConeParticleTop.Play();
                 ConeParticleBottom.Play();
             }
@@ -112,7 +119,6 @@ public class CountdownSCR : MonoBehaviour
             {
                 img_def_placeyourbet.sprite = img_green_placeyourbet;
                 neon.sprite = img_green_placeyourbet_neon;
-                Debug.Log("Setting green sprites");
                 ConeParticleTop.Stop();
                 ConeParticleBottom.Stop();
             }
