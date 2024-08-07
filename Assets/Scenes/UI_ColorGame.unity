@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.46813107, g: 0.34427127, b: 0.1963397, a: 1}
+  m_IndirectSpecularColor: {r: 0.46812612, g: 0.34420833, b: 0.19619241, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -529,6 +529,7 @@ MonoBehaviour:
   wheelSpinVar: {fileID: 530953637}
   cubeFrequenciesVar: {fileID: 33797472}
   wheelAudioVar: {fileID: 557524137}
+  chipChoiceAudioVar: {fileID: 557524134}
   CamActions: {fileID: 33797474}
   img_def_placeyourbet: {fileID: 1586532560}
   img_green_placeyourbet: {fileID: 21300000, guid: def84bdc78f08c9479d296b4ba287d32, type: 3}
@@ -536,7 +537,6 @@ MonoBehaviour:
   neon: {fileID: 101919367}
   img_green_placeyourbet_neon: {fileID: 21300000, guid: 5f1a8c3568546124caf074055083e59e, type: 3}
   img_red_placeyourbet_neon: {fileID: 21300000, guid: f3b3dec472a48984084be47ee6bfaf03, type: 3}
-  neonScript: {fileID: 33797473}
   ConeParticleTop: {fileID: 1485421284}
   ConeParticleBottom: {fileID: 988044079}
   nextGameText: {fileID: 103984750}
@@ -4828,6 +4828,8 @@ MonoBehaviour:
   buttonClick:
   - {fileID: 8300000, guid: 20ae9a804605e3c4aa989dbd79046e08, type: 3}
   - {fileID: 8300000, guid: 0ad6f548a70182d44b7b52d5f5d5a671, type: 3}
+  chipExit: {fileID: 8300000, guid: c8ced3caf31c86847a953835adba1d3b, type: 3}
+  betManagerVar: {fileID: 1283099473}
 --- !u!114 &557524135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15352,9 +15354,7 @@ MonoBehaviour:
   totalBetText: {fileID: 1511203234}
   winIndicatorText: {fileID: 290803077}
   balanceText: {fileID: 1239657124}
-  balance: 300
-  _bet: 0
-  _win: 0
+  _balance: 1000
   previousChipPick: -1
   previousDoubleBet: 0
 --- !u!4 &1283099474
@@ -32304,7 +32304,7 @@ Transform:
   - {fileID: 1949519921}
   m_Father: {fileID: 999691028}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -2.309, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 9.931654, y: 0, z: 0}
 --- !u!65 &2075512914
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37941,7 +37941,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149551499507}
-  m_LocalRotation: {x: -0.0036846097, y: -0.0038155015, z: 0.6946486, w: 0.71932966}
+  m_LocalRotation: {x: -0.0041511357, y: -0.0033019334, z: 0.7825972, w: 0.62250596}
   m_LocalPosition: {x: 0, y: 1.3, z: 1.881407}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
