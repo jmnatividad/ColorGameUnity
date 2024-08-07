@@ -531,7 +531,6 @@ MonoBehaviour:
   wheelAudioVar: {fileID: 557524137}
   chipChoiceAudioVar: {fileID: 557524134}
   CamActions: {fileID: 33797474}
-  PlankAnimator: {fileID: 2075512917}
   img_def_placeyourbet: {fileID: 1586532560}
   img_green_placeyourbet: {fileID: 21300000, guid: def84bdc78f08c9479d296b4ba287d32, type: 3}
   img_red_placeyourbet: {fileID: 21300000, guid: 945aa11bc2d856f4c96ad5937a9fc991, type: 3}
@@ -4854,6 +4853,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6b19b569051b0a34b8a6d8672c7a6e2b, type: 3}
   - {fileID: 8300000, guid: 31fcad23ac65e7b42af8a4ef6b7144b9, type: 3}
   - {fileID: 8300000, guid: 4f32bbb2b54b6f4439a181ea55464c8d, type: 3}
+  cubeLastHit:
+  - {fileID: 8300000, guid: 22cfcd329a4be094989a70bb3aa352ba, type: 3}
+  - {fileID: 8300000, guid: 5d023a8f5dcf61848871469d307caa6d, type: 3}
+  - {fileID: 8300000, guid: f1a67e4f074bcc646996394ee342e889, type: 3}
+  - {fileID: 8300000, guid: 63cb5a8156e27224d8bbbde034b8e7ec, type: 3}
+  - {fileID: 8300000, guid: d31726adac072d4469699705ab5ec0dd, type: 3}
+  - {fileID: 8300000, guid: d12b16e55fbaf3b4096e5a55c775628e, type: 3}
 --- !u!114 &557524136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15433,9 +15439,7 @@ MonoBehaviour:
   totalBetText: {fileID: 1511203234}
   winIndicatorText: {fileID: 290803077}
   balanceText: {fileID: 1239657124}
-  balance: 300
-  _bet: 0
-  _win: 0
+  _balance: 12000
   previousChipPick: -1
   previousDoubleBet: 0
 --- !u!4 &1283099474
@@ -38350,7 +38354,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149551499507}
-  m_LocalRotation: {x: -0.0035146773, y: -0.00397262, z: 0.66261077, w: 0.7489452}
+  m_LocalRotation: {x: -0.0043973923, y: 0.0029660612, z: 0.829026, w: -0.559185}
   m_LocalPosition: {x: 0, y: 1.3, z: 1.881407}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
