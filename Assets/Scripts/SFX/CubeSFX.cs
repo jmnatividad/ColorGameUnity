@@ -23,6 +23,6 @@ public class CubeSFX : MonoBehaviour
     public void playCubeLastHit()
     {
         int ind = (int)Mathf.Floor(Random.Range(0, cubeLastHit.Count));
-        source.PlayOneShot(cubeLastHit[ind], 2f);
+        source.PlayOneShot(cubeLastHit[ind], 4f);
     }
 }

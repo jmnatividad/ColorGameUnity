@@ -15361,7 +15361,7 @@ MonoBehaviour:
   totalBetText: {fileID: 1511203234}
   winIndicatorText: {fileID: 290803077}
   balanceText: {fileID: 1239657124}
-  _balance: 0
+  _balance: 12000
   previousChipPick: -1
   previousDoubleBet: 0
 --- !u!4 &1283099474
@@ -37948,7 +37948,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149551499507}
-  m_LocalRotation: {x: -0.0015950054, y: -0.005058706, z: 0.3007016, w: 0.9537036}
+  m_LocalRotation: {x: -0.0043973923, y: 0.0029660612, z: 0.829026, w: -0.559185}
   m_LocalPosition: {x: 0, y: 1.3, z: 1.881407}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
