@@ -24,7 +24,6 @@ public class BetManager : MonoBehaviour
     public TextMeshProUGUI balanceText;
     //temporary
     //important data
-    [SerializeField]
     private int _balance;
     private int _bet;
     private int _win;
