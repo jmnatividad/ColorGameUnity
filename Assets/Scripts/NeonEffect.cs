@@ -6,7 +6,7 @@ public class NeonEffect : MonoBehaviour
 {
     // the image you want to fade, assign in inspector
     public Image img;
-   
+    public Sprite neonSprite;
     private void Start() {
          StartCoroutine(FadeImage(true));
     }

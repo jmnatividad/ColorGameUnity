@@ -68,7 +68,7 @@ public class ShowColorWin : MonoBehaviour
                 Image targetImage1 = child0.GetComponent<Image>();
                 Image targetImage2 = child1.GetComponent<Image>();
                 Image targetImage3 = child2.GetComponent<Image>();
-            
+                
                 string[] entry = WinningHistory[i];
 
                 for (int j = 1; j < WinningHistory[i].Length; j++)

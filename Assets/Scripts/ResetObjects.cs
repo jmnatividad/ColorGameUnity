@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.InteropServices;
+using UnityEngine.UI;
 using TMPro;
 public class ResetObjects : MonoBehaviour
 {
@@ -20,7 +21,9 @@ public class ResetObjects : MonoBehaviour
     public ShowColorWin showcolorwinVar;
     // public Countdown countdown_var;
 
-    
+    public NeonEffect neonVar;
+    public Image neonImage;
+
     public GameObject middleSectionPlaceyourbet;
     public GameObject colorChoice;
     public GameObject background;
@@ -31,7 +34,6 @@ public class ResetObjects : MonoBehaviour
     public TextMeshProUGUI countdown;
     void Start()
     {
-
         foreach (GameObject obj in gameObjects)
         {
             if (obj != null)
@@ -141,6 +143,7 @@ public class ResetObjects : MonoBehaviour
     }
 
     public void showResultColor(bool state){
+        StartCoroutine(neonVar.FadeImage(true));
         showcolorwinVar.showColor(state ,gameObjects[0].GetComponent<CubeState>().upperSide,gameObjects[1].GetComponent<CubeState>().upperSide,gameObjects[2].GetComponent<CubeState>().upperSide);
         showColor.SetActive(state);
         if(state){
