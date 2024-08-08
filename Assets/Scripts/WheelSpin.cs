@@ -85,7 +85,7 @@ public class WheelSpin : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(rayOrigin, rayDirection, out hit, rayDistance))
         {
-            Debug.Log("Hit object: " + hit.collider.name);
+            // Debug.Log("Hit object: " + hit.collider.name);
 
             // Draw the ray in red if it hits an object
             Debug.DrawRay(rayOrigin, rayDirection * hit.distance, Color.green);

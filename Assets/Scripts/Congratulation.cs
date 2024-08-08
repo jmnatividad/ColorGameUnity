@@ -10,11 +10,13 @@ public class Congratulation : MonoBehaviour
     public BetManager betManagerVar;
     public TextMeshProUGUI winNumberText;
     public GameObject congratulationMiddleSection;
+    public GameObject coinFountain;
 
     public void congratsWinningMoney(bool state){
         if(betManagerVar.win > 0){
             // winNumberText.text = $"{betManagerVar.win}";
             congratulationMiddleSection.SetActive(state);
+            coinFountain.SetActive(state);
             StartCoroutine(countToTargetNum(betManagerVar.win));
             Debug.Log($"YOU WON: ${betManagerVar.win}"); 
         }
