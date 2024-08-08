@@ -143,6 +143,7 @@ public class ResetObjects : MonoBehaviour
     }
 
     public void showResultColor(bool state){
+        neonVar.img = neonImage;
         StartCoroutine(neonVar.FadeImage(true));
         showcolorwinVar.showColor(state ,gameObjects[0].GetComponent<CubeState>().upperSide,gameObjects[1].GetComponent<CubeState>().upperSide,gameObjects[2].GetComponent<CubeState>().upperSide);
         showColor.SetActive(state);
