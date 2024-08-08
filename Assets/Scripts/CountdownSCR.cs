@@ -6,6 +6,7 @@ using TMPro;
 
 public class CountdownSCR : MonoBehaviour
 {
+    [Header("Reference Scripts")]
     public ResetObjects resetVar;
     public BetManager betManagerVar;
     public ColorChoice colorChoiceVar;
@@ -18,7 +19,8 @@ public class CountdownSCR : MonoBehaviour
 
     public CameraAction CamActions;
 
-
+    [Header("UI Images")]
+    public List<Sprite> CanvasSprite;
     public Image img_def_placeyourbet;
     public Sprite img_green_placeyourbet;
     public Sprite img_red_placeyourbet;
@@ -27,15 +29,25 @@ public class CountdownSCR : MonoBehaviour
     public Sprite img_green_placeyourbet_neon;
     public Sprite img_red_placeyourbet_neon;
 
+    
+
+    [Header("Game Objects")]
+    public List<GameObject> VfxGameObjects;
+    public List<GameObject> CanvasImage;
+
     public ParticleSystem ConeParticleTop;
     public ParticleSystem ConeParticleBottom;
 
+    [Header("UI Text")]
+    public List<TextMeshProUGUI> TextHolders;
     public TextMeshProUGUI nextGameText;
+
+    [Header("Variables in Scripts")]
 
     public int countDownCtr = 10;
     private int countNextGame = 60;
 
-    private int BonusSpin = 10;
+    private bool BonusSpin = true;
 
     // Start is called before the first frame update
     void Start()
@@ -75,19 +87,38 @@ public class CountdownSCR : MonoBehaviour
             yield return new WaitForSeconds(5f); // show result 5f
             CamActions.CameraAngle("WheelSpin"); //Camera to Wheel Spin
             resetVar.showResultColor(false);
-            //"~~~~~~~~~~~~~~~~ WHEEL SPIN ~~~~~~~~~~~~~~~~~~~~~~~~"
-            yield return new WaitForSeconds(5);
+
+            yield return new WaitForSeconds(1f);
+            CanvasImage[0].SetActive(true);//activate Wheel UI announcement
+            yield return new WaitForSeconds(2f);
+            CanvasImage[0].SetActive(false); //deactivate Wheel UI announcement
+            //"~~~~~~~~~~~~~~~~ NORMAL WHEEL SPIN ~~~~~~~~~~~~~~~~~~~~~~~~"
+            yield return new WaitForSeconds(2f);
             wheelSpinVar.IsSpinning = true;
             wheelAudioVar.playWheelSpin(true);
+
             yield return new WaitForSeconds(10); //NormalSpin
             wheelSpinVar.IsSpinning = false;
             wheelAudioVar.playWheelSpin(false);
-
+            
+            yield return new WaitForSeconds(1);
+            //Display what winning
+            
+            //"~~~~~~~~~~~~~~~~ Bonus WHEEL SPIN ~~~~~~~~~~~~~~~~~~~~~~~~"
             //If bonus spin = true proceed to Bonus spin
+            yield return new WaitForSeconds(2);
+            if(BonusSpin){
+                CanvasImage[0].SetActive(true);
+            }
 
-            yield return new WaitForSeconds(7); // wait 5 sec
-            wheelSpinVar.IsSpinning = true;
-            wheelAudioVar.playWheelSpin(true);
+            yield return new WaitForSeconds(2); // wait 5 sec
+            if(BonusSpin){
+                CanvasImage[0].SetActive(false);
+                wheelSpinVar.IsSpinning = true;
+                wheelAudioVar.playWheelSpin(true);
+            }
+
+            
             yield return new WaitForSeconds(10); //Spinning bonus spin
             wheelSpinVar.IsSpinning = false;
             wheelAudioVar.playWheelSpin(false);
@@ -97,16 +128,15 @@ public class CountdownSCR : MonoBehaviour
 
             congratulationVar.congratsWinningMoney(true);
             resetVar.PlankBehavior("ResetGame"); //responsible for reseting the plank anim
-
+            
             yield return StartCoroutine(CountdownTest(5)); 
+            yield return new WaitForSeconds(2f);
             congratulationVar.congratsWinningMoney(false);
             CamActions.CameraAngle("Default"); //Camera to Default
 
             yield return new WaitForSeconds(3f); // Wait for another 5 seconds
             chipChoiceAudioVar.playChipExit();
             CamActions.ResetState(); //reset the values
-
-
 
             // to do: get the previous pick
             resetVar.resetObject();
