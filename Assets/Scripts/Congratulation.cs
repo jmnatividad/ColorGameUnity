@@ -17,7 +17,7 @@ public class Congratulation : MonoBehaviour
         if (betManagerVar.win > 0)
         {
             // winNumberText.text = $"{betManagerVar.win}";
-            StartCoroutine(adjustVol());
+            StartCoroutine(adjustVol(state));
             congratulationMiddleSection.SetActive(state);
             StartCoroutine(countToTargetNum(betManagerVar.win));
             Debug.Log($"YOU WON: ${betManagerVar.win}");
@@ -40,12 +40,15 @@ public class Congratulation : MonoBehaviour
         winNumberText.text = targetNum.ToString();
     }
 
-    IEnumerator adjustVol()
+    IEnumerator adjustVol(bool state)
     {
-        musicAudioVar.adjustVolume(true);
-        yield return new WaitForSeconds(5f);
-        musicAudioVar.adjustVolume(false);
-        yield return null;
+        if (state == true)
+        {
+            musicAudioVar.adjustVolume(true);
+            yield return new WaitForSeconds(5f);
+            musicAudioVar.adjustVolume(false);
+            yield return null;
+        }
     }
 
 
