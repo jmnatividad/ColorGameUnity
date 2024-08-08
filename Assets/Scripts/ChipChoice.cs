@@ -58,6 +58,7 @@ public class ChipChoice : MonoBehaviour
                     imageButtons[currentIndex].sprite = defaultImages[currentIndex];
 
 
+
                 previousChip = currentChipSelected;
 
                 imageButtons[index].sprite = activeImages[index];
@@ -73,8 +74,13 @@ public class ChipChoice : MonoBehaviour
                     currentChipSelected = 0;
                     currentIndex = -1;
                     betManagerVar.calculateBet();
+                    chipChoiceAudio.chipUnavailable();
                 }
+            }
 
+            if (selectedValue > betManagerVar.balance)
+            {
+                chipChoiceAudio.chipUnavailable();
             }
 
         }

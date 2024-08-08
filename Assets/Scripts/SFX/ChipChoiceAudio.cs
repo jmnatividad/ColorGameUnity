@@ -8,6 +8,7 @@ public class ChipChoiceAudio : MonoBehaviour
     public List<AudioClip> chip;
     public List<AudioClip> buttonClick;
     public AudioClip chipExit;
+    public AudioClip error;
     public BetManager betManagerVar;
 
     // Start is called before the first frame update
@@ -28,6 +29,11 @@ public class ChipChoiceAudio : MonoBehaviour
         {
             source.PlayOneShot(chipExit, 4f);
         }
+    }
+
+    public void chipUnavailable()
+    {
+        source.PlayOneShot(error, 4f);
     }
 
     public void playButtonClick(bool State)
