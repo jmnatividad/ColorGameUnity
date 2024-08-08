@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
+// [ExecuteInEditMode]
 public class WheelSpin : MonoBehaviour
 {
 
     [Header("For Multiplier")]
     public Transform WheelPointer;
-    public float rayDistance = 100f;
+    public float rayDistance = 150f;
     
     [Header("For Spinning")]
     public float initialSpinSpeed = 360f; // Initial speed in degrees per second
@@ -19,6 +19,9 @@ public class WheelSpin : MonoBehaviour
     
 
     [Header("For Wheel Random Z")]
+    public float WheelX = 0f;
+    public float WheelY = 0f;
+    public float WheelZ = 0f;
     // public float[]  RandomWheelZ = { -6f, -4f, -8f, 0f, 8f, 4f, 6f };
 
     
@@ -38,8 +41,10 @@ public class WheelSpin : MonoBehaviour
     public void RandomWheelRotation(){
         //randomize the rotation of the wheel every new game.
         currentSpinSpeed = initialSpinSpeed;
-        float randomZ = Mathf.Round(Random.Range(0, 360f));
-        this.transform.eulerAngles = new Vector3(Mathf.Round( 0), 132f, randomZ );
+        float randomY = Mathf.Round(Random.Range(0, 360f));
+        randomY = Mathf.Clamp(randomY, 0f, 360f);
+        transform.Rotate(0f, randomY, 0f );
+        // this.transform.eulerAngles = new Vector3(randomZ, 220f, 90f );
     }
 
     public void SpinWheel(){
@@ -65,7 +70,7 @@ public class WheelSpin : MonoBehaviour
                 currentSpinSpeed = initialSpinSpeed * (remainingTime / spinDuration);
 
                 // Rotate the GameObject around the Z-axis
-                transform.Rotate(0f, 0f, currentSpinSpeed * deltaTime);
+                transform.Rotate(0f, currentSpinSpeed * deltaTime, 0f );
             }
         }else{
             elapsedTime = 0f;
@@ -83,7 +88,7 @@ public class WheelSpin : MonoBehaviour
             Debug.Log("Hit object: " + hit.collider.name);
 
             // Draw the ray in red if it hits an object
-            Debug.DrawRay(rayOrigin, rayDirection * hit.distance, Color.red);
+            Debug.DrawRay(rayOrigin, rayDirection * hit.distance, Color.green);
         }
         else
         {
