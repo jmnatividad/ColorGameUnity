@@ -35,6 +35,8 @@ public class CountdownSCR : MonoBehaviour
     public int countDownCtr = 10;
     private int countNextGame = 60;
 
+    private int BonusSpin = 10;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,14 +57,17 @@ public class CountdownSCR : MonoBehaviour
         while (true)
         {
             StartCoroutine(countDownNextGame(countNextGame));
+
+            //"~~~~~~~~~~~~~~~~ 00 Seconds ~~~~~~~~~~~~~~~~~~~~~~~~"
             CamActions.CameraAngle("ColorGame"); //Camera to Color game table
 
             yield return StartCoroutine(CountdownTest(countDownCtr)); // Wait for 10 seconds for placing bet
-            // resetVar.plank.SetActive(false);
+            wheelSpinVar.RandomWheelRotation();
+
             resetVar.PlankBehavior("StartGame"); //responsible for starting the plank anim
             resetVar.GamObjectActive(false);
             chipChoiceVar.chipButtonsInteractable(false);
-            // add another function for the wheel multiplier:
+
             yield return new WaitForSeconds(5f); // rolling cube 5f
             resetVar.showResultColor(true);
             cubeFrequenciesVar.getFrequencies();
@@ -70,27 +75,37 @@ public class CountdownSCR : MonoBehaviour
             yield return new WaitForSeconds(5f); // show result 5f
             CamActions.CameraAngle("WheelSpin"); //Camera to Wheel Spin
             resetVar.showResultColor(false);
-            
-            yield return new WaitForSeconds(5f); // show result 5f
+            //"~~~~~~~~~~~~~~~~ WHEEL SPIN ~~~~~~~~~~~~~~~~~~~~~~~~"
+            yield return new WaitForSeconds(5);
             wheelSpinVar.IsSpinning = true;
             wheelAudioVar.playWheelSpin(true);
-            yield return new WaitForSeconds(15f); //20f
+            yield return new WaitForSeconds(10); //NormalSpin
             wheelSpinVar.IsSpinning = false;
             wheelAudioVar.playWheelSpin(false);
+
+            //If bonus spin = true proceed to Bonus spin
+
+            yield return new WaitForSeconds(7); // wait 5 sec
+            wheelSpinVar.IsSpinning = true;
+            wheelAudioVar.playWheelSpin(true);
+            yield return new WaitForSeconds(10); //Spinning bonus spin
+            wheelSpinVar.IsSpinning = false;
+            wheelAudioVar.playWheelSpin(false);
+            //"~~~~~~~~~~~~~~~~ END WHEEL SPIN ~~~~~~~~~~~~~~~~~~~~~~~~"
 
             betManagerVar.calculateWinnings();
 
             congratulationVar.congratsWinningMoney(true);
             resetVar.PlankBehavior("ResetGame"); //responsible for reseting the plank anim
 
-            yield return StartCoroutine(CountdownTest(15)); // Wait for another 15 seconds
+            yield return StartCoroutine(CountdownTest(5)); 
             congratulationVar.congratsWinningMoney(false);
             CamActions.CameraAngle("Default"); //Camera to Default
 
-            yield return new WaitForSeconds(1f); // Wait for another 5 seconds
+            yield return new WaitForSeconds(3f); // Wait for another 5 seconds
             chipChoiceAudioVar.playChipExit();
-            yield return new WaitForSeconds(4f); // Wait for another 5 seconds
             CamActions.ResetState(); //reset the values
+
 
 
             // to do: get the previous pick
@@ -138,7 +153,6 @@ public class CountdownSCR : MonoBehaviour
             yield return new WaitForSeconds(1f);
             nextGameSeconds--;
         }
-        wheelSpinVar.RandomWheelRotation();
         // nextGameText.gameObject.SetActive(false);
     }
 }

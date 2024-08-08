@@ -61,9 +61,10 @@ public class ResetObjects : MonoBehaviour
             float randomX = RandomCubeAllignment[Random.Range(0, RandomCubeAllignment.Length)];
             if (obj != null)
             {         
-                int randomIndex = Random.Range(0, possibleAngles.Length);
-                // obj.transform.rotation  = Quaternion.Euler(obj.transform.rotation.x + possibleAngles[randomIndex] + randomX, obj.transform.rotation.y +possibleAngles[randomIndex] + randomY, obj.transform.rotation.z + possibleAngles[randomIndex]);
-                obj.transform.eulerAngles = new Vector3(obj.transform.rotation.x + possibleAngles[randomIndex] + randomX, obj.transform.rotation.y +possibleAngles[randomIndex] + randomY, obj.transform.rotation.z + possibleAngles[randomIndex]);
+                int randomIndexX = Random.Range(0, possibleAngles.Length);
+                int randomIndexY = Random.Range(0, possibleAngles.Length);
+                int randomIndexZ = Random.Range(0, possibleAngles.Length);
+                obj.transform.eulerAngles = new Vector3(obj.transform.rotation.x + possibleAngles[randomIndexX] + randomX, obj.transform.rotation.y +possibleAngles[randomIndexY] + randomY, obj.transform.rotation.z + possibleAngles[randomIndexZ]);
             }
         }
         reset = false;

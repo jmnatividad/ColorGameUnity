@@ -28,30 +28,30 @@ public class CubeState : MonoBehaviour
         if (cube.x == 180 && cube.y == 270 ||
             cube.x == 0 && cube.z == 90)
         {
-            iValue = 1; //orange
+            iValue = 1; //Pink *
         }
         else if (cube.x == 270)
         {
-            iValue = 2; //blue
+            iValue = 2; //White*
         }
         else if (cube.x == 180 && cube.z == 0 ||
             cube.x == 0 && cube.z == 180)
         {
-            iValue = 3; // red
+            iValue = 3; // Yellow*
         }
         else if (cube.x == 180 && cube.z == 180 ||
             cube.x == 0 && cube.z == 0)
         {
-            iValue = 4; //green
+            iValue = 4; //Blue*
         }
         else if (cube.x == 90)
         {
-            iValue = 5; // yellow
+            iValue = 5; // Black *
         }
         else if (cube.x == 0 && cube.z == 270 ||
             cube.x == 180 && cube.z == 90)
         {
-            iValue = 6; // purple
+            iValue = 6; // Red*
         }
 
         upperSide = translateInt(iValue);
@@ -61,11 +61,11 @@ public class CubeState : MonoBehaviour
     public string translateInt(int x)
     {
         if (x == 1) return "Pink";
-        if (x == 2) return "Blue";
-        if (x == 3) return "Red";
-        if (x == 4) return "White";
-        if (x == 5) return "Yellow";
-        if (x == 6) return "Black";
+        if (x == 2) return "White";
+        if (x == 3) return "Yellow";
+        if (x == 4) return "Blue";
+        if (x == 5) return "Black";
+        if (x == 6) return "Red";
         return "";
     }
     float RoundToNearest(float value)
