@@ -10,17 +10,22 @@ public class Congratulation : MonoBehaviour
     public BetManager betManagerVar;
     public TextMeshProUGUI winNumberText;
     public GameObject congratulationMiddleSection;
+    public MusicAudio musicAudioVar;
 
-    public void congratsWinningMoney(bool state){
-        if(betManagerVar.win > 0){
+    public void congratsWinningMoney(bool state)
+    {
+        if (betManagerVar.win > 0)
+        {
             // winNumberText.text = $"{betManagerVar.win}";
+            StartCoroutine(adjustVol());
             congratulationMiddleSection.SetActive(state);
             StartCoroutine(countToTargetNum(betManagerVar.win));
-            Debug.Log($"YOU WON: ${betManagerVar.win}"); 
+            Debug.Log($"YOU WON: ${betManagerVar.win}");
         }
-        
     }
-    IEnumerator countToTargetNum(int targetNum){
+
+    IEnumerator countToTargetNum(int targetNum)
+    {
         float time = 0f;
         int currentNumber = 0;
 
@@ -33,9 +38,16 @@ public class Congratulation : MonoBehaviour
             yield return null;
         }
         winNumberText.text = targetNum.ToString();
-
     }
 
-    
+    IEnumerator adjustVol()
+    {
+        musicAudioVar.adjustVolume(true);
+        yield return new WaitForSeconds(5f);
+        musicAudioVar.adjustVolume(false);
+        yield return null;
+    }
+
+
 
 }

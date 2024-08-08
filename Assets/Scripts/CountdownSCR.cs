@@ -15,6 +15,7 @@ public class CountdownSCR : MonoBehaviour
     public CubeFrequencies cubeFrequenciesVar;
     public WheelAudio wheelAudioVar;
     public ChipChoiceAudio chipChoiceAudioVar;
+    public MusicAudio musicAudioVar;
 
     public CameraAction CamActions;
 
@@ -59,18 +60,20 @@ public class CountdownSCR : MonoBehaviour
 
             yield return StartCoroutine(CountdownTest(countDownCtr)); // Wait for 10 seconds for placing bet
             // resetVar.plank.SetActive(false);
+            musicAudioVar.adjustVolume(true);
             resetVar.PlankBehavior("StartGame"); //responsible for starting the plank anim
             resetVar.GamObjectActive(false);
             chipChoiceVar.chipButtonsInteractable(false);
             // add another function for the wheel multiplier:
             yield return new WaitForSeconds(5f); // rolling cube 5f
+            musicAudioVar.adjustVolume(false);
             resetVar.showResultColor(true);
             cubeFrequenciesVar.getFrequencies();
 
             yield return new WaitForSeconds(5f); // show result 5f
             CamActions.CameraAngle("WheelSpin"); //Camera to Wheel Spin
             resetVar.showResultColor(false);
-            
+
             yield return new WaitForSeconds(5f); // show result 5f
             wheelSpinVar.IsSpinning = true;
             wheelAudioVar.playWheelSpin(true);

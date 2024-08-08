@@ -33,7 +33,7 @@ public class ChipChoiceAudio : MonoBehaviour
 
     public void chipUnavailable()
     {
-        source.PlayOneShot(error, 4f);
+        source.PlayOneShot(error, 3f);
     }
 
     public void playButtonClick(bool State)
