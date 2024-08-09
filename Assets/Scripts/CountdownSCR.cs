@@ -89,9 +89,9 @@ public class CountdownSCR : MonoBehaviour
             resetVar.showResultColor(false);
 
             yield return new WaitForSeconds(1f);
-            CanvasImage[0].SetActive(true);//activate Wheel UI announcement
+            UiWheelShow(false,true);//activate Wheel UI announcement
             yield return new WaitForSeconds(2f);
-            CanvasImage[0].SetActive(false); //deactivate Wheel UI announcement
+            UiWheelShow(false,false); //deactivate Wheel UI announcement
             //"~~~~~~~~~~~~~~~~ NORMAL WHEEL SPIN ~~~~~~~~~~~~~~~~~~~~~~~~"
             yield return new WaitForSeconds(2f);
             wheelSpinVar.IsSpinning = true;
@@ -108,12 +108,11 @@ public class CountdownSCR : MonoBehaviour
             //If bonus spin = true proceed to Bonus spin
             yield return new WaitForSeconds(2);
             if(BonusSpin){
-                CanvasImage[0].SetActive(true);
+                UiWheelShow(true,true);
             }
-
             yield return new WaitForSeconds(2); // wait 5 sec
             if(BonusSpin){
-                CanvasImage[0].SetActive(false);
+                UiWheelShow(true,false);
                 wheelSpinVar.IsSpinning = true;
                 wheelAudioVar.playWheelSpin(true);
             }
@@ -148,6 +147,18 @@ public class CountdownSCR : MonoBehaviour
 
         }
     }
+    public void UiWheelShow(bool isBonus, bool status){
+        CanvasImage[0].SetActive(status);
+        Transform TextHolder = CanvasImage[0].transform.GetChild(0);
+        TextMeshProUGUI textComponent = TextHolder.GetComponent<TextMeshProUGUI>();
+        if(isBonus == false){
+            textComponent.text = "WHEEL TIME";
+        }else{
+            textComponent.text = "BONUS TIME";
+        }
+        
+    }
+    
     IEnumerator CountdownTest(int seconds)
     {
 

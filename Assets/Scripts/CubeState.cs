@@ -125,6 +125,14 @@ public class CubeState : MonoBehaviour
                 rb.AddForce(transform.forward * forceAmount, ForceMode.Impulse);
             }
         }
+        if (other.gameObject.name == "Slide")
+        {
+            Rigidbody rb = GetComponent<Rigidbody>();
+            if (other.relativeVelocity.magnitude > 1)
+            {
+                rb.AddForce(transform.forward * forceAmount, ForceMode.Impulse);
+            }
+        }
     }
 
 }
