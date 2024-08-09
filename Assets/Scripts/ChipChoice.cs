@@ -111,6 +111,10 @@ public class ChipChoice : MonoBehaviour
                 betManagerVar.doubleBet.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.5f);
                 currentChipSelected = chipValues[currentIndex] * 2;
             }
+            else
+            {
+                errorAudioVar.playErrorAudio(3f);
+            }
 
         }
         else

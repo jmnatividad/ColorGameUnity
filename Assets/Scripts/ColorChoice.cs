@@ -82,7 +82,7 @@ public class ColorChoice : MonoBehaviour
             foreach (var color in keys)
             {
                 currentColorSelected[color] = false;
-                errorAudioVar.playErrorAudio(1f);
+                errorAudioVar.playErrorAudio(0.5f);
             }
         }
     }
