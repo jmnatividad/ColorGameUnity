@@ -17,11 +17,11 @@ public class MainVolumeController : MonoBehaviour
     {
         if (state == false)
         {
-            mainMixer.SetFloat("MasterVolume", Mathf.Log10(1) * 20);
+            SetVolume(1);
         }
         else
         {
-            mainMixer.SetFloat("MasterVolume", Mathf.Log10(0.0001f) * 20);
+            SetVolume(0.0001f);
         }
     }
 }
