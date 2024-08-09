@@ -468,6 +468,7 @@ MonoBehaviour:
   - {fileID: 1439246472}
   betManagerVar: {fileID: 1283099473}
   colorChoiceAudioVar: {fileID: 557524136}
+  errorAudioVar: {fileID: 557524138}
 --- !u!114 &33797465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -508,7 +509,8 @@ MonoBehaviour:
   isDoubleBetClicked: 0
   previousChipPick: -1
   previousDoubleBetPick: 0
-  chipChoiceAudio: {fileID: 557524134}
+  chipChoiceAudioVar: {fileID: 557524134}
+  errorAudioVar: {fileID: 557524138}
 --- !u!114 &33797468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1705,7 +1707,8 @@ MonoBehaviour:
   isDoubleBetClicked: 0
   previousChipPick: -1
   previousDoubleBetPick: 0
-  chipChoiceAudio: {fileID: 0}
+  chipChoiceAudioVar: {fileID: 0}
+  errorAudioVar: {fileID: 0}
 --- !u!1 &121563688
 GameObject:
   m_ObjectHideFlags: 0
@@ -4677,6 +4680,7 @@ GameObject:
   - component: {fileID: 557524134}
   - component: {fileID: 557524136}
   - component: {fileID: 557524137}
+  - component: {fileID: 557524138}
   - component: {fileID: 557524130}
   m_Layer: 0
   m_Name: SFX
@@ -4878,6 +4882,7 @@ MonoBehaviour:
   colorClick:
   - {fileID: 8300000, guid: 927a92b8898f9824fa213d4bc555fd0b, type: 3}
   - {fileID: 8300000, guid: 663234f39b299814c9ecc205c7e4931b, type: 3}
+  error: {fileID: 8300000, guid: b1689d803d4abb34cb69813a14d25a8d, type: 3}
 --- !u!114 &557524137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4892,6 +4897,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 557524130}
   wheelspin: {fileID: 8300000, guid: 6eddd7bf9f2b9f640a189d9e252580f4, type: 3}
+--- !u!114 &557524138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557524129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f72456027c3f4d242bc94f4e32c6478e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 557524130}
+  errorClip: {fileID: 8300000, guid: b1689d803d4abb34cb69813a14d25a8d, type: 3}
 --- !u!1 &558512260
 GameObject:
   m_ObjectHideFlags: 0
@@ -7276,6 +7295,7 @@ MonoBehaviour:
   betColor: []
   betManagerVar: {fileID: 0}
   colorChoiceAudioVar: {fileID: 0}
+  errorAudioVar: {fileID: 0}
 --- !u!1 &882054202
 GameObject:
   m_ObjectHideFlags: 0
@@ -15364,7 +15384,7 @@ MonoBehaviour:
   totalBetText: {fileID: 1511203234}
   winIndicatorText: {fileID: 290803077}
   balanceText: {fileID: 1239657124}
-  _balance: 1000
+  _balance: 10
   previousChipPick: -1
   previousDoubleBet: 0
 --- !u!4 &1283099474
@@ -37965,7 +37985,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149551499507}
-  m_LocalRotation: {x: -0.0046165283, y: -0.0026119053, z: 0.8703434, w: 0.49241668}
+  m_LocalRotation: {x: -0.004179746, y: -0.0032655895, z: 0.7879997, w: 0.61565286}
   m_LocalPosition: {x: 0, y: 1.3, z: 1.881407}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

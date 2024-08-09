@@ -6,6 +6,7 @@ public class ColorChoiceAudio : MonoBehaviour
 {
     public AudioSource source;
     public List<AudioClip> colorClick;
+    public AudioClip error;
 
     // Start is called before the first frame update
     void Start()

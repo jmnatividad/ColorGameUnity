@@ -10,6 +10,7 @@ public class ColorChoice : MonoBehaviour
     public GameObject[] betColor;
     public BetManager betManagerVar;
     public ColorChoiceAudio colorChoiceAudioVar;
+    public ErrorAudio errorAudioVar;
     public Dictionary<string, bool> currentColorSelected = new Dictionary<string, bool>{
         {"Yellow", false},
         {"White", false},
@@ -81,6 +82,7 @@ public class ColorChoice : MonoBehaviour
             foreach (var color in keys)
             {
                 currentColorSelected[color] = false;
+                errorAudioVar.playErrorAudio(1f);
             }
         }
     }
@@ -118,6 +120,7 @@ public class ColorChoice : MonoBehaviour
             for (int i = 0; i < 3; i++)
             {
                 currentColorSelected[keys[i]] = false;
+                errorAudioVar.playErrorAudio(1f);
             }
             betManagerVar.calculateBet();
         }

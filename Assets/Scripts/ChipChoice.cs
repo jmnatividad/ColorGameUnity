@@ -17,7 +17,9 @@ public class ChipChoice : MonoBehaviour
     public bool isDoubleBetClicked = false;
     public int previousChipPick = -1;
     public bool previousDoubleBetPick;
-    public ChipChoiceAudio chipChoiceAudio;
+    public ChipChoiceAudio chipChoiceAudioVar;
+    public ErrorAudio errorAudioVar;
+
     // private bool isDoubleBetClicked = false;
     private void Start()
     {
@@ -44,7 +46,7 @@ public class ChipChoice : MonoBehaviour
             currentIndex = -1;
             previousChip = currentChipSelected;
             currentChipSelected = 0;
-            chipChoiceAudio.playChip();
+            chipChoiceAudioVar.playChip();
         }
         else
         {
@@ -64,7 +66,7 @@ public class ChipChoice : MonoBehaviour
                 imageButtons[index].sprite = activeImages[index];
                 currentIndex = index;
                 currentChipSelected = selectedValue;
-                chipChoiceAudio.playChip();
+                chipChoiceAudioVar.playChip();
 
                 // temporary
                 // to do: fix ugly code
@@ -74,13 +76,13 @@ public class ChipChoice : MonoBehaviour
                     currentChipSelected = 0;
                     currentIndex = -1;
                     betManagerVar.calculateBet();
-                    chipChoiceAudio.chipUnavailable();
+                    errorAudioVar.playErrorAudio(3f);
                 }
             }
 
             if (selectedValue > betManagerVar.balance)
             {
-                chipChoiceAudio.chipUnavailable();
+                errorAudioVar.playErrorAudio(3f);
             }
 
         }
@@ -96,7 +98,7 @@ public class ChipChoice : MonoBehaviour
             if (currentIndex == -1)
             {
                 isDoubleBetClicked = true;
-                chipChoiceAudio.playButtonClick(isDoubleBetClicked);
+                chipChoiceAudioVar.playButtonClick(isDoubleBetClicked);
                 betManagerVar.doubleBet.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.5f);
                 currentChipSelected = 0;
             }
@@ -105,7 +107,7 @@ public class ChipChoice : MonoBehaviour
                 // Debug.Log(chipValues[currentIndex]*2);
                 // Debug.Log(betManagerVar.bet);
                 isDoubleBetClicked = true;
-                chipChoiceAudio.playButtonClick(isDoubleBetClicked);
+                chipChoiceAudioVar.playButtonClick(isDoubleBetClicked);
                 betManagerVar.doubleBet.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.5f);
                 currentChipSelected = chipValues[currentIndex] * 2;
             }
@@ -114,7 +116,7 @@ public class ChipChoice : MonoBehaviour
         else
         {
             isDoubleBetClicked = false;
-            chipChoiceAudio.playButtonClick(isDoubleBetClicked);
+            chipChoiceAudioVar.playButtonClick(isDoubleBetClicked);
             betManagerVar.doubleBet.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
             if (currentIndex == -1) currentChipSelected = 0;
             else currentChipSelected = chipValues[currentIndex] * 2;
